@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\v1\Backend\AuthController;
+use App\Services\GitHubService;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,16 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
 
     // Template Rotues 
     Route::prefix('template')->group(base_path('routes/admin/template.php'));
+    Route::prefix('permission')->group(base_path('routes/admin/permission.php'));
+});
+
+Route::get('/clone/template', function() {
+    $gitservice = new GitHubService();
+    $url = "https://github.com/Newstein123/modalpopup.git";
+    $name = "portfolio";
+    $branch = "newton";
+    $commitName ="my commit";
+    $gitservice->deleteRepo($name);
 });
 
 require __DIR__.'/auth.php';

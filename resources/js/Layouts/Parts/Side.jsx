@@ -1,9 +1,10 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import React from "react";
 import { Sidebar } from 'flowbite-react';
 import {HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser } from 'react-icons/hi';
 
 const Side = () => {
+    const {permissions} = usePage().props;
     return (
         <>  
             <Sidebar aria-label="Sidebar with multi-level dropdown example">
@@ -15,14 +16,17 @@ const Side = () => {
                 <Sidebar.Item icon={HiInbox}> 
                         <Link href={route('admin.template.index')}> Template </Link>
                 </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Users
-                </Sidebar.Item>
+                {
+                    permissions.includes('view template') && 
+                    <Sidebar.Item href="#" icon={HiUser}>
+                        Users
+                    </Sidebar.Item>
+                }
                 <Sidebar.Item href="#" icon={HiShoppingBag}>
-                    Products
+                    <Link href={route('admin.gitrepo.index')}> GitHub Repositories </Link>
                 </Sidebar.Item>
                 <Sidebar.Collapse icon={HiShoppingBag} label="Setting">
-                    <Sidebar.Item href="#"> Permission </Sidebar.Item>
+                    {permissions.includes('view permission') && <Sidebar.Item href={route('admin.permission.index')}> Permission </Sidebar.Item>}
                     <Sidebar.Item href="#"> General Setting </Sidebar.Item>
                 </Sidebar.Collapse>
                 <Sidebar.Item  icon={HiTable}>
