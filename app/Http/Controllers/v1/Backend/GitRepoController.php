@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\v1\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Services\GitHubService;
+use App\Services\GitHubRepoService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class GitRepoController extends Controller
 {   
-    public $git;
+    private $git;
+
     public function __construct() {
-        $this->git = new GitHubService();
+        $this->git = new GitHubRepoService();
     }
 
     public function index() {
@@ -30,6 +31,10 @@ class GitRepoController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
         $name = $request->name;
         $description = $request->description;
         $this->git->createRepo($name, $description);

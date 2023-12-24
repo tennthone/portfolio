@@ -4,7 +4,7 @@ import Create from "./Create";
 import { useState } from 'react';
 import Items from "./Items";
 
-const Index = () => {
+const Index = ({templates}) => {
     const [openCreateModal, setOpenCreateModal] = useState(false);
     return (
         <>
@@ -14,7 +14,7 @@ const Index = () => {
                     <button 
                         type="button"
                         className="bg-indigo-700 text-white p-2 rounded-md" onClick={() => setOpenCreateModal(true)}>
-                        Create Template
+                        Create Resource
                     </button>
                 </div>
             </div>
@@ -29,7 +29,9 @@ const Index = () => {
 
             {/* Items  */}
             <div className="my-3">
-                <Items />
+                <Items 
+                    templates={templates}
+                />
             </div>
             
         </>

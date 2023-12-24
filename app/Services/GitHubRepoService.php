@@ -2,20 +2,17 @@
 
 namespace App\Services;
 
-use PhpGit\Git;
 use GuzzleHttp\Client;
-use App\Interface\GitHubInterface;
+use App\Interface\GitHubRepoInterface;
 use App\Models\GitInfo;
 use App\Models\Template;
 
-class GitHubService implements GitHubInterface {
+class GitHubRepoService implements GitHubRepoInterface {
 
-    private $git;
     private $accessToken;
     private $organizationName;
 
     public function __construct() {
-        $this->git = new Git();
         $this->accessToken =  env('GIT_ACCESS_TOKEN');
         $this->organizationName = "tennthone";
     }
@@ -69,47 +66,6 @@ class GitHubService implements GitHubInterface {
         }
     }
 
-    public function pull($templateName)
-    {
-        $repositoryPath = storage_path("app/templates/$templateName");
-        $this->git->setRepository($repositoryPath);
-        $this->git->pull('origin', 'main'); // Replace 'main' with the appropriate branch name
-        dd('git pull done');
-    }
-
-    public function push($templateName, $branchName = "main", $commitName="first commit", $repoUrl)
-    {
-        // Assume $repositoryPath is the path to the cloned repository within your Laravel app
-        $repositoryPath = storage_path("app/templates/$templateName");
-        $this->git->setRepository($repositoryPath);
-        $this->git->checkout($branchName);
-        $this->git->add($repositoryPath);
-        $this->git->commit($commitName);
-        $this->git->push($repoUrl);
-        dd('git push done');
-    }
-
-    public function clone($repositoryUrl, $templateName)
-    {   
-        $destination = storage_path("app/templates/$templateName");
-        $this->git->clone($repositoryUrl, $destination);
-        dd("clone done");
-    }
-
-    public function cloneAndCreateBranch($repositoryUrl, $branchName, $templateName)
-    {   
-        try {
-            $repositoryPath = storage_path("app/templates/$templateName");
-            $this->git->clone($repositoryUrl, $repositoryPath);
-            $this->git->setRepository($repositoryPath);
-            $this->git->checkout->create($branchName);
-            $this->git->push($repositoryUrl);
-            dd('clone and create branch');
-        } catch (\Exception $e) {
-            dd("Error: " . $e->getMessage());
-        }
-    }
-
     public function getAllRemoteUrls()
     {
 
@@ -130,8 +86,5 @@ class GitHubService implements GitHubInterface {
         return $repositories;
     }
 
-    public function getAllBranches($repositoryUrl)
-    {
-        // $this->git->remote->branches($repositoryUrl, )
-    }
+   
 }
