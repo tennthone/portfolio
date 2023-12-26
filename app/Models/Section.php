@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function pages() {
+        return $this->belongsToMany(Page::class)->withPivot('position');
+    }
 }

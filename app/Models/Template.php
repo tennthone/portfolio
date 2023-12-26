@@ -14,4 +14,8 @@ class Template extends Model
     public function git_info() {
         return $this->hasOne(GitInfo::class);
     }
+
+    public function pages() {
+        return $this->hasMany(Page::class);
+    }
 }

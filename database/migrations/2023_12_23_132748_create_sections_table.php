@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('Untitled Section');
-            $table->string('value');
+            $table->string('value')->default('untitiled_section');
             $table->json('tags')->nullable();
             $table->boolean('isResource')->default(0);
             $table->boolean('isVisible')->default(0);

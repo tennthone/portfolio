@@ -43,6 +43,6 @@ class GitRepoController extends Controller
 
     public function delete($name) {
         $this->git->deleteRepo($name);
-        return to_route('admin.gitrepo.index');
+        return redirect()->back();
     }
 }

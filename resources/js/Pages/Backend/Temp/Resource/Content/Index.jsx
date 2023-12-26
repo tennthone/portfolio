@@ -3,6 +3,7 @@ import React from "react";
 import Create from "./Create";
 import { useState } from 'react';
 import Items from "./Items";
+import { Button } from "flowbite-react";
 
 const Index = ({templates}) => {
     const [openCreateModal, setOpenCreateModal] = useState(false);
@@ -11,11 +12,11 @@ const Index = ({templates}) => {
             <div className="p-3 border-2 rounded-md">
                 <div className="flex justify-between">
                     <p className="text-xl font-bold"> Template </p>
-                    <button 
+                    <Button
                         type="button"
-                        className="bg-indigo-700 text-white p-2 rounded-md" onClick={() => setOpenCreateModal(true)}>
+                        onClick={() => setOpenCreateModal(true)}>
                         Create Resource
-                    </button>
+                    </Button>
                 </div>
             </div>
 

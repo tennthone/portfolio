@@ -1,6 +1,7 @@
 
 'use client';
 
+import { Link } from '@inertiajs/react';
 import { Table } from 'flowbite-react';
 
 const Items = ({templates}) => {
@@ -23,7 +24,12 @@ const Items = ({templates}) => {
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                   {item.id}
                 </Table.Cell>
-                <Table.Cell> {item.name} </Table.Cell>
+                <Table.Cell>  
+                  <Link 
+                    href={route('admin.template.page', {template_id : item.id})}
+                    className='text-indigo-700'
+                    >{item.name} </Link>
+                </Table.Cell>
                 <Table.Cell> {item.git_info.remote_url} </Table.Cell>
                 <Table.Cell> {item.git_info.base_path} </Table.Cell>
                 <Table.Cell>

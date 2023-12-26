@@ -28,14 +28,21 @@ class GitHubActionService implements GitHubActionInterface {
     {
         try {
             $repositoryPath = storage_path("app/resources/$templateName");
-            $this->git->setRepository($repositoryPath);
-            $this->git->add($repositoryPath);
-            $this->git->commit($commitName);
-            $this->git->push($repoUrl, $branchName);
-            return [
-                'success' => true,
-                'message' => 'Commit Successfully'
-            ];
+            if(!File::isDirectory($repositoryPath)) {
+                $this->git->setRepository($repositoryPath);
+                $this->git->add($repositoryPath);
+                $this->git->commit($commitName);
+                $this->git->push($repoUrl, $branchName);
+                return [
+                    'success' => true,
+                    'message' => 'Commit Successfully'
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'message' => "Directroy already exists"
+                ];
+            }
         } catch(\Exception $e) {
             return [
                 'success' => false,
@@ -47,8 +54,20 @@ class GitHubActionService implements GitHubActionInterface {
     public function clone($repositoryUrl, $templateName)
     {   
         $destination = storage_path("app/resources/$templateName");
-        $this->git->clone($repositoryUrl, $destination);
-        return $destination;
+        if(!File::isDirectory($destination)) {
+            $this->git->clone($repositoryUrl, $destination);
+            return [
+                'success' => true,
+                'message' => "Clone successfully",
+                'path' => $destination,
+            ];
+        } else {
+            return [
+                'success' => false,
+                'message' => "Directory already exists",
+                'path' => null,
+            ];
+        }
     }
 
     public function cloneAndCreateBranch($repositoryUrl, $branchName, $templateName)

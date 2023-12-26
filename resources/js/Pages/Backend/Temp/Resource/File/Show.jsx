@@ -1,40 +1,36 @@
 import FrontendLayout from '@/Layouts/FrontendLayout'
-import React, { useState } from 'react'
-import { IoFolder } from "react-icons/io5";
-import { FaFileAlt } from "react-icons/fa";
+import React, { useState, useEffect} from 'react'
 import { Link, router } from '@inertiajs/react';
 import { FaFilePen, FaFolderPlus, FaFolder} from "react-icons/fa6";
-import { Breadcrumb } from 'flowbite-react';
-import { FaRegTrashAlt } from "react-icons/fa";
+import { Breadcrumb} from 'flowbite-react';
 import Delete from './Delete';
+import { getTrimPath } from '@/Helper/helper';
+import toast, { Toaster } from 'react-hot-toast';
+import Item from './Item';
 
-const Show = ({contents, template_id, base_path}) => {
+const Show = ({contents, template_id,  base_path}) => {
     const [filePath, setFilePath] = useState("")
     const [deleteRoute, setDeleteRoute] = useState("")
     const [title, setTitle] = useState("")
+    const [isEditingFile, setIsEditingFile] = useState(false)
+    const [isEditingFolder, setIsEditingFolder] = useState(false)
+    const [fileName, setFileName] = useState("");
+    const [folderName, setFolderName] = useState("");
     const [openDeleteModal, setOpenDeleteModal] = useState(false)
-    const getTrimPath = (path) => {
-        const prefix = "/Applications/xampp/xamppfiles/htdocs/tenthone/storage/app/resources/";
-        const trimmedPath = path.replace(new RegExp(`^${prefix}`), '');
-        return trimmedPath.split('/');
-    }
     const breadcrumb = getTrimPath(base_path);
 
     const addFolder = () => {
-        router.post(route('admin.template.folder.store'), {base_path : base_path}, {
-            onSuccess : () => {
-
-            },
-            onError : (err) =>  {
-                console.log(err)
-            }
-        })
+        handleAdd("Folder", 'admin.template.folder.store')
     }
 
     const addFile = () => {
-        router.post(route('admin.template.file.store'), {base_path : base_path}, {
-            onSuccess : () => {
+        handleAdd("File", 'admin.template.file.store')
+    }
 
+    const handleAdd = (contentType, routeName) => {
+        router.post(route(routeName), {base_path : base_path}, {
+            onSuccess : () => {
+                toast.success(contentType + "created successfully")
             },
             onError : (err) =>  {
                 console.log(err)
@@ -49,6 +45,54 @@ const Show = ({contents, template_id, base_path}) => {
         setDeleteRoute(route)
         setOpenDeleteModal(true)
     }
+
+    const handleEditFile = (item) => {
+        setFileName(item)
+        setIsEditingFile(true)
+    }
+
+    const handleEditFolder = (item) => {
+        setFolderName(item)
+        setIsEditingFolder(true)
+    }
+
+    const handleOutsideClick = (name) => {
+        // handle rename file 
+        if(isEditingFile) {
+            handleRename(name, fileName, 'admin.template.file.rename')
+        }
+
+        // handle rename folder 
+        if(isEditingFolder) {
+            handleRename(name, folderName,'admin.template.folder.rename' )
+        }
+    }
+
+    const handleRename = (old_name, new_name, routeName) => {
+            if(new_name !== old_name) {
+                router.post(route(routeName), {
+                    path : base_path + '/' + old_name,
+                    destination : base_path + '/' + new_name
+                }, {
+                    onSuccess : () => {
+                        toast.success("Rename successfully");
+                    },
+                    onError : (err) => {
+                        console.log(err)
+                    }
+                })
+            }
+            setIsEditingFile(false)
+            setIsEditingFolder(false)
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, []);
+
   return (
     <div>
         <div className="p-3 border-2 rounded-md">
@@ -56,9 +100,9 @@ const Show = ({contents, template_id, base_path}) => {
                 <div>
                 <Breadcrumb aria-label="Default breadcrumb example">
                     {
-                        breadcrumb.map((item, key) => (
-                            <Breadcrumb.Item href="#" icon={FaFolder} key={key}>
-                                {item}
+                        Object.entries(breadcrumb).map(([key, value], index) => (
+                            <Breadcrumb.Item href={route('admin.template.files-folders', {id : template_id, base_path : value})} icon={FaFolder} key={index}>
+                                {key}
                             </Breadcrumb.Item>
                         ))
                     }
@@ -85,36 +129,40 @@ const Show = ({contents, template_id, base_path}) => {
             contents.folders.length > 0 || contents.files.length > 0 ?
             <>
                 {
-                contents.folders.map((item, key) => (
-                    <div className='p-2 bg-slate-200 rounded-md my-3' key={key}>
-                        <div className="flex items-center justify-between">
-                            <div className='flex'>
-                                <span className='me-3'> <IoFolder size={25} /> </span>
-                                <p  className='text-sm font-bold text-indigo-700'> 
-                                    <Link href={route('admin.template.files-folders', {id : template_id, base_path : base_path + '/' + item})}> {item}  </Link>
-                                </p>
-                            </div>
-                            <div className="text-end">
-                                <FaRegTrashAlt size={20} className='text-red-700 cursor-pointer' onClick={() => handleDelete(item, 'admin.template.folder.delete', 'folder')}/>
-                            </div>
+                    contents.folders.map((item, key) => (
+                        <div 
+                            className='p-2 bg-slate-200 rounded-md my-3' 
+                            key={key}
+                            onDoubleClick={() => handleEditFolder(item)}
+                        >
+                           <Item 
+                                handleDelete={handleDelete}
+                                isEditing={isEditingFolder}
+                                handleOutsideClick={handleOutsideClick}
+                                item={item}
+                                setName={setFolderName}
+                                name={folderName}
+                                oldName={item}
+                           />
                         </div>
-                    </div>
-                )) 
+                    )) 
                 }
                 {
                     contents.files.map((item, key) => (
-                        <div className='p-2 bg-slate-200 rounded-md my-3' key={key}>
-                            <div className="flex items-center justify-between">
-                                <div className="flex justify-center items-center">
-                                    <span className='me-3'> <FaFileAlt size={25} /> </span>
-                                    <p  className='text-sm font-bold text-indigo-700'> 
-                                        <Link href={route('admin.template.file.show', {base_path : base_path + '/' + item})}> {item}  </Link>
-                                    </p>
-                                </div>
-                                <div className="text-end">
-                                    <FaRegTrashAlt size={20} className='text-red-700 cursor-pointer' onClick={() => handleDelete(item, 'admin.template.file.delete', 'file')}/>
-                                </div>
-                            </div>
+                        <div 
+                            className='p-2 bg-slate-200 rounded-md my-3' 
+                            key={key}
+                            onDoubleClick={() => handleEditFile(item)}
+                        >
+                            <Item 
+                                handleDelete={handleDelete}
+                                handleOutsideClick={handleOutsideClick}
+                                isEditing={isEditingFile}
+                                item={item}
+                                setName={setFileName}
+                                name={fileName}
+                                oldName={item}
+                           />
                         </div>
                     ))
                 }
@@ -128,6 +176,9 @@ const Show = ({contents, template_id, base_path}) => {
             filePath={filePath}
             deleteRoute={deleteRoute}
             title={title}
+        />
+        <Toaster 
+            position='top-right'
         />
     </div>
   )

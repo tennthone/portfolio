@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->constrained('pages')->onDelete('cascade');
+            $table->foreignId('template_id')->constrained('templates')->onDelete('cascade');
+            $table->foreignId('parent_id')->nullable()->constrained('pages')->onDelete('cascade');
             $table->string('name')->default('Untitled Page');
-            $table->string('value');
-            $table->json('tags');
-            $table->boolean('isDetailPage');
-            $table->boolean('isResource');
+            $table->string('value')->default('untitled_page');
+            $table->json('tags')->nullable();
+            $table->boolean('isDetailPage')->default(0);
+            $table->boolean('isResource')->default(0);
+            $table->boolean('isPremium')->default(0);
             $table->timestamps();
         });
     }
