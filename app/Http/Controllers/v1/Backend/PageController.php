@@ -6,6 +6,7 @@ use App\Models\Page;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Template;
 
 class PageController extends Controller
 {
@@ -13,7 +14,18 @@ class PageController extends Controller
     public function index(Request $request) {
         $template_id = $request->template_id;
         $pages = Page::where('template_id', $template_id)->get();
+        $template = Template::with('fields')->find($template_id);
 
+        // Filter content fields
+        $contents = $template->fields->filter(function ($item) {
+            return $item->data_type == "content";
+        })->toArray(); 
+
+        // Filter design fields
+        $designs = $template->fields->filter(function ($item) {
+            return $item->data_type == "design";
+        })->toArray();
+        
         return Inertia::render('Backend/Temp/Parts/Page/Index', [
             'pages' => $pages->transform(function($item) {
                 return [
@@ -23,7 +35,9 @@ class PageController extends Controller
                     'value' => $item->value,
                 ];
             }),
-            'template_id' => $template_id,
+            'template' => $template,
+            'contents' => $contents,
+            'designs' => $designs,
         ]);
     }
 

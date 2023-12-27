@@ -68,7 +68,7 @@ class FileController extends Controller
     public function showFoldersAndFiles(Request $request, $template_id) {
         $base_path = $request->base_path;
         $contents = $this->getSubFolderAndFiles($base_path);
-        return Inertia::render('Backend/Temp/Resource/File/Show', [
+        return Inertia::render('Backend/Temp/Resource/File/FileStructure', [
             'contents' => $contents,
             'template_id' => $template_id,
             'base_path' => $base_path,

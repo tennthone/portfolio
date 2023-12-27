@@ -12,4 +12,3 @@ Route::post('/change-status', [SectionController::class, 'changeStatus'])->name(
 // Section Data 
 
 Route::get('/data', [SectionDataController::class, 'index'])->name('admin.template.section.data');
-Route::post('/data/store', [SectionDataController::class, 'contentStore'])->name('admin.template.section.content.store');

@@ -1,56 +1,54 @@
 import FrontendLayout from '@/Layouts/FrontendLayout'
-import React, { useState } from 'react'
 import Items from './Items'
 import { RiPagesLine } from "react-icons/ri";
-import { Link, router } from '@inertiajs/react';
-import { Breadcrumb, Button } from 'flowbite-react';
+import { Link } from '@inertiajs/react';
+import { Breadcrumb} from 'flowbite-react';
 import { GrTemplate } from "react-icons/gr";
 import Edit from './Edit';
-import toast from 'react-hot-toast';
 import { PageProvider } from '@/Context/PageContext';
+import { DataProvider } from '@/Context/DataContext';
+import CreateFieldModal from '@/Pages/Backend/components/CreateFieldModal';
+import FieldModal from '@/Pages/Backend/components/FieldModal';
+import { Toaster } from 'react-hot-toast';
 
-const Index = ({pages, template_id}) => {
-    const handleAdd = () => {
-        router.post(route('admin.template.page.store'), {template_id : template_id}, {
-            onSuccess : () => {
-                toast.success("Page created successfully");
-            },
-            onError : () => {
-
-            }
-        })
-    }
+const Index = ({pages, template}) => {
   return (
     <div>
         <div className="p-3 border-2 rounded-md">
             <div className="flex justify-between">
                 <Breadcrumb aria-label="Default breadcrumb example">
                     <Breadcrumb.Item icon={GrTemplate}>
-                        <Link href={route('admin.template.resource.content')} > Templates </Link>
+                        <Link href={route('admin.template.resource')} > Templates </Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item icon={RiPagesLine}>
-                        <Link href="" > Pages </Link>
+                        <Link href="" > {template.name}  </Link>
                     </Breadcrumb.Item>
                 </Breadcrumb>
-                <Button 
-                    onClick={handleAdd}
-                > Add Page </Button>
             </div>
         </div>
         {/* page items  */}
         <Items 
             pages={pages}
-            template_id={template_id}
         />
 
         {/* Edit modal  */}
         <Edit />
+
+        {/* Field Modal  */}
+        <FieldModal />
+
+        {/* Create Field modal  */}
+        <CreateFieldModal />
+
+        <Toaster position="top-right" />
     </div>
   )
 }
 
 Index.layout = page => 
-<PageProvider>
-    <FrontendLayout children={page} />
-</PageProvider>
+<DataProvider>
+    <PageProvider>
+        <FrontendLayout children={page} />
+    </PageProvider>
+</DataProvider>
 export default Index

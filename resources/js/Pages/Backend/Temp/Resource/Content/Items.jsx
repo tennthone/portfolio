@@ -1,10 +1,9 @@
-
-'use client';
-
-import { Link } from '@inertiajs/react';
 import { Table } from 'flowbite-react';
+import Content from './Content';
+import { usePage } from '@inertiajs/react';
 
-const Items = ({templates}) => {
+const Items = () => {
+  const {templates} = usePage().props;
   return (
     <div className="overflow-x-auto">
       <Table>
@@ -20,24 +19,7 @@ const Items = ({templates}) => {
         <Table.Body className="divide-y">
           {
             templates.map(item => (
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={item.id}>
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  {item.id}
-                </Table.Cell>
-                <Table.Cell>  
-                  <Link 
-                    href={route('admin.template.page', {template_id : item.id})}
-                    className='text-indigo-700'
-                    >{item.name} </Link>
-                </Table.Cell>
-                <Table.Cell> {item.git_info.remote_url} </Table.Cell>
-                <Table.Cell> {item.git_info.base_path} </Table.Cell>
-                <Table.Cell>
-                  <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                    Edit
-                  </a>
-                </Table.Cell>
-              </Table.Row>
+              <Content key={item.id} item={item} />
             ))
           }
         </Table.Body>

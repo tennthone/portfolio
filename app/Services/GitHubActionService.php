@@ -28,7 +28,7 @@ class GitHubActionService implements GitHubActionInterface {
     {
         try {
             $repositoryPath = storage_path("app/resources/$templateName");
-            if(!File::isDirectory($repositoryPath)) {
+            if(!File::isEmptyDirectory($repositoryPath)) {
                 $this->git->setRepository($repositoryPath);
                 $this->git->add($repositoryPath);
                 $this->git->commit($commitName);
@@ -40,7 +40,7 @@ class GitHubActionService implements GitHubActionInterface {
             } else {
                 return [
                     'success' => false,
-                    'message' => "Directroy already exists"
+                    'message' => "Directroy not exists"
                 ];
             }
         } catch(\Exception $e) {

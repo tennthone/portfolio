@@ -6,7 +6,7 @@ export const PageContext = createContext(null)
 export const PageProvider = ({children}) => {
     const [openEditModal, setOpenEditModal] = useState(false);
     const {pages} = usePage().props;
-
+    const [errors, setErrors] = useState([]);
     const {data, setData, reset} = useForm({
         name : "",
         value : '',
@@ -30,7 +30,9 @@ export const PageProvider = ({children}) => {
             data,
             setData,
             reset,
-            pageId
+            pageId,
+            setErrors,
+            errors,
         }}>
             {children}
         </PageContext.Provider>

@@ -1,14 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import { Label, FloatingLabel} from 'flowbite-react'
-import { useForm, usePage } from '@inertiajs/react'
 import { PageContext } from '@/Context/PageContext'
 import MyModal from '@/Pages/Backend/components/MyModal'
 
 const Edit = () => {
-    const {openEditModal, setOpenEditModal, data, setData, reset, pageId} = useContext(PageContext)
+    const {
+        openEditModal, 
+        setOpenEditModal, 
+        data, 
+        setData, 
+        reset, 
+        pageId, 
+        setErrors, 
+        errors
+    } = useContext(PageContext)
+
     return (
             <MyModal 
-                children={<BodyContent data={data} setData={setData}/>}
+                children={<BodyContent data={data} setData={setData} errors={errors}/>}
                 openModal={openEditModal}
                 setOpenModal={setOpenEditModal}
                 routeName="admin.template.page.update"
@@ -17,6 +26,7 @@ const Edit = () => {
                 heading="Edit Page"
                 data={data}
                 reset={reset}
+                setErrors={setErrors}
             />
     )
 }

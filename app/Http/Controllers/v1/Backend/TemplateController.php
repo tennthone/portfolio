@@ -14,9 +14,9 @@ use Illuminate\Validation\ValidationException;
 
 class TemplateController extends Controller
 {
-    public function resource_content() {
+    public function index() {
         $templates = Template::with('git_info')->where('isResource', 1)->get();
-        return Inertia::render('Backend/Temp/Resource/Content/Index', [
+        return Inertia::render('Backend/Temp/Resource/Index', [
             'templates' => $templates,
         ]);
     }
@@ -67,6 +67,6 @@ class TemplateController extends Controller
         }
         
 
-        return to_route('admin.template.resource.content');
+        return redirect()->back();
     }  
 }

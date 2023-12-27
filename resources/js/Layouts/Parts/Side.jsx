@@ -14,14 +14,12 @@ const Side = () => {
                         <Link href={route('admin.dashboard')}> Dashboard </Link>
                     </Sidebar.Item>
                     <Sidebar.Collapse icon={HiShoppingBag} label="Template">
-                        <Sidebar.Collapse icon={HiShoppingBag} label="Resource">
                             <Sidebar.Item icon={HiInbox}> 
-                                    <Link href={route('admin.template.resource.content')}> Manage Content </Link>
+                                    <Link href={route('admin.template.resource')}> Components </Link>
                             </Sidebar.Item>
                             <Sidebar.Item icon={HiInbox}> 
-                                    <Link href={route('admin.template.resource.file')}> Manage Files </Link>
+                                    <Link href={route('admin.template.resource')}> Resource </Link>
                             </Sidebar.Item>
-                        </Sidebar.Collapse>
                     </Sidebar.Collapse>
                 {
                     permissions.includes('view template') && 

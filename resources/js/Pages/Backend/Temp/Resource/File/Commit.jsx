@@ -23,9 +23,7 @@ const Commit = ({openCommitModal, setOpenCommitModal, templateId}) => {
             onSuccess : () => {
                 setLoading(false)
                 setOpenCommitModal(false)
-                if(!flash.message) {
-                  toast.success("Commit Successfully");
-                }
+                toast.success("Commit Successfully");
                 reset();
             },
             onError : (err) => {

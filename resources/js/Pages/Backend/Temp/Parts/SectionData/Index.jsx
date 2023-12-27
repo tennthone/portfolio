@@ -1,16 +1,17 @@
 import FrontendLayout from "@/Layouts/FrontendLayout";
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import { Breadcrumb, Button } from "flowbite-react";
+import { Breadcrumb} from "flowbite-react";
 import { GrTemplate } from "react-icons/gr";
 import { RiPagesLine } from "react-icons/ri";
 import { TbTemplate } from "react-icons/tb";
 import { Link } from "@inertiajs/react";
 import { BsClipboard2Data } from "react-icons/bs";
 import Items from "./Items";
-import { SectionDataProvider } from "@/Context/SectionDataContext";
+import { DataProvider } from "@/Context/DataContext";
 
-const Index = ({page_id, template_id, section_id, contents, designs}) => {
+const Index = ({page_id, template_id, section}) => {
+    console.log(template_id)
     return (
         <div>
             <Toaster position="top-center" />
@@ -19,7 +20,7 @@ const Index = ({page_id, template_id, section_id, contents, designs}) => {
                     <Breadcrumb aria-label="Default breadcrumb example">
                         <Breadcrumb.Item icon={GrTemplate}>
                             <Link
-                                href={route("admin.template.resource.content")}
+                                href={route("admin.template.resource")}
                             >
                                 Templates
                             </Link>
@@ -39,10 +40,9 @@ const Index = ({page_id, template_id, section_id, contents, designs}) => {
                             })}> Sections </Link>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item icon={BsClipboard2Data}>
-                            <Link href={route('admin.template.section', page_id)}> Sections Data </Link>
+                            <Link href="#"> {section.name} </Link>
                         </Breadcrumb.Item>
                     </Breadcrumb>
-                    <Button onClick={() => console.log("add something")}> Add Section </Button>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@ const Index = ({page_id, template_id, section_id, contents, designs}) => {
 };
 
 Index.layout = (page) => 
-<SectionDataProvider>
+<DataProvider>
     <FrontendLayout children={page} />;
-</SectionDataProvider>
+</DataProvider>
 export default Index;

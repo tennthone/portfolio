@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name')->default('Untitled Template');
             $table->string('value')->nullable();
             $table->json('tags')->nullable();
+            $table->mediumText('description')->nullable();
             $table->integer('price')->default(0);
             $table->integer('sale_price')->default(0);
             $table->boolean('isPremium')->default(0);

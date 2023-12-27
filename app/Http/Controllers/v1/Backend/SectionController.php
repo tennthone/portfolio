@@ -8,23 +8,37 @@ use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 
 class SectionController extends Controller
 {
     public function index(Request $request) {
         $page_id = $request->page_id;
+        $page = Page::find($page_id);
         $sections = Section::with('pages')->whereHas('pages', function($q) use($page_id) {
             $q->where('page_id', $page_id);
         })->get();
+
+        // Filter content fields
+        $contents = $page->fields->filter(function ($item) {
+            return $item->data_type == "content";
+        })->toArray(); 
+
+        // Filter design fields
+        $designs = $page->fields->filter(function ($item) {
+            return $item->data_type == "design";
+        })->toArray();
+
         return Inertia::render('Backend/Temp/Parts/Section/Index', [
             'sections' => $sections,
-            'page_id' => $page_id,
-            'template_id' => $request->template_id
+            'page' => $page,
+            'template_id' => $request->template_id,
+            'contents' => $contents,
+            'designs' => $designs,
         ]);
     }
 
     public function store(Request $request) {
-
         $section = Section::create([
             'name' => "Untitled Section",
             'value' => "untitled_section",
@@ -41,7 +55,6 @@ class SectionController extends Controller
         } else {
             $position = 0;
         }
-        
 
         $section->pages()->attach([
             $request->page_id => ['position' => $position + 1]

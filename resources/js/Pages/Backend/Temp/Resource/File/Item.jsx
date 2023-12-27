@@ -1,19 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoFolder } from "react-icons/io5";
 import { FaRegTrashAlt, FaFileAlt} from "react-icons/fa";
 import { Link, usePage } from "@inertiajs/react";
+import { FileContext } from "@/Context/FileContext";
 
 const Item = ({
                 item, 
                 isEditing,
-                handleDelete,
-                handleOutsideClick, 
                 name, 
-                setName,
                 oldName
             }) => {
     const {template_id, base_path} = usePage().props;
+    const {handleDelete, handleOutsideClick} = useContext(FileContext);
     const isFile = item.includes('.');
+    const [localName, setLocalName] = useState(name);
+
+    useEffect(() => {
+        setLocalName(name);
+    }, [name]); 
+
+    const handleBlur = () => {
+        handleOutsideClick(oldName, localName);
+    }
 
     return (
         <div className="flex items-center justify-between">
@@ -25,9 +33,9 @@ const Item = ({
                     {isEditing ? (
                         <input
                             className="border-2 border-indigo-500 p-0 rounded-md"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            onBlur={() => handleOutsideClick(oldName)}
+                            value={localName}
+                            onChange={(e) => setLocalName(e.target.value)}
+                            onBlur={() => handleBlur()}
                             autoFocus
                         />
                     ) : (

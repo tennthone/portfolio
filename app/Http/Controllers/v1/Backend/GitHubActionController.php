@@ -18,9 +18,9 @@ class GitHubActionController extends Controller
         $git = new GitHubActionService();
         $response = $git->push($template->name, $branch_name, $commit_name, $repo_url);
         if($response['success'] == true) {
-            return to_route('admin.template.resource.file');
+            return redirect()->back();
         } else {
-            return to_route('admin.template.resource.file')->with('message', $response);
+            return redirect()->back()->with('message', $response);
         }
     }
 }

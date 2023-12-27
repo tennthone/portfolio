@@ -1,9 +1,9 @@
-import CreateModal from '@/Pages/Backend/components/MyModal'
 import React, { useState } from 'react'
-import { Label, TextInput, FloatingLabel} from 'flowbite-react'
+import { Label, FloatingLabel} from 'flowbite-react'
 import { useForm } from '@inertiajs/react'
+import MyModal from './MyModal'
 
-const Create = ({
+const CreateResource = ({
     openCreateModal,
     setOpenCreateModal
 }) => {
@@ -11,26 +11,27 @@ const Create = ({
         name : "",
         remote_url : ""
     })
+
     const [errors, setErrors] = useState([]);
     return (
-            <CreateModal  
+            <MyModal 
                 children={<BodyContent data={data} setData={setData} errors={errors} />}
-                openCreateModal={openCreateModal}
-                setOpenCreateModal={setOpenCreateModal}
+                openModal={openCreateModal}
+                setOpenModal={setOpenCreateModal}
                 routeName="admin.template.store"
                 name="Resource"
+                param=""
                 data={data}
                 reset={reset}
                 errors={errors}
                 setErrors={setErrors}
             />
-    )
+        )
 }
 
-export default Create
+export default CreateResource
 
 export const BodyContent = ({data, setData, errors}) => {
-
     return (
         <div className="space-y-6">
             {/* template name  */}

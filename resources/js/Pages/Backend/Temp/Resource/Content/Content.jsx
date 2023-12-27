@@ -1,9 +1,8 @@
 import React from "react";
-import { Table } from 'flowbite-react'
-import { Link, usePage } from '@inertiajs/react'
+import { Table } from "flowbite-react";
+import { Link } from "@inertiajs/react";
 
-const Item = ({item}) => {
-    const {page_id, template_id} = usePage().props;
+const Content = ({item}) => {
     return (
         <Table.Row
             className="bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -14,29 +13,26 @@ const Item = ({item}) => {
             </Table.Cell>
             <Table.Cell>
                 <Link
-                    href={route("admin.template.section.data", {
-                        page_id: page_id,
-                        template_id: template_id,
-                        section_id: item.id,
+                    href={route("admin.template.page", {
+                        template_id: item.id,
                     })}
                     className="text-indigo-700"
                 >
                     {item.name}
                 </Link>
             </Table.Cell>
-            <Table.Cell> {item.value} </Table.Cell>
+            <Table.Cell> {item.git_info.remote_url} </Table.Cell>
+            <Table.Cell> {item.git_info.base_path} </Table.Cell>
             <Table.Cell>
-                <button
-                    type="button"
+                <a
                     href="#"
                     className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-                    onClick={() => handleEdit(item.id)}
                 >
                     Edit
-                </button>
+                </a>
             </Table.Cell>
         </Table.Row>
     );
 };
 
-export default Item;
+export default Content;

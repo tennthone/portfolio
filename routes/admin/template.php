@@ -10,12 +10,8 @@ use Illuminate\Support\Facades\Route;
 // Resource 
 
 Route::prefix('resource')->group(function() {
-    // Content
-    Route::get('/content', [TemplateController::class, 'resource_content'])->name('admin.template.resource.content');
+    Route::get('/', [TemplateController::class, 'index'])->name('admin.template.resource');
     Route::post('/store', [TemplateController::class, 'store'])->name('admin.template.store');
-
-    // File
-    Route::get('/file', [TemplateController::class, 'resource_file'])->name('admin.template.resource.file');
 });
 
 // File management 

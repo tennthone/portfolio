@@ -1,13 +1,14 @@
 import FrontendLayout from '@/Layouts/FrontendLayout'
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import React, { useState } from 'react'
 import { IoFolder } from "react-icons/io5";
 import { Button } from 'flowbite-react';
 import Commit from './Commit';
 
-const Index = ({files}) => {
+const FileData = () => {
     const [openCommitModal, setOpenCommitModal] = useState(false)
     const [templateId, setTemplateId] = useState('');
+    const {templates} = usePage().props;
 
     const handleCommit = (id) => {
         setTemplateId(id)
@@ -16,18 +17,8 @@ const Index = ({files}) => {
 
   return (
     <div>
-        <div className="p-3 border-2 rounded-md">
-            <div className="flex justify-between">
-                <p className="text-xl font-bold"> All Files  </p>
-                <button 
-                    type="button"
-                    className="bg-indigo-700 text-white p-2 rounded-md" onClick={() => setOpenCreateModal(true)}>
-                    Create Resource
-                </button>
-            </div>
-        </div>
         {
-            files.map(item => (
+            templates.map(item => (
                 <div className='p-2 bg-slate-200 rounded-md my-3' key={item.id}>
                     <div className="flex items-center justify-between">
                         <div>
@@ -54,5 +45,4 @@ const Index = ({files}) => {
   )
 }
 
-Index.layout = page => <FrontendLayout children={page}/>
-export default Index
+export default FileData

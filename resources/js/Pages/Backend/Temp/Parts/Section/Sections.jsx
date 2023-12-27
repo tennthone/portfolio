@@ -1,32 +1,29 @@
 import React from 'react'
 import { Table } from 'flowbite-react'
-import Item from './Item'
+import Section from './Section'
 import { usePage } from '@inertiajs/react'
 
-const DesignData = () => {
-    const {designs} = usePage().props;
-    const designArr = Object.values(designs)
+const Sections = () => {
+    const {sections} = usePage().props;
   return (
-    <div>
+    <div className='my-5'>
       <Table>
         <Table.Head>
           <Table.HeadCell> No </Table.HeadCell>
           <Table.HeadCell> Name </Table.HeadCell>
           <Table.HeadCell> Variable Name </Table.HeadCell>
+          <Table.HeadCell> isResource </Table.HeadCell>
+          <Table.HeadCell> isVisible </Table.HeadCell>
+          <Table.HeadCell> isPremium </Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
           {
-            designArr.length > 0
-            ? designArr.map(item => (
-                <Item  key={item.id} item={item}/>
-              )) 
-            : 
-            <Table.Row> 
-                <Table.Cell className='text-red-700'> No Data Here </Table.Cell>
-            </Table.Row>
+            sections.map(item => (
+              <Section  key={item.id} item={item}/>
+            ))
           }
         </Table.Body>
       </Table>
@@ -34,4 +31,4 @@ const DesignData = () => {
   )
 }
 
-export default DesignData
+export default Sections

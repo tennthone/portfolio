@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { router } from '@inertiajs/react'
 import DeleteModal from '@/Pages/Backend/components/DeleteModal'
 import toast, { Toaster } from 'react-hot-toast'
+import { FileContext } from '@/Context/FileContext'
 
-const Delete = ({openDeleteModal, setOpenDeleteModal, filePath, deleteRoute, title}) => {
+const Delete = () => {
+    const {
+        openDeleteModal, 
+        setOpenDeleteModal, 
+        filePath, 
+        deleteRoute, 
+        title
+    } = useContext(FileContext)
+
     const [loading, setLoading] = useState(false)
+    
     const handleClick =() => {
         setLoading(true)
         router.post(route(deleteRoute),{base_path : filePath}, {

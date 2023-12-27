@@ -1,0 +1,29 @@
+import React, { useContext } from "react";
+import Item from "./Item";
+import { FileContext } from "@/Context/FileContext";
+
+const Folders = ({item}) => {
+    const {
+        handleEditFolder, 
+        handleOutsideClick, 
+        isEditingFolder, 
+        folderNames
+    } = useContext(FileContext)
+    
+    return (
+        <div
+            className="p-2 bg-slate-200 rounded-md my-3"
+            onDoubleClick={() => handleEditFolder(item)}
+        >
+            <Item
+                isEditing={isEditingFolder[item] || false}
+                handleOutsideClick={handleOutsideClick}
+                item={item}
+                name={folderNames[item] || ""}
+                oldName={item}
+            />
+        </div>
+    );
+};
+
+export default Folders;

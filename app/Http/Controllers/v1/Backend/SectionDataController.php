@@ -14,20 +14,23 @@ class SectionDataController extends Controller
     public function index(Request $request) {
         $section_id = $request->section_id;
         $components = Component::with('designs')->get();
-        $section = Section::with('fields')->find($section_id);
-        $contents = $section->fields->filter(function($item) {
-            return $item->data_type == "content";
-        }); 
+        $section = Section::find($section_id);
 
-        $designs = $section->fields->filter(function($item) {
+        // Filter content fields
+        $contents = $section->fields->filter(function ($item) {
+            return $item->data_type == "content";
+        })->toArray(); 
+
+        // Filter design fields
+        $designs = $section->fields->filter(function ($item) {
             return $item->data_type == "design";
-        }); 
+        })->toArray();
 
         return Inertia::render('Backend/Temp/Parts/SectionData/Index', [
             'contents' => $contents,
             'designs' => $designs,
             'components' => $components,
-            'section_id' => $section_id,
+            'section' => $section,
             'template_id' => $request->template_id,
             'page_id' => $request->page_id,
         ]);
@@ -79,7 +82,7 @@ class SectionDataController extends Controller
                 'value' => $request->value,
                 'type' => $request->type,
                 'option' => $request->option,
-                'data_type' => 'content',
+                'data_type' => $request->data_type,
             ]);
         }
 

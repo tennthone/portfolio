@@ -6,7 +6,7 @@ import { PageContext } from '@/Context/PageContext'
 
 const Page = ({item}) => {
     const {handleEdit} = useContext(PageContext)
-    const {template_id} = usePage().props;
+    const {template} = usePage().props;
 
     const handleSwitchChange = (state, id) => {
         router.post(route('admin.template.page.change-resource'), {isResource : state, id : id}, {
@@ -25,7 +25,7 @@ const Page = ({item}) => {
         </Table.Cell>
         <Table.Cell>  
             <Link 
-            href={route('admin.template.section', {page_id : item.id , template_id : template_id})}
+            href={route('admin.template.section', {page_id : item.id , template_id : template.id})}
             className='text-indigo-700'
             >{item.name} </Link>
         </Table.Cell>

@@ -5,6 +5,7 @@ import { usePage } from '@inertiajs/react'
 
 const ContentData = () => {
   const {contents} = usePage().props;
+  const contentsArr = Object.values(contents);
   return (
     <div>
       <Table>
@@ -18,8 +19,8 @@ const ContentData = () => {
         </Table.Head>
         <Table.Body className="divide-y">
           {
-            contents.length > 0 ?
-            contents.map(item => (
+            contentsArr.length > 0 ?
+            contentsArr.map(item => (
               <Item  key={item.id} item={item}/>
             )) : 
             <Table.Row> 

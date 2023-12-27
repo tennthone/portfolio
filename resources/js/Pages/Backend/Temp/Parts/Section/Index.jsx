@@ -5,22 +5,15 @@ import Edit from './Edit'
 import { GrTemplate} from 'react-icons/gr'
 import { RiPagesLine } from 'react-icons/ri'
 import { TbTemplate } from "react-icons/tb";
-import { Link, router } from '@inertiajs/react'
+import { Link} from '@inertiajs/react'
 import FrontendLayout from '@/Layouts/FrontendLayout'
-import toast, { Toaster } from 'react-hot-toast'
+import  { Toaster } from 'react-hot-toast'
 import { SectionProvider } from '@/Context/SectionContext'
+import { DataProvider } from '@/Context/DataContext'
+import FieldModal from '@/Pages/Backend/components/FieldModal'
+import CreateFieldModal from '@/Pages/Backend/components/CreateFieldModal'
 
-const Index = ({template_id,page_id,  sections}) => {
-  const handleAdd = () => {
-      router.post(route('admin.template.section.store'), {page_id : page_id ,template_id : template_id}, {
-        onSuccess : () => {
-            toast.success("Section created successfully");
-        },
-        onError : () => {
-
-        }
-    })
-  }
+const Index = ({template_id,sections, page}) => {
   return (
     <div>
         <Toaster 
@@ -30,33 +23,37 @@ const Index = ({template_id,page_id,  sections}) => {
             <div className="flex justify-between">
                 <Breadcrumb aria-label="Default breadcrumb example">
                     <Breadcrumb.Item icon={GrTemplate}>
-                        <Link href={route('admin.template.resource.content')} > Templates </Link>
+                        <Link href={route('admin.template.resource')} > Templates </Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item icon={RiPagesLine}>
                         <Link href={route('admin.template.page', {template_id : template_id})} > Pages </Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item icon={TbTemplate}>
-                        <Link href="#" > Sections </Link>
+                        <Link href="#" > {page.name} </Link>
                     </Breadcrumb.Item>
                 </Breadcrumb>
-                <Button 
-                    onClick={handleAdd}
-                > Add Section </Button>
             </div>
         </div>
         {/* page items  */}
-        <Items 
-            sections={sections}
-        />
+        <Items  />
 
         {/* Edit modal  */}
         <Edit />
+
+
+        {/* Field Modal  */}
+        <FieldModal />
+
+        {/* Create Field modal  */}
+        <CreateFieldModal />
     </div>
   )
 }
 
 Index.layout = page => 
+<DataProvider>
 <SectionProvider>
   <FrontendLayout children={page} />
 </SectionProvider>
+</DataProvider>
 export default Index

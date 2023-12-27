@@ -13,4 +13,8 @@ class Page extends Model
     public function sections() {
         return $this->belongsToMany(Section::class)->withPivot('position');
     }
+    
+    public function fields() {
+        return $this->morphMany(Field::class, 'fieldable');
+    }
 }

@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 import { SectionContext } from '@/Context/SectionContext'
 
 const Section = ({item}) => {
-    const {template_id, page_id}  = usePage().props;
+    const {template_id, page}  = usePage().props; 
     const {handleEdit} = useContext(SectionContext);
 
     const handleSwitchChange = (value, id,  key) => {
@@ -27,7 +27,7 @@ const Section = ({item}) => {
         <Table.Cell>  
             <Link 
             href={route('admin.template.section.data', {
-                page_id : page_id , 
+                page_id : page.id , 
                 template_id : template_id,
                 section_id  : item.id,
             })}

@@ -5,6 +5,7 @@ import { FaFolder } from 'react-icons/fa';
 import React, { useState } from 'react'
 import { Link, router } from '@inertiajs/react';
 import toast, { Toaster } from 'react-hot-toast';
+import { GrTemplate } from 'react-icons/gr';
 
 const FileContent = ({fileContent, base_path, template_id}) => {
   const breadcrumb = getTrimPath(base_path);
@@ -30,6 +31,12 @@ const FileContent = ({fileContent, base_path, template_id}) => {
     <div>
       <div className="mx-5 flex justify-between my-3 items-center">
         <Breadcrumb aria-label="Default breadcrumb example">
+            <Breadcrumb.Item 
+                href={route('admin.template.resource')}
+                icon={GrTemplate}
+            > 
+                Templates 
+            </Breadcrumb.Item>
             {
                 Object.entries(breadcrumb).map(([key, value], index) => (
                     <Breadcrumb.Item icon={FaFolder} key={index}>
