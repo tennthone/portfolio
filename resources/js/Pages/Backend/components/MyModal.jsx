@@ -44,7 +44,6 @@ const MyModal = ({
               <div className="w-full">
                 <Button 
                     type='submit' 
-                    color='purple'
                     isProcessing={loading}
                     processingLabel='Saving'
                 > 
