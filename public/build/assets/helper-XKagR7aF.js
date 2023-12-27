@@ -1,0 +1,1 @@
+const i=s=>{const t="/Applications/xampp/xamppfiles/htdocs/tenthone/storage/app/resources/",e=s.replace(new RegExp(`^${t}`),"").split("/");return e.reduce((r,n,p)=>{const o=e.slice(0,p+1).join("/");return r[n]=`${t}${o}`,r},[])};export{i as g};
