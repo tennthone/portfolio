@@ -17,7 +17,8 @@ const FileData = () => {
 
   return (
     <div>
-        {
+        {   
+            templates.length > 0 ?
             templates.map(item => (
                 <div className='p-2 bg-slate-200 rounded-md my-3' key={item.id}>
                     <div className="flex items-center justify-between">
@@ -32,7 +33,7 @@ const FileData = () => {
                         </div>
                     </div>
                 </div>
-            ))
+            )) : <div className='text-center text-red-700'> No File Here  </div>
         }
 
         {/* Commit modal  */}

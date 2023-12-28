@@ -14,17 +14,17 @@ use Illuminate\Validation\ValidationException;
 
 class TemplateController extends Controller
 {
-    public function index() {
+    public function resource() {
         $templates = Template::with('git_info')->where('isResource', 1)->get();
         return Inertia::render('Backend/Temp/Resource/Index', [
             'templates' => $templates,
         ]);
     }
 
-    public function resource_file() {
-        $files = Template::with('git_info')->where('isResource', 1)->get();
-        return Inertia::render('Backend/Temp/Resource/File/Index', [
-            'files' => $files,
+    public function website() {
+        $templates = Template::with('git_info')->where('isResource', 0)->get();
+        return Inertia::render('Backend/Temp/Website/Index', [
+            'templates' => $templates,
         ]);
     }
 

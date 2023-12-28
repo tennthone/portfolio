@@ -10,19 +10,37 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {   
-    public function index() {
-        return Inertia::render('Backend/Permission/Edit');
+    public function index(Request $request) {
+        $roles = Role::all();
+        if($request->edit) {
+            $data = $this->getEditData($request->edit);
+        }
+
+        return Inertia::render('Backend/Permission/Index', [
+            'roles' => $roles->transform(function($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                ];
+            }),
+            'editData' => isset($data) ? fn() => $data : [],
+        ]);
     }
 
-    public function edit($id) {
+    private function getEditData($id) {
         $role = Role::findById($id);
-        $user_permissions = $role->getAllPermissions()->pluck('name');
-        $permissions = Permission::latest('id')->get(['id', 'name']);
-        return Inertia::render('Backend/Setting/PermissionEdit', [
+        $user_permissions = $role->getAllPermissions()->pluck('name')->toArray();
+        $permissions = Permission::latest('id')->get();
+        return  [
             'user_permissions' => $user_permissions,
-            'all_permissions' => $permissions,
+            'all_permissions' => $permissions->transform(function($item) {
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name
+                ];
+            }),
             'role' => $role,
-        ]);
+        ];
     }
 
     public function update(Request $request, $id) {

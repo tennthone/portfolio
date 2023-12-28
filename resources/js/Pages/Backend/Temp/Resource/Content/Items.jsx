@@ -17,10 +17,12 @@ const Items = () => {
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
-          {
+          { 
+            templates.length > 0 ?
             templates.map(item => (
               <Content key={item.id} item={item} />
-            ))
+            )) : 
+            <Table.Cell className='text-red-700'> No Data Here </Table.Cell>
           }
         </Table.Body>
       </Table>

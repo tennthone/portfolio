@@ -51,7 +51,9 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
 
     // Template Rotues 
     Route::prefix('template')->group(base_path('routes/admin/template.php'));
-    Route::prefix('permission')->group(base_path('routes/admin/permission.php'));
+    Route::prefix('setting')->group(function() {
+        Route::prefix('permission')->group(base_path('routes/admin/permission.php'));
+    });
     Route::prefix('field')->group(base_path('routes/admin/field.php'));
 });
 

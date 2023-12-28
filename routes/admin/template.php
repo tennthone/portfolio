@@ -10,10 +10,14 @@ use Illuminate\Support\Facades\Route;
 // Resource 
 
 Route::prefix('resource')->group(function() {
-    Route::get('/', [TemplateController::class, 'index'])->name('admin.template.resource');
+    Route::get('/', [TemplateController::class, 'resource'])->name('admin.template.resource');
     Route::post('/store', [TemplateController::class, 'store'])->name('admin.template.store');
 });
-
+// Website 
+Route::prefix('website')->group(function() {
+    Route::get('/', [TemplateController::class, 'website'])->name('admin.template.website');
+    Route::post('/store', [TemplateController::class, 'store'])->name('admin.template.website.store');
+});
 // File management 
 Route::get('show-files-folders/{id}', [FileController::class, 'showFoldersAndFiles'])->name('admin.template.files-folders');
 
@@ -40,5 +44,6 @@ Route::post('/git-action/push', [GitHubActionController::class, 'git_push'])->na
 
 Route::prefix('page')->group(base_path('routes/admin/page.php'));
 Route::prefix('section')->group(base_path('routes/admin/section.php'));
+Route::prefix('component')->group(base_path('routes/admin/component.php'));
 
 

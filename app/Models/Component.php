@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Component extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function designs() {
+        return $this->hasMany(ComponentDesign::class);
+    }
+
+    public function fields() {
+        return $this->morphMany(Field::class, 'fieldable');
+    }
 }

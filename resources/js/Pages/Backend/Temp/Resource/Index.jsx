@@ -1,12 +1,9 @@
 import FrontendLayout from '@/Layouts/FrontendLayout'
 import React, { useState } from 'react'
 import { Breadcrumb, Button, Tabs} from 'flowbite-react'
-import { FaFileArchive } from "react-icons/fa";
-import { RxComponent1 } from "react-icons/rx";
-import ContentData from './Content/ContentData';
-import FileData from './File/FileData';
 import { GrTemplate } from 'react-icons/gr';
 import CreateResource from '../../components/CreateResource';
+import TempTabs from '../TempTabs';
 
 const Index = () => {
     const [openCreateModal, setOpenCreateModal] = useState(false)
@@ -25,18 +22,9 @@ const Index = () => {
                 </Button>
             </div>
         </div>
-        <div className="my-5">
-            <Tabs aria-label="Tabs with underline" style="underline">
-                <Tabs.Item active title="Content" icon={RxComponent1}>
-                    {/* content  */}
-                    <ContentData />
-                </Tabs.Item>
-                <Tabs.Item active title="File" icon={FaFileArchive}>
-                    {/* File  */}
-                    <FileData />
-                </Tabs.Item>
-            </Tabs>
-        </div>
+        
+        {/* Template Tabs  */}
+        <TempTabs />
 
         {/* Create Modal  */}
         <CreateResource 

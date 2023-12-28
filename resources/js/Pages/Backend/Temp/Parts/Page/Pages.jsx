@@ -23,14 +23,18 @@ const Pages = () => {
         </Table.Head>
         <Table.Body className="divide-y">
         {
+            pages.length > 0 ? 
             pages.map(item => (
-            <Page  key={item.id} item={item}/>
-            ))
+              <Page  key={item.id} item={item}/>
+              )) : 
+            <Table.Cell className='text-red-700 text-center'> No Data Here  </Table.Cell>
         }
         </Table.Body>
     </Table>
     <div className="flex md:justify-end overflow-x-auto sm:justify-center my-3">
-      <Pagination currentPage={currentPage} totalPages={100} onPageChange={onPageChange} />
+      {
+        pages.length > 0  && <Pagination currentPage={currentPage} totalPages={100} onPageChange={onPageChange} />
+      }
     </div>
     </>
   )

@@ -81,8 +81,7 @@ export const BodyContent = ({ data, setData}) => {
                             <div className="flex flex-col">
                                 <Label htmlFor="options"> One File </Label>
                                 <small>
-                                    {" "}
-                                    For example, a single photo or one PDF file{" "}
+                                    For example, a single photo or one PDF file
                                 </small>
                             </div>
                         </div>
