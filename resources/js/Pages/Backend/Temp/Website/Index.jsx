@@ -3,8 +3,11 @@ import React from "react";
 import {Button, Breadcrumb} from 'flowbite-react'
 import { GrTemplate } from "react-icons/gr";
 import TempTabs from "../TempTabs";
+import { useState } from "react";
+import CreateTemplate from "../../components/CreateTemplate";
 
 const Index = () => {
+    const [openCloneModal, setOpenCloneModal] = useState(false)
     return (
         <div>
             <div className="p-3 border-2 rounded-md">
@@ -16,6 +19,8 @@ const Index = () => {
                     </Breadcrumb>
                     <Button
                         type="button"
+                        size="sm"
+                        onClick={() => setOpenCloneModal(true)}
                     >
                         Clone Template
                     </Button>
@@ -24,6 +29,13 @@ const Index = () => {
 
             {/* Template Tabs  */}
             <TempTabs />
+
+            {/* Clone Modal  */}
+            <CreateTemplate
+                templateUsage="website" 
+                openModal={openCloneModal}
+                setOpenModal={setOpenCloneModal}
+            />
         </div>
     );
 };

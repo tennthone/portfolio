@@ -18,7 +18,7 @@ const Index = ({pages, template}) => {
             <div className="flex justify-between">
                 <Breadcrumb aria-label="Default breadcrumb example">
                     <Breadcrumb.Item icon={GrTemplate}>
-                        <Link href={route('admin.template.resource')} > Templates </Link>
+                        <Link href={route(template.isResource ? 'admin.template.resource' : 'admin.template.website')} > Templates </Link>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item icon={RiPagesLine}>
                         <Link href="" > {template.name}  </Link>

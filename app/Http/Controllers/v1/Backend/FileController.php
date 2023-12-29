@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\Backend;
 
 use Inertia\Inertia;
+use App\Models\Template;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -70,7 +71,7 @@ class FileController extends Controller
         $contents = $this->getSubFolderAndFiles($base_path);
         return Inertia::render('Backend/Temp/Resource/File/FileStructure', [
             'contents' => $contents,
-            'template_id' => $template_id,
+            'template' => Template::find($template_id),
             'base_path' => $base_path,
         ]);
     }

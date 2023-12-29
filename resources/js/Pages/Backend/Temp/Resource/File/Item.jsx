@@ -10,7 +10,7 @@ const Item = ({
                 name, 
                 oldName
             }) => {
-    const {template_id, base_path} = usePage().props;
+    const {template, base_path} = usePage().props;
     const {handleDelete, handleOutsideClick} = useContext(FileContext);
     const isFile = item.includes('.');
     const [localName, setLocalName] = useState(name);
@@ -41,7 +41,7 @@ const Item = ({
                     ) : (
                         <Link
                             href={route(isFile ? "admin.template.file.show" : "admin.template.files-folders", {
-                                id: template_id,
+                                id: template.id,
                                 base_path: base_path + "/" + item,
                             })}
                         >

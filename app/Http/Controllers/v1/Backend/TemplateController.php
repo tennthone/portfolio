@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Services\GitHubActionService;
+use App\Services\TemplateService;
 use Illuminate\Validation\ValidationException;
 
 class TemplateController extends Controller
@@ -31,42 +32,31 @@ class TemplateController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required',
-            'remote_url' => 'required',
+            // 'remote_url' => 'required',
+            'branch_name' => 'required',
+            'template_usage' => 'required',
         ]);
-        $remote_url = $request->remote_url;
-        $name = $request->name;
-        $branch_name = $request->branch_name;
-        $git = new GitHubActionService();
-        $res = $git->clone($remote_url, $name);
-        if($res['success']) {
-            try {
-                DB::transaction(function() use($res, $remote_url, $branch_name, $name) {
-                    if($res['success']) {
-                        $template = Template::create([
-                            'name' => $name,
-                            'isResource' => 1,
-                        ]);
-                
-                        // create git info 
-                
-                        GitInfo::create([
-                            'template_id' => $template->id,
-                            'base_path' => $res['path'],
-                            'remote_url' => $remote_url,
-                            'branch_name' => $branch_name ?? 'main'
-                        ]);
-                    } 
-                });
-            } catch(\Exception $e) {    
-                dd($e->getMessage());
-            }
-        } else {
-            throw ValidationException::withMessages([
-                'name' => "Name already exists",
-            ]);
-        }
-        
 
-        return redirect()->back();
+        $templateData = array(
+            'template_usage' => $request->template_usage,
+            'remote_url' => $request->remote_url,
+            'name' => $request->name,
+            'branch_name' => $request->branch_name,
+            'template_id' => $request->template_id,
+        );
+        
+        $template = new TemplateService();
+        if($request->templateUsage == "resource") {
+            $res= $template->createResource($templateData);
+        } else {
+            $res = $template->createWebsite($templateData);
+            if($res['success']) {
+                return redirect()->back()->with('success', $res['message']);
+            } else {
+                return redirect()->back()->with('error', $res['message']);
+            }
+        }
     }  
 }
+
+

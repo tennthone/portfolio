@@ -2,7 +2,7 @@ import FrontendLayout from '@/Layouts/FrontendLayout'
 import React, { useState } from 'react'
 import { Breadcrumb, Button, Tabs} from 'flowbite-react'
 import { GrTemplate } from 'react-icons/gr';
-import CreateResource from '../../components/CreateResource';
+import CreateTemplate from '../../components/CreateTemplate';
 import TempTabs from '../TempTabs';
 
 const Index = () => {
@@ -27,9 +27,10 @@ const Index = () => {
         <TempTabs />
 
         {/* Create Modal  */}
-        <CreateResource 
-            openCreateModal={openCreateModal}
-            setOpenCreateModal={setOpenCreateModal}
+        <CreateTemplate 
+            templateUsage="resource"
+            openModal={openCreateModal}
+            setOpenModal={setOpenCreateModal}
         />
     </>
   )

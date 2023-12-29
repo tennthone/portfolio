@@ -12,7 +12,9 @@ const MyModal = ({
         setErrors,
         name,
         data,
-        param
+        param,
+        buttonName = "Save",
+        processingLabel="Saving"
     }) =>  {
   const [loading, setLoading] = useState(false)
 
@@ -45,9 +47,9 @@ const MyModal = ({
                 <Button 
                     type='submit' 
                     isProcessing={loading}
-                    processingLabel='Saving'
+                    processingLabel={processingLabel}
                 > 
-                    Save
+                    {buttonName}
                 </Button>
               </div>
             </div>

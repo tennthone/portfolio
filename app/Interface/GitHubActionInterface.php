@@ -4,7 +4,7 @@ namespace App\Interface;
 
 interface GitHubActionInterface {
     
-    public function pull($templateName);
+    public function pull($templateName, $branchName);
 
     public function clone($repositoryUrl, $templateName);
 

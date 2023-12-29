@@ -10,7 +10,7 @@ import { FileContext, FileProvider } from '@/Context/FileContext';
 import Folders from './Folders';
 import Files from './Files';
 
-const FileStructure = ({contents, template_id,  base_path}) => {
+const FileStructure = ({contents, template,  base_path}) => {
     const breadcrumb = getTrimPath(base_path);
     const {handleAdd} = useContext(FileContext)
 
@@ -29,14 +29,14 @@ const FileStructure = ({contents, template_id,  base_path}) => {
                 <div>
                 <Breadcrumb aria-label="Default breadcrumb example">
                     <Breadcrumb.Item 
-                        href={route('admin.template.resource')}
+                        href={route(template.isResource ? 'admin.template.resource' : 'admin.template.website')}
                         icon={GrTemplate}
                     > 
                         Templates 
                     </Breadcrumb.Item>
                     {   
                         Object.entries(breadcrumb).map(([key, value], index) => (
-                            <Breadcrumb.Item href={route('admin.template.files-folders', {id : template_id, base_path : value})} icon={FaFolder} key={index}>
+                            <Breadcrumb.Item href={route('admin.template.files-folders', {id : template.id, base_path : value})} icon={FaFolder} key={index}>
                                 {key}
                             </Breadcrumb.Item>
                         ))

@@ -7,6 +7,7 @@ import { MdVerifiedUser } from "react-icons/md";
 import './app.css'
 import { FaGlobe } from "react-icons/fa";
 import { LuLayoutTemplate } from "react-icons/lu";
+import { IoLogoGithub } from "react-icons/io";
 
 const Side = () => {
     const {url} = usePage();
@@ -43,7 +44,7 @@ const Side = () => {
                     </Sidebar.Item>
 
                     {/* git hub repo  */}
-                    <Sidebar.Item href="#" icon={HiShoppingBag}>
+                    <Sidebar.Item href="#" icon={IoLogoGithub}>
                         <Link href={route('admin.gitrepo.index')}> GitHub Repositories </Link>
                     </Sidebar.Item>
 

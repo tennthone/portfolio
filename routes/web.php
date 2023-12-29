@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\v1\Backend\AuthController;
 use App\Services\GitHubActionService;
+use App\Services\TemplateService;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -58,12 +59,18 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
 });
 
 Route::get('/clone/template', function() {
-    $gitservice = new GitHubActionService();
+    $template = new TemplateService();
     $url = "https://github.com/tennthone/portfolio.git";
-    $name = "portfolio";
-    $branch = "main";
+    $name = "kaung_lay";
+    $branch = "painglay";
     $commitName ="first commit";
-    $gitservice->push($name, 'main', "first commit", $url);
+    $data = [
+        'template_id' => $url,
+        'branch_name' => $branch,
+        'name' => $name,
+    ];
+    $res = $template->cloneTemplate($data);
+    dd($res);
 });
 
 require __DIR__.'/auth.php';

@@ -12,15 +12,21 @@ class GitHubActionService implements GitHubActionInterface {
         $this->git = new Git();
     }
 
-    public function pull($templateName)
+    public function pull($templateName, $branchName = "main")
     {
         try {
             $repositoryPath = storage_path("app/resources/$templateName");
             $this->git->setRepository($repositoryPath);
-            $this->git->pull('origin', 'main'); // Replace 'main' with the appropriate branch name
-            dd('git pull done');
+            $this->git->pull('origin', $branchName); 
+            return [
+                'success' => true,
+                'message' => 'Git Pull Done'
+            ];
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
         }
     }
 
@@ -53,13 +59,13 @@ class GitHubActionService implements GitHubActionInterface {
 
     public function clone($repositoryUrl, $templateName)
     {   
-        $destination = storage_path("app/resources/$templateName");
-        if(!File::isDirectory($destination)) {
-            $this->git->clone($repositoryUrl, $destination);
+        $repositoryPath = storage_path("app/resources/$templateName");
+        if(!File::isDirectory($repositoryPath)) {
+            $this->git->clone($repositoryUrl, $repositoryPath);
             return [
                 'success' => true,
                 'message' => "Clone successfully",
-                'path' => $destination,
+                'path' => $repositoryPath,
             ];
         } else {
             return [
@@ -78,9 +84,17 @@ class GitHubActionService implements GitHubActionInterface {
             $this->git->setRepository($repositoryPath);
             $this->git->checkout->create($branchName);
             $this->git->push($repositoryUrl);
-            dd('clone and create branch');
+            return [
+                'success' => true,
+                'message' => "Clone successfully",
+                'path' => $repositoryPath,
+            ];
         } catch (\Exception $e) {
-            dd("Error: " . $e->getMessage());
+            return [
+                'success' => false,
+                'message' => "Directory already exists",
+                'path' => null,
+            ];
         }
     }
     

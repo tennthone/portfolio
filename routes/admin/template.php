@@ -39,8 +39,8 @@ Route::post('/git-repos/store', [GitRepoController::class, 'store'])->name('admi
 Route::delete('/git-repos/delete/{name}', [GitRepoController::class, 'delete'])->name('admin.gitrepo.delete');
 
 // git action 
-// 
 Route::post('/git-action/push', [GitHubActionController::class, 'git_push'])->name('admin.gitaction.push');
+Route::post('/git-action/pull', [GitHubActionController::class, 'git_pull'])->name('admin.gitaction.pull');
 
 Route::prefix('page')->group(base_path('routes/admin/page.php'));
 Route::prefix('section')->group(base_path('routes/admin/section.php'));
