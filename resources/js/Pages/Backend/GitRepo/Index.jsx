@@ -27,7 +27,7 @@ const Index = ({repos}) => {
                 </Breadcrumb>
                 <Button
                     size="sm"
-                    color='indigo' 
+                    color='purple' 
                     type="button"
                     onClick={() => setOpenCreateModal(true)}>
                     Create Repository

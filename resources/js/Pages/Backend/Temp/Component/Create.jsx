@@ -3,10 +3,10 @@ import MyModal from "../../components/MyModal";
 import { useContext } from "react";
 import { ComponentContext } from "@/Context/ComponentContext";
 import { useState } from "react";
-import { FloatingLabel, Label, Radio } from "flowbite-react";
+import { Checkbox, FloatingLabel, Label, Radio } from "flowbite-react";
 
 const Create = () => {
-    const { openCreateModal, setOpenCreateModal, data, setData } =
+    const { openCreateModal, setOpenCreateModal, data, setData, reset } =
         useContext(ComponentContext);
     const [errors, setErrors] = useState([]);
     return (
@@ -22,9 +22,10 @@ const Create = () => {
                 openModal={openCreateModal}
                 setOpenModal={setOpenCreateModal}
                 routeName="admin.template.component.store"
-                heading="Component"
+                heading="Add Component"
                 name="component"
                 data={data}
+                reset={reset}
                 setErrors={setErrors}
             />
         </div>
@@ -34,7 +35,6 @@ const Create = () => {
 export default Create;
 
 const BodyContent = ({ data, setData, errors }) => {
-    console.log(data)
     return (
         <div className="space-y-6">
             <div>
@@ -73,7 +73,7 @@ const BodyContent = ({ data, setData, errors }) => {
             {/* loopable  */}
             <div>
                 <div className="flex items-start gap-2 me-3">
-                    <Radio
+                    <Checkbox
                         checked={data.isLoopable}
                         onChange={(e) => setData("isLoopable", e.target.checked)}
                     />

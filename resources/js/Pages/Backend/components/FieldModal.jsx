@@ -67,7 +67,7 @@ const FieldModal = () => {
     return (
         <div>
             <Modal
-                size="3xl"
+                size="4xl"
                 show={openFieldModal}
                 onClose={() => setOpenFieldModal(false)}
             >

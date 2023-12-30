@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('templates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade');
+            $table->string('templateId');
             $table->string('name')->default('Untitled Template');
             $table->string('value')->nullable();
             $table->json('tags')->nullable();
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->boolean('isPremium')->default(0);
             $table->boolean('isResource')->default(0);
             $table->boolean('isVisbile')->default(0);
+            $table->foreignId('createdBy')->constrained('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }

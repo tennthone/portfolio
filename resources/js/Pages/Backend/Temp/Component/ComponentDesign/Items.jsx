@@ -9,23 +9,36 @@ import { DataContext } from "@/Context/DataContext";
 import DesignData from "../../Parts/SectionData/Design/DesignData";
 import ContentData from "../../Parts/SectionData/Content/ContentData";
 import { usePage } from "@inertiajs/react";
+import FieldModal from "@/Pages/Backend/components/FieldModal";
+import CreateFieldModal from "@/Pages/Backend/components/CreateFieldModal";
+import Designs from "./Designs";
+import { ComponentDesignContext } from "@/Context/ComponentDesignContext";
 
 const Items = () => {
     const {handleAddField} = useContext(DataContext)
+    const {handleCreate, handleSaveFile} = useContext(ComponentDesignContext)
+
     const {cpt} = usePage().props;
     return (
         <div className="my-5">
             <Tabs aria-label="Tabs with underline" style="underline">
                 <Tabs.Item active title="Component Designs" icon={MdContentPasteGo}>
                     <div className="my-3 flex justify-end">
-                        <Button onClick={() => console.log("Hello")}> Add Design </Button>
+                        <Button 
+                            size="sm"
+                            color="purple"
+                            onClick={() => handleCreate()}
+                        > Add Design </Button>
                     </div>
+                    <Designs />
                     {/*  */}
                 </Tabs.Item>
                 <Tabs.Item active title="Content" icon={RxComponent1}>
                     {/* content  */}
                     <div className="m-3 flex justify-end">
                         <Button
+                            size="sm"
+                            color="purple"
                             onClick={() =>
                                 handleAddField(
                                     "content",
@@ -43,6 +56,8 @@ const Items = () => {
                     {/* design  */}
                     <div className="m-3 flex justify-end">
                         <Button
+                            size="sm"
+                            color="purple"
                             onClick={() =>
                                 handleAddField(
                                     "design",
@@ -60,6 +75,12 @@ const Items = () => {
                     {/*  */}
                 </Tabs.Item>
             </Tabs>
+
+            {/* Field Modal  */}
+            <FieldModal />
+            
+            {/* Create Field Modal  */}
+            <CreateFieldModal />
         </div>
     );
 };

@@ -27,9 +27,7 @@ const Index = ({pages, template}) => {
             </div>
         </div>
         {/* page items  */}
-        <Items 
-            pages={pages}
-        />
+        <Items  />
 
         {/* Edit modal  */}
         <Edit />

@@ -13,11 +13,11 @@ import { DataProvider } from '@/Context/DataContext'
 import FieldModal from '@/Pages/Backend/components/FieldModal'
 import CreateFieldModal from '@/Pages/Backend/components/CreateFieldModal'
 
-const Index = ({template_id,sections, page}) => {
+const Index = ({template_id,page}) => {
   return (
     <div>
         <Toaster 
-          position='top-center'
+          position='top-right'
         />
         <div className="p-3 border-2 rounded-md">
             <div className="flex justify-between">

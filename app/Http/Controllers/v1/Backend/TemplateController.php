@@ -16,14 +16,14 @@ use Illuminate\Validation\ValidationException;
 class TemplateController extends Controller
 {
     public function resource() {
-        $templates = Template::with('git_info')->where('isResource', 1)->get();
+        $templates = Template::with(['git_info', 'creator'])->where('isResource', 1)->get();
         return Inertia::render('Backend/Temp/Resource/Index', [
             'templates' => $templates,
         ]);
     }
 
     public function website() {
-        $templates = Template::with('git_info')->where('isResource', 0)->get();
+        $templates = Template::with(['git_info', 'creator'])->where('isResource', 0)->get();
         return Inertia::render('Backend/Temp/Website/Index', [
             'templates' => $templates,
         ]);
@@ -50,11 +50,11 @@ class TemplateController extends Controller
             $res= $template->createResource($templateData);
         } else {
             $res = $template->createWebsite($templateData);
-            if($res['success']) {
-                return redirect()->back()->with('success', $res['message']);
-            } else {
-                return redirect()->back()->with('error', $res['message']);
-            }
+        }
+        if($res['success']) {
+            return redirect()->back()->with('success', $res['message']);
+        } else {
+            return redirect()->back()->with('error', $res['message']);
         }
     }  
 }

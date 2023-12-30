@@ -20,6 +20,7 @@ const Index = () => {
                     <Button
                         type="button"
                         size="sm"
+                        color="purple"
                         onClick={() => setOpenCloneModal(true)}
                     >
                         Clone Template

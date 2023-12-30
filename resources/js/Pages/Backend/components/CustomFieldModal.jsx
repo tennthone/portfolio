@@ -23,7 +23,6 @@ const CustomFieldModal = ({
                 show={openModal}
                 size="4xl"
                 onClose={() => setOpenModal(false)}
-                popup
             >
             <form onSubmit={submit}>
                 <Modal.Header>  
@@ -52,18 +51,21 @@ const CustomFieldModal = ({
                     }
                 </Modal.Body>
                 <Modal.Footer>
-                    <div className="flex">
+                    <div className="flex justify-between w-full">
                         <Button
                             type="button"
-                            className="me-3"
+                            color="gray"
+                            className="me-3 w-1/2"
                             onClick={() => changeFieldType()}
                         > 
                             Back to Fields 
                         </Button>
                         <Button
                             type="submit"
+                            color="purple"
                             isProcessing={loading}
                             processingLabel="Saving"
+                            className="w-1/2"
                         >
                             Save
                         </Button>

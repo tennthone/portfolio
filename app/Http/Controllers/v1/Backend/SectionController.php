@@ -43,6 +43,7 @@ class SectionController extends Controller
             'name' => "Untitled Section",
             'value' => "untitled_section",
         ]);
+
         // calculate position
         $template = Template::with(['pages' => function ($q) use ($request) {
             $q->where('id', $request->page_id)->with(['sections' => function($q) {
@@ -50,8 +51,9 @@ class SectionController extends Controller
             }]);
         }])->findOrFail($request->template_id);
 
+        $template_sections = $template->pages[0]->sections;  
         if(count($template->pages[0]->sections) > 0) {
-            $position = $section->pivot->position;
+            $position = $template_sections[0]->pivot->position;
         } else {
             $position = 0;
         }

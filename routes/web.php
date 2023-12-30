@@ -65,12 +65,16 @@ Route::get('/clone/template', function() {
     $branch = "painglay";
     $commitName ="first commit";
     $data = [
-        'template_id' => $url,
+        'remote_url' => $url,
         'branch_name' => $branch,
         'name' => $name,
     ];
-    $res = $template->cloneTemplate($data);
+    $res = $template->createTemplate($data);
     dd($res);
+});
+
+Route::get('/mini-sidebar', function() {
+    return Inertia::render('Test/Index');
 });
 
 require __DIR__.'/auth.php';

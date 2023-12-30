@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('value');
             $table->foreignId('component_id')->constrained('components')->onDelete('cascade');
-            $table->longText('content')->nullable()->comment('jsx content or htmlcontent');
-            $table->longText('skeleton')->nullable()->comment('jsx content or htmlcontent of skeleton structure');
+            $table->string('content')->nullable()->comment('jsx content or htmlcontent');
+            $table->string('skeleton')->nullable()->comment('jsx content or htmlcontent of skeleton structure');
             $table->boolean('isPremium')->default(false);
             $table->boolean('isShow')->default(true);
             $table->timestamps();

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Table } from 'flowbite-react'
 import { Link } from '@inertiajs/react'
+import { useContext } from 'react'
+import { DataContext } from '@/Context/DataContext'
 
 const Item = ({item}) => {
-    const handleEdit = () => {
-        //
-    }
+    const {handleEdit} = useContext(DataContext);
   return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={item.id}>
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">

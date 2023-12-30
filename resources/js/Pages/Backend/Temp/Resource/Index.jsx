@@ -8,7 +8,7 @@ import TempTabs from '../TempTabs';
 const Index = () => {
     const [openCreateModal, setOpenCreateModal] = useState(false)
   return (
-    <>
+    <>  
         <div className="p-3 border-2 rounded-md">
             <div className="flex justify-between">
                 <Breadcrumb>
@@ -16,6 +16,8 @@ const Index = () => {
                 </Breadcrumb>
                 <Button 
                     type="button"
+                    color='purple'
+                    size="sm"
                     onClick={() => setOpenCreateModal(true)}
                 >
                     Create Resource

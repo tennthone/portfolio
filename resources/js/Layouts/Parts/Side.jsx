@@ -1,7 +1,7 @@
 import { Link, router, usePage } from "@inertiajs/react";
 import React from "react";
-import { Button, Sidebar } from 'flowbite-react';
-import {HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUsers } from 'react-icons/hi';
+import {Sidebar } from 'flowbite-react';
+import {HiChartPie, HiInbox, HiUsers } from 'react-icons/hi';
 import { FaGears } from "react-icons/fa6";
 import { MdVerifiedUser } from "react-icons/md";
 import './app.css'
@@ -9,6 +9,9 @@ import { FaGlobe } from "react-icons/fa";
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IoLogoGithub } from "react-icons/io";
 import toast from "react-hot-toast";
+import { IoLogOut } from "react-icons/io5";
+import { GrTemplate } from "react-icons/gr";
+import { FaBoxOpen } from "react-icons/fa";
 
 const Side = () => {
     const {url} = usePage();
@@ -32,8 +35,8 @@ const Side = () => {
                         <Sidebar.Item icon={HiChartPie}> 
                             <Link href={route('admin.dashboard')}> Dashboard </Link>
                         </Sidebar.Item>
-                        <Sidebar.Collapse icon={HiShoppingBag} label="Template">
-                                <Sidebar.Item icon={LuLayoutTemplate}> 
+                        <Sidebar.Collapse icon={GrTemplate} label="Template">
+                                <Sidebar.Item icon={FaBoxOpen}> 
                                         <Link href={route('admin.template.component.index')}> Components </Link>
                                 </Sidebar.Item>
                                 <Sidebar.Item icon={HiInbox}> 
@@ -73,7 +76,7 @@ const Side = () => {
                             </Sidebar.Item>}
                         <Sidebar.Item href="#"> General Setting </Sidebar.Item>
                     </Sidebar.Collapse>
-                    <Sidebar.Item  icon={HiTable}>
+                    <Sidebar.Item  icon={IoLogOut}>
                         <Link 
                             onClick={() => handleLogout()}
                         > Logout </Link>

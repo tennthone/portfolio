@@ -9,6 +9,7 @@ const Details = () => {
     const [tags, setTags] = useState([])
     const initialData = {
         name : template.name, 
+        templateId : template.templateId,
     }
     const {data, setData} = useForm(initialData);
     const handleTags = (value) => {
@@ -46,9 +47,10 @@ const Details = () => {
                     <FloatingLabel 
                         variant="outlined" 
                         label="template id" 
-                        value={data.name}
+                        value={data.templateId}
                         helperText='Hint text to support user'
                         size="md"
+                        readOnly
                     />
                 </div>
             </div>

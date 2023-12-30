@@ -9,4 +9,4 @@ Route::post('/update/{id}', [ComponentController::class, 'update'])->name('admin
 
 // Component Designs 
 
-Route::prefix('component')->group(base_path('routes/admin/component-design.php'));
+Route::prefix('design')->group(base_path('routes/admin/component-design.php'));

@@ -5,7 +5,7 @@ import Page from './Page'
 
 const Pages = () => {
     const {pages} = usePage().props;
-    const [currentPage, setCurrentPage] = useState(1)
+    // const [currentPage, setCurrentPage] = useState(1)
     const onPageChange = () => {
         // do something 
     }
@@ -31,11 +31,11 @@ const Pages = () => {
         }
         </Table.Body>
     </Table>
-    <div className="flex md:justify-end overflow-x-auto sm:justify-center my-3">
+    {/* <div className="flex md:justify-end overflow-x-auto sm:justify-center my-3">
       {
         pages.length > 0  && <Pagination currentPage={currentPage} totalPages={100} onPageChange={onPageChange} />
       }
-    </div>
+    </div> */}
     </>
   )
 }

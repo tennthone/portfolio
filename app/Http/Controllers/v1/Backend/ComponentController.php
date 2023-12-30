@@ -29,6 +29,6 @@ class ComponentController extends Controller
             'max_no_loop' => $request->maxNoLoop,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('succss', "Component created successfully");
     }
 }

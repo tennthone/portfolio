@@ -49,7 +49,6 @@ export const BodyContent = ({data, setData, errors, templateUsage}) => {
     return (
         <div>
             {/* template name  */}
-            
                 <div className="my-3">
                     <div className="mb-2 block">
                         <Label htmlFor="email" value="Template အမည်" />
@@ -92,12 +91,12 @@ export const BodyContent = ({data, setData, errors, templateUsage}) => {
                 <>
                 <div className="my-3">
                     <div className="mb-2 block">
-                        <Label htmlFor="email" value="Template Id or Clone Url ထည့်ရန်*" />
+                        <Label htmlFor="email" value="Template Id ထည့်ရန်*" />
                     </div>
                     <FloatingLabel
-                        label="Template Id or Clone Url"
+                        label="Template Id"
                         variant="outlined"
-                        helperText="Clone မည့် Resource Template ၏ Id သို့မဟုတ် Clone Url အား ထည့်ပေးရန်"
+                        helperText="Clone မည့် Resource Template ၏ Id အား ထည့်ပေးရန်"
                         value={data.template_id}
                         onChange={(event) =>
                             setData("template_id", event.target.value)

@@ -8,10 +8,11 @@ const Items = () => {
     <div className="overflow-x-auto">
       <Table>
         <Table.Head>
-          <Table.HeadCell> No </Table.HeadCell>
+          <Table.HeadCell> TemplateId </Table.HeadCell>
           <Table.HeadCell> Name </Table.HeadCell>
           <Table.HeadCell> Remote Url </Table.HeadCell>
           <Table.HeadCell> Branch Name </Table.HeadCell>
+          <Table.HeadCell> CreatedBy </Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>

@@ -7,6 +7,7 @@ export const DataContext = createContext(null)
 export const DataProvider = ({children}) => {
     const [openFieldModal, setOpenFieldModal] = useState(false);
     const [openCreateFieldModal, setOpenCreateFieldModal] = useState(false);
+    const [openEditFieldModal, setOpenEditFieldModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState(false);
     const { data, setData, reset, transform} = useForm({
@@ -36,6 +37,7 @@ export const DataProvider = ({children}) => {
         });
     }
     const [showAlert, setShowAlert] = useState(true);
+
     const changeFieldType = () => {
         setOpenCreateFieldModal(false);
         setOpenFieldModal(true);
@@ -56,15 +58,22 @@ export const DataProvider = ({children}) => {
         setOpenCreateFieldModal(true)
     }
 
+    const handleEdit = () => {
+        setOpenEditFieldModal(true)
+    }
+
     return (
         <DataContext.Provider value={{
             openFieldModal,
             setOpenFieldModal,
             openCreateFieldModal,
             setOpenCreateFieldModal,
+            openEditFieldModal,
+            setOpenEditFieldModal,
             handleFieldSelect,
             handleAddField,
             changeFieldType,
+            handleEdit,
             submit,
             setData,
             loading,

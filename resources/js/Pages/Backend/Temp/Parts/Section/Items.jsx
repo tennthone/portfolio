@@ -43,7 +43,6 @@ const Items = () => {
                 <Tabs.Item active title="Details" icon={FcViewDetails}>
                 </Tabs.Item>
             </Tabs>
-            <Toaster position="top-right" />
         </div>
     </>
   )

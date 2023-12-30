@@ -1,7 +1,7 @@
 import FrontendLayout from '@/Layouts/FrontendLayout'
 import React, { useContext} from 'react'
 import { FaFilePen, FaFolderPlus, FaFolder} from "react-icons/fa6";
-import { Breadcrumb} from 'flowbite-react';
+import { Breadcrumb, Button, Tooltip} from 'flowbite-react';
 import Delete from './Delete';
 import { getTrimPath } from '@/Helper/helper';
 import { Toaster } from 'react-hot-toast';
@@ -48,18 +48,27 @@ const FileStructure = ({contents, template,  base_path}) => {
                 </Breadcrumb>
                 </div>
                 <div className="flex justify-between items-center">
-                    <button 
-                        type="button"
-                        className="bg-indigo-700 text-white p-2 text-sm rounded-md me-2" onClick={() => addFile()}>
-                        <span> <FaFilePen size={20} className='me-2 inline' /></span> 
-                        <span>  Add File </span>
-                    </button>
-                    <button 
-                        type="button"
-                        className="bg-indigo-700 text-white p-2 text-sm rounded-md" onClick={() => addFolder()}>
-                        <span> <FaFolderPlus size={20} className='me-2 inline' /></span> 
-                        <span>  Add Folder </span>
-                    </button>
+                    <Tooltip content="File အသစ်ဖန်တီးမည်">
+                        <Button 
+                            size="sm"
+                            type="button"
+                            color='indigo'
+                            onClick={() => addFile()}
+                            className='me-3'
+                        >
+                                <FaFilePen size={20} className='me-2 inline' />
+                        </Button>
+                    </Tooltip> 
+                    <Tooltip content="Folder အသစ်ဖန်တီးမည်"> 
+                        <Button
+                            size="sm" 
+                            type="button"
+                            color='indigo'
+                            onClick={() => addFolder()}
+                        >
+                                <FaFolderPlus size={20} className='me-2 inline' />
+                        </Button>
+                    </Tooltip> 
                 </div>
             </div>
         </div>

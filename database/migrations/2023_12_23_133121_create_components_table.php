@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('value');
+            $table->mediumText('description')->nullable();
             $table->boolean('loopable')->default(false);
             $table->integer('max_no_loop')->default(0);
             $table->timestamps();

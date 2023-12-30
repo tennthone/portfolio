@@ -19,7 +19,11 @@ const Index = () => {
                         <Link href={route('admin.template.component.index')} > Components </Link>
                     </Breadcrumb.Item>
                 </Breadcrumb>
-                <Button onClick={() => setOpenCreateModal(true)}> Create Component</Button>
+                <Button 
+                    size="sm"
+                    color='purple'
+                    onClick={() => setOpenCreateModal(true)}
+                > Create Component</Button>
             </div>
         </div>
 
