@@ -1,5 +1,5 @@
 import { router, useForm } from "@inertiajs/react";
-import { Button, FloatingLabel, Label } from "flowbite-react";
+import { FloatingLabel } from "flowbite-react";
 import React from "react";
 
 const Login = () => {
