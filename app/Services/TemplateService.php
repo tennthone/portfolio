@@ -26,6 +26,7 @@ use Illuminate\Validation\ValidationException;
                         'message' => "Template Resource Successfully",
                     ];
                 } else {
+                    $res['data']->delete();
                     throw ValidationException::withMessages([
                         'name' => "Name already exists",
                     ]);
@@ -57,23 +58,33 @@ use Illuminate\Validation\ValidationException;
 
         private function createTemplate(array $templateData) {
             try {
-                DB::transaction(function() use($templateData) {
+                $result = DB::transaction(function() use($templateData) {
                         $template = Template::create([
                             'name' => $templateData['name'],
                             'isResource' => $templateData['template_usage'] == 'resource' ? true : false,
                         ]);
                 
                         // create git info 
-                        $base_path = storage_path('app/resources/'.$template->name);
+                        $base_path = 'app/resources/'.$template->name;
                         GitInfo::create([
                             'template_id' => $template->id,
                             'base_path' => $base_path,
                             'remote_url' => $templateData['remote_url'],
                             'branch_name' => $branch_name ?? 'main'
                         ]);
+
+                        return $template;
                 });
+                return [
+                    'success' => true,
+                    'message' => "Clone Successfully",
+                    'data' => $result
+                ];
             } catch(\Exception $e) {    
-                dd($e->getMessage());
+                return [
+                    'success' => false,
+                    'message' => $e->getMessage(),
+                ];
             }
         }
 
@@ -96,7 +107,7 @@ use Illuminate\Validation\ValidationException;
                         // duplicate gitinfo 
                         $duplicateGitInfo = $template->git_info->replicate();
                         $duplicateGitInfo->branch_name = $templateData['branch_name'];
-                        $base_path = storage_path('app/resources/'.$duplicateTemplate->name);
+                        $base_path = 'app/resources/'.$duplicateTemplate->name;
                         $duplicateGitInfo->base_path = $base_path;
                         $duplicateGitInfo->template_id = $duplicateTemplate->id;
                         $duplicateGitInfo->save();

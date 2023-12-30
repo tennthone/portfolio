@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\File;
 
 class FolderController extends Controller
 {
+
     public function renameFolder(Request $request) {
-        $path = $request->path;
-        $destination = $request->destination;
+        $path = storage_path($request->path);
+        $destination = storage_path($request->destination);
         try {
             if (!File::exists($destination)) {
                 File::moveDirectory($path, $destination);
@@ -23,18 +24,16 @@ class FolderController extends Controller
         return redirect()->back();
     }
 
-
     public function deleteFolder(Request $request) {
-        $path = $request->base_path;
+        $path = storage_path($request->base_path);
         if(File::exists($path)) {
             File::deleteDirectory($path);
         }
         return redirect()->back();
     }
 
-
     public function addFolder(Request $request) {
-        $path = $request->base_path. '/' . 'New Folder';
+        $path = storage_path($request->base_path. '/' . 'New Folder');
         if(!File::exists($path)) {
             File::makeDirectory($path);
         }

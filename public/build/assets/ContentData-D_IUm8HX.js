@@ -1,1 +1,0 @@
-import{j as t}from"./app-lkKf3o5q.js";import r from"./Items-IJV3eHPy.js";import"./ToggleSwitch-EIG7NZJD.js";import"./index.esm-3CuJbbKb.js";import"./Content-FFaDYz2C.js";const a=()=>t.jsx(t.Fragment,{children:t.jsx("div",{className:"my-3",children:t.jsx(r,{})})});export{a as default};

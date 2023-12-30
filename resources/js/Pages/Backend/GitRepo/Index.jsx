@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import Create from './Create'
 import Delete from './Delete'
 import Items from './Items'
+import { Breadcrumb, Button } from 'flowbite-react'
+import { Link } from '@inertiajs/react'
+import { IoLogoGithub } from 'react-icons/io'
 
 const Index = ({repos}) => {
     const [openCreateModal, setOpenCreateModal] = useState(false)
@@ -17,12 +20,18 @@ const Index = ({repos}) => {
     <div>
         <div className="p-3 border-2 rounded-md">
             <div className="flex justify-between">
-                <p className="text-xl font-bold"> GitHub Repositories </p>
-                <button 
+                <Breadcrumb>
+                    <Breadcrumb.Item icon={IoLogoGithub}>
+                        <Link> GitHub Repositories</Link>
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+                <Button
+                    size="sm"
+                    color='indigo' 
                     type="button"
-                    className="bg-indigo-700 text-white p-2 rounded-md" onClick={() => setOpenCreateModal(true)}>
+                    onClick={() => setOpenCreateModal(true)}>
                     Create Repository
-                </button>
+                </Button>
             </div>
         </div>
         

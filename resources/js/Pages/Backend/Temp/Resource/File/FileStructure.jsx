@@ -9,9 +9,11 @@ import { GrTemplate } from 'react-icons/gr';
 import { FileContext, FileProvider } from '@/Context/FileContext';
 import Folders from './Folders';
 import Files from './Files';
+import { Link } from '@inertiajs/react';
 
 const FileStructure = ({contents, template,  base_path}) => {
     const breadcrumb = getTrimPath(base_path);
+    console.log(breadcrumb)
     const {handleAdd} = useContext(FileContext)
 
     const addFolder = () => {
@@ -29,15 +31,17 @@ const FileStructure = ({contents, template,  base_path}) => {
                 <div>
                 <Breadcrumb aria-label="Default breadcrumb example">
                     <Breadcrumb.Item 
-                        href={route(template.isResource ? 'admin.template.resource' : 'admin.template.website')}
                         icon={GrTemplate}
                     > 
-                        Templates 
+                        <Link href={route(template.isResource ? 'admin.template.resource' : 'admin.template.website')}>
+                            Templates 
+                        </Link>
                     </Breadcrumb.Item>
                     {   
                         Object.entries(breadcrumb).map(([key, value], index) => (
-                            <Breadcrumb.Item href={route('admin.template.files-folders', {id : template.id, base_path : value})} icon={FaFolder} key={index}>
-                                {key}
+                            <Breadcrumb.Item 
+                                 icon={FaFolder} key={index}>
+                                <Link href={route('admin.template.files-folders', {id : template.id, base_path : value})}> {key} </Link>
                             </Breadcrumb.Item>
                         ))
                     }

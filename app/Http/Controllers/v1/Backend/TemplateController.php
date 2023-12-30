@@ -46,7 +46,7 @@ class TemplateController extends Controller
         );
         
         $template = new TemplateService();
-        if($request->templateUsage == "resource") {
+        if($request->template_usage == "resource") {
             $res= $template->createResource($templateData);
         } else {
             $res = $template->createWebsite($templateData);

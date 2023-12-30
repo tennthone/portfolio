@@ -1,6 +1,6 @@
-import { Link, usePage } from "@inertiajs/react";
+import { Link, router, usePage } from "@inertiajs/react";
 import React from "react";
-import { Sidebar } from 'flowbite-react';
+import { Button, Sidebar } from 'flowbite-react';
 import {HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUsers } from 'react-icons/hi';
 import { FaGears } from "react-icons/fa6";
 import { MdVerifiedUser } from "react-icons/md";
@@ -8,10 +8,22 @@ import './app.css'
 import { FaGlobe } from "react-icons/fa";
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IoLogoGithub } from "react-icons/io";
+import toast from "react-hot-toast";
 
 const Side = () => {
     const {url} = usePage();
     const {permissions} = usePage().props;
+
+    const handleLogout = () => {
+        router.post(route('admin.logout'), {}, {
+            onSuccess : () => {
+                toast.success("Logout successfully")
+            },
+            onError : () => {
+
+            }
+        })
+    }
     return (
         <>  
             <Sidebar aria-label="Sidebar with multi-level dropdown example">
@@ -62,7 +74,9 @@ const Side = () => {
                         <Sidebar.Item href="#"> General Setting </Sidebar.Item>
                     </Sidebar.Collapse>
                     <Sidebar.Item  icon={HiTable}>
-                        <Link href={route('admin.logout')} method="post"> Logout </Link>
+                        <Link 
+                            onClick={() => handleLogout()}
+                        > Logout </Link>
                     </Sidebar.Item>
                     </Sidebar.ItemGroup>
                 </Sidebar.Items>

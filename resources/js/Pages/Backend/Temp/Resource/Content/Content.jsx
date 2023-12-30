@@ -22,7 +22,7 @@ const Content = ({item}) => {
                 </Link>
             </Table.Cell>
             <Table.Cell> {item.git_info.remote_url} </Table.Cell>
-            <Table.Cell> {item.git_info.base_path} </Table.Cell>
+            <Table.Cell> {item.git_info.branch_name} </Table.Cell>
             <Table.Cell>
                 <a
                     href="#"

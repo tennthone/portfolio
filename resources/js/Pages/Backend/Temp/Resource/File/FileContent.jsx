@@ -32,10 +32,11 @@ const FileContent = ({fileContent, base_path, template_id}) => {
       <div className="mx-5 flex justify-between my-3 items-center">
         <Breadcrumb aria-label="Default breadcrumb example">
             <Breadcrumb.Item 
-                href={route('admin.template.resource')}
                 icon={GrTemplate}
             > 
+              <Link href={route('admin.template.resource')}> 
                 Templates 
+              </Link>
             </Breadcrumb.Item>
             {
                 Object.entries(breadcrumb).map(([key, value], index) => (
