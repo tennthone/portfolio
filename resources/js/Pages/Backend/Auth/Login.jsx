@@ -1,6 +1,6 @@
+import React from "react";
 import { router, useForm } from "@inertiajs/react";
 import { FloatingLabel } from "flowbite-react";
-import React from "react";
 
 const Login = () => {
     const {data, setData} = useForm({
