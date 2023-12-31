@@ -9,9 +9,10 @@ import { Link } from "@inertiajs/react";
 import { BsClipboard2Data } from "react-icons/bs";
 import Items from "./Items";
 import { DataProvider } from "@/Context/DataContext";
+import {SectionDataProvider } from "@/Context/SectionDataContext";
+import UseComponent from "./Component/UseComponent";
 
 const Index = ({page_id, template_id, section}) => {
-    console.log(template_id)
     return (
         <div>
             <Toaster position="top-center" />
@@ -48,12 +49,17 @@ const Index = ({page_id, template_id, section}) => {
 
             {/* Items to show  */}
             <Items />
+
+            {/* Use Component Modal  */}
+            <UseComponent />
         </div>
     );
 };
 
 Index.layout = (page) => 
 <DataProvider>
-    <FrontendLayout children={page} />;
+    <SectionDataProvider>
+        <FrontendLayout children={page} />;
+    </SectionDataProvider>
 </DataProvider>
 export default Index;

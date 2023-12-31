@@ -2,10 +2,16 @@ import React from 'react'
 import { Modal, Button} from 'flowbite-react'
 import {HiOutlineExclamationCircle} from 'react-icons/hi'
 
-const DeleteModal = ({openDeleteModal, setOpenDeleteModal, title, handleClick, loading}) => {
+const DeleteModal = ({
+    openModal, 
+    setOpenModal, 
+    title, 
+    handleDelete, 
+    loading
+  }) => {
   return (
     <div>
-      <Modal show={openDeleteModal} size="md" onClose={() => setOpenDeleteModal(false)} popup>
+      <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
         <Modal.Header />
         <Modal.Body>
           <div className="text-center">
@@ -14,10 +20,15 @@ const DeleteModal = ({openDeleteModal, setOpenDeleteModal, title, handleClick, l
               Are you sure you want to delete this {title}?
             </h3>
             <div className="flex justify-center gap-4">
-              <Button color="failure" onClick={() => handleClick(false)}>
-                {loading ? "Deleting" : "Yes, I'm sure"}
+              <Button 
+                color="failure" 
+                onClick={() => handleDelete(false)}
+                processingLabel='Saving'
+                isProcessing={loading}
+              >
+                Delete
               </Button>
-              <Button color="gray" onClick={() => setOpenDeleteModal(false)}>
+              <Button color="gray" onClick={() => setOpenModal(false)}>
                 No, cancel
               </Button>
             </div>

@@ -17,4 +17,8 @@ class Section extends Model
     public function fields() {
         return $this->morphMany(Field::class, 'fieldable');
     }
+
+    public function component_designs() {
+        return $this->belongsToMany(ComponentDesign::class, 'component_section', 'section_id', 'component_design_id');
+    }
 }

@@ -8,14 +8,18 @@ use App\Models\Section;
 use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SectionComponentResource;
 
 class SectionDataController extends Controller
 {
     public function index(Request $request) {
         $section_id = $request->section_id;
-        $components = Component::with('designs')->get();
-        $section = Section::find($section_id);
+        if($request->use_component) {
+            $components = Component::with('designs')->get();
+        }
 
+        $section = Section::with(['component_designs'])->findOrFail($section_id);
+        $sectionResource = new SectionComponentResource($section);
         // Filter content fields
         $contents = $section->fields->filter(function ($item) {
             return $item->data_type == "content";
@@ -29,86 +33,38 @@ class SectionDataController extends Controller
         return Inertia::render('Backend/Temp/Parts/SectionData/Index', [
             'contents' => $contents,
             'designs' => $designs,
-            'components' => $components,
-            'section' => $section,
+            'components' => isset($components) ? $components : [],
+            'section' => $sectionResource,
             'template_id' => $request->template_id,
             'page_id' => $request->page_id,
         ]);
     }
 
-    public function section_components() {
-        $section_id = request()->section_id;
-        $components = Component::with('designs')->get();
-        $section = Section::with('component_designs')->find($section_id);
-        $section_cpts = $section->component_designs;
-        return Inertia::render('Backend/SectionData/Component', [
-            'section_id' => $section_id,
-            'section_cpts' => $section_cpts,
-            'components' => $components,
-            'fieldResponse' => '',
-        ]);
-    }
-
-    public function section_components_store(Request $request) {
+    public function store(Request $request) {
         $request->validate([
             'section_id' => 'required',
-            'component_design_id' => 'required',
+            'design_id' => 'required',
         ]);
 
-        // try {
-        //     ComponentSection::create([
-        //         'component_design_id' => $request->component_design_id,
-        //         'section_id' => $request->section_id,
-        //     ]);
-        // } catch (\Exception $e) {
-        //     dd($e->getMessage());
-        // }
+        try {
+            $section = Section::with('component_designs')->find($request->section_id);
+            $section->component_designs()->attach($request->design_id);
+            return redirect()->back()->with('success', 'Component Set Up Successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('success', $e->getMessage());
+        }
         return redirect()->back();
     }
 
-    public function contentStore(Request $request)   {
-        $request->validate([
-            'name' => 'required',
-            'value' => 'required',
-            'type' => 'required',
-            'section_id' => 'required',
-        ]);
-
-        $section = Section::find($request->section_id);
+    public function removeComponentDesign(Request $request, $id) {
+        $section_id = $request->section_id;
+        $section = Section::find($section_id);
 
         if($section) {
-            $section->fields()->create([
-                'name' => $request->name,
-                'value' => $request->value,
-                'type' => $request->type,
-                'option' => $request->option,
-                'data_type' => $request->data_type,
-            ]);
+            $section->component_designs()->detach($id);
+            return redirect()->back()->with('success', 'Component Design Remove Succesfully');
+        } else {
+            return redirect()->back()->with('success', 'Section Do not exist');
         }
-
-        return redirect()->back();
-    }
-
-    public function design_store(Request $request) {
-        $request->validate([
-            'name' => 'required',
-            'value' => 'required',
-            'type' => 'required',
-            'section_id' => 'required',
-        ]);
-
-        $section = Section::find($request->section_id);
-
-        if($section) {
-            $section->fields()->create([
-                'name' => $request->name,
-                'value' => $request->value,
-                'type' => $request->type,
-                'option' => $request->option,
-                'data_type' => 'design',
-            ]);
-        }
-
-        return redirect()->back();
     }
 }

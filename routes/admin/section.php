@@ -12,3 +12,5 @@ Route::post('/change-status', [SectionController::class, 'changeStatus'])->name(
 // Section Data 
 
 Route::get('/data', [SectionDataController::class, 'index'])->name('admin.template.section.data');
+Route::post('/data/store', [SectionDataController::class, 'store'])->name('admin.template.section.data.store');
+Route::post('/data/component-design/delete/{id}', [SectionDataController::class, 'removeComponentDesign'])->name('admin.template.section.component-design.delete');

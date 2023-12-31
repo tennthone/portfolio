@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('component_design_id')->constrained('component_designs')->onDelete('cascade');
             $table->foreignId('section_id')->constrained('sections')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
