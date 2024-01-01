@@ -6,11 +6,27 @@ import toast, { Toaster } from "react-hot-toast";
 const Create = ({ openCreateModal, setOpenCreateModal }) => {
     const { repos } = usePage().props;
     const [loading, setLoading] = useState(false);
+    const [loadingText, setLoadingText] = useState('');
     const [errors, setErrors] = useState(null);
     const { data, setData, reset } = useForm({
         name: "",
         description: "",
     });
+
+    function addFilesToRepo() {
+        setLoadingText("Generating Files. Please Wait!")
+        router.post(route('admin.gitrepo.commit'), {repoName : data.name}, {
+            onSuccess : () => {
+                setLoading(false);
+                setOpenCreateModal(false);
+                toast.success("Repo created successfully");
+                reset();
+            },
+            onError : () => {
+
+            }
+        })
+    }
 
     function submit(e) {
         e.preventDefault();
@@ -20,12 +36,10 @@ const Create = ({ openCreateModal, setOpenCreateModal }) => {
             return false;
         }
         setLoading(true);
+        setLoadingText("Creating repository. Please Wait!")
         router.post(route("admin.gitrepo.store"), data, {
             onSuccess: () => {
-                setLoading(false);
-                setOpenCreateModal(false);
-                toast.success("Repo created successfully");
-                reset();
+                addFilesToRepo();
             },
             onError: (err) => {
                 setErrors(err);
@@ -111,9 +125,8 @@ const Create = ({ openCreateModal, setOpenCreateModal }) => {
                             type="submit"
                             color="purple"
                             isProcessing={loading}
-                            processingLabel="Creating"
                         >
-                            Create 
+                            {loading ? loadingText : 'Create'} 
                         </Button>
                     </div>
                 </Modal.Footer>

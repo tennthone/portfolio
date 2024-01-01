@@ -37,6 +37,7 @@ Route::post('folder/rename', [FolderController::class, 'renameFolder'])->name('a
 Route::get('/git-repos', [GitRepoController::class, 'index'])->name('admin.gitrepo.index');
 Route::post('/git-repos/store', [GitRepoController::class, 'store'])->name('admin.gitrepo.store');
 Route::delete('/git-repos/delete/{name}', [GitRepoController::class, 'delete'])->name('admin.gitrepo.delete');
+Route::post('/git-repo/commit', [GitRepoController::class, 'initialSetUp'])->name('admin.gitrepo.commit');
 
 // git action 
 Route::post('/git-action/push', [GitHubActionController::class, 'git_push'])->name('admin.gitaction.push');

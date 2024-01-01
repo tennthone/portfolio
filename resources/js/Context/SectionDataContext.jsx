@@ -13,6 +13,7 @@ export const SectionDataProvider = ({children}) => {
     const {page_id, template_id, section, flash} = usePage().props;
     const [deleteId, setDeleteId] = useState('');
     const initData = {
+        'template_id' : template_id,
         'section_id' : section.id,
         'design_id' : '',
     }

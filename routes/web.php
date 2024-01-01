@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\v1\Backend\AuthController;
 use App\Services\GitHubActionService;
+use App\Services\GitHubRepoService;
+use App\Services\TemplateGenerationService;
 use App\Services\TemplateService;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -73,8 +75,19 @@ Route::get('/clone/template', function() {
     dd($res);
 });
 
+Route::get('/generate/template', function() {
+    $template = new TemplateGenerationService(1);
+    $res = $template->generateTemplate();
+});
+
 Route::get('/mini-sidebar', function() {
     return Inertia::render('Test/Index');
+});
+
+Route::get('/add-files-to-repo', function() {
+    $gitrepo = new GitHubRepoService();
+    $res = $gitrepo->addFolderToRepo('temp-resource', storage_path('app/twig-resource'));
+    dd($res);
 });
 
 require __DIR__.'/auth.php';

@@ -15,7 +15,7 @@ class GitHubActionService implements GitHubActionInterface {
     public function pull($templateName, $branchName = "main")
     {
         try {
-            $repositoryPath = storage_path("app/resources/$templateName");
+            $repositoryPath = storage_path("app/public/resources/$templateName");
             $this->git->setRepository($repositoryPath);
             $this->git->pull('origin', $branchName); 
             return [
@@ -33,7 +33,7 @@ class GitHubActionService implements GitHubActionInterface {
     public function push($templateName, $branchName = "main", $commitName="first commit", $repoUrl)
     {
         try {
-            $repositoryPath = storage_path("app/resources/$templateName");
+            $repositoryPath = storage_path("app/public/resources/$templateName");
             if(!File::isEmptyDirectory($repositoryPath)) {
                 $this->git->setRepository($repositoryPath);
                 $this->git->add($repositoryPath);
@@ -59,7 +59,7 @@ class GitHubActionService implements GitHubActionInterface {
 
     public function clone($repositoryUrl, $templateName)
     {   
-        $repositoryPath = storage_path("app/resources/$templateName");
+        $repositoryPath = storage_path("app/public/resources/$templateName");
         if(!File::isDirectory($repositoryPath)) {
             $this->git->clone($repositoryUrl, $repositoryPath);
             return [
@@ -79,7 +79,7 @@ class GitHubActionService implements GitHubActionInterface {
     public function cloneAndCreateBranch($repositoryUrl, $branchName, $templateName)
     {   
         try {
-            $repositoryPath = storage_path("app/resources/$templateName");
+            $repositoryPath = storage_path("app/public/resources/$templateName");
             $this->git->clone($repositoryUrl, $repositoryPath);
             $this->git->setRepository($repositoryPath);
             $this->git->checkout->create($branchName);
@@ -92,7 +92,7 @@ class GitHubActionService implements GitHubActionInterface {
         } catch (\Exception $e) {
             return [
                 'success' => false,
-                'message' => "Directory already exists",
+                'message' => $e->getMessage(),
                 'path' => null,
             ];
         }

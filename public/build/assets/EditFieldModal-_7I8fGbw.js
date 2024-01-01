@@ -1,1 +1,0 @@
-import{j as o}from"./app-vArPckAo.js";import{M as r}from"./ToggleSwitch-_xKPNipu.js";import"./index.esm-qEsYcJuO.js";const s=()=>o.jsxs(r,{children:[o.jsx(r.Header,{children:" Edit Field "}),o.jsx(r.Body,{}),o.jsx(r.Footer,{})]});export{s as default};

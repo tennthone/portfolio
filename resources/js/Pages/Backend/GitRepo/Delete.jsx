@@ -22,10 +22,10 @@ const Delete = ({openDeleteModal, setOpenDeleteModal, repoName}) => {
   return (
     <div>
       <DeleteModal 
-        openDeleteModal={openDeleteModal}
-        setOpenDeleteModal={setOpenDeleteModal}
+        openModal={openDeleteModal}
+        setOpenModal={setOpenDeleteModal}
         title="repository"
-        handleClick={handleClick}
+        handleDelete={handleClick}
         loading={loading}
       />
       <Toaster 

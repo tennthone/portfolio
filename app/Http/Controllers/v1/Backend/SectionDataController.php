@@ -9,6 +9,9 @@ use App\Models\Component;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SectionComponentResource;
+use App\Models\ComponentDesign;
+use App\Models\Template;
+use Illuminate\Support\Facades\File;
 
 class SectionDataController extends Controller
 {
@@ -40,20 +43,27 @@ class SectionDataController extends Controller
         ]);
     }
 
-    public function store(Request $request) {
+    public function addComponentDesign(Request $request) {
         $request->validate([
             'section_id' => 'required',
             'design_id' => 'required',
+            'template_id' => 'required',
         ]);
 
-        try {
-            $section = Section::with('component_designs')->find($request->section_id);
-            $section->component_designs()->attach($request->design_id);
-            return redirect()->back()->with('success', 'Component Set Up Successfully');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('success', $e->getMessage());
+        $template_id = $request->template_id;
+        $res = $this->addComponentFilesToTemplate($template_id, $request->design_id);
+        
+        if($res['success']) {
+            try {
+                $section = Section::with('component_designs')->find($request->section_id);
+                $section->component_designs()->attach($request->design_id);
+                return redirect()->back()->with('success', 'Component Set Up Successfully');
+            } catch (\Exception $e) {
+                return redirect()->back()->with('success', $e->getMessage());
+            }
+        } else {
+            return redirect()->back()->with('success', $res['message']);
         }
-        return redirect()->back();
     }
 
     public function removeComponentDesign(Request $request, $id) {
@@ -65,6 +75,36 @@ class SectionDataController extends Controller
             return redirect()->back()->with('success', 'Component Design Remove Succesfully');
         } else {
             return redirect()->back()->with('success', 'Section Do not exist');
+        }
+    }
+
+    public function addComponentFilesToTemplate(int $template_id, int $design_id) {
+        $template = Template::find($template_id);
+        $design = ComponentDesign::with('component')->find($design_id);
+        $path = storage_path('app/public/resources/'. $template->name .'/components');
+        try {
+            // make directory
+
+            File::makeDirectory($path . '/' .$design->component->value);
+
+            // add files 
+            File::put($path .'/' .$design->component->value. '/content.html', file_get_contents(storage_path('app/components/'.$design->value. '/content.html')) );
+            File::put($path .'/' .$design->component->value. '/skeleton.html', file_get_contents(storage_path('app/components/'.$design->value. '/skeleton.html')));
+            return [
+                'success' => true,
+                'message' => 'File Created Successfully'
+            ];
+
+        } catch(\Exception $e) {
+            File::deleteDirectory($path . '/' .$design->component->value);
+
+            // add files 
+            File::delete(storage_path($path .'/'.$design->value. '/content.html'));
+            File::delete(storage_path($path.'/'.$design->value. '/skeleton.html'));
+            return [
+                'success' => false,
+                'message' => $e->getMessage(),
+            ];
         }
     }
 }

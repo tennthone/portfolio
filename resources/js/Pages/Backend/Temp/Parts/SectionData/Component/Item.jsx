@@ -3,6 +3,7 @@ import { Button, Table, Tooltip } from 'flowbite-react'
 import { FaTrash } from 'react-icons/fa6'
 import { useContext } from 'react'
 import { SectionDataContext } from '@/Context/SectionDataContext'
+import DeleteButton from '@/Pages/Backend/components/DeleteButton'
 
 const Item = ({item}) => {
     const {handleOpenDeleteModal} = useContext(SectionDataContext)
@@ -18,13 +19,10 @@ const Item = ({item}) => {
             </Table.Cell>
             <Table.Cell> {item.name} </Table.Cell>
             <Table.Cell>
-                <Tooltip content="Component Design ဖျက်သိမ်းမည်">
-                        <FaTrash 
-                            className='text-red-700'  
-                            size={20}
-                            onClick={() =>handleOpenDeleteModal(item.id)}
-                        />
-                </Tooltip>
+                <DeleteButton 
+                    handleDelete={handleOpenDeleteModal}
+                    param={item.id}
+                />
             </Table.Cell>
         </Table.Row>
   )

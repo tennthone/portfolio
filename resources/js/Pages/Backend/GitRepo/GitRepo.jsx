@@ -1,5 +1,7 @@
 import React from "react";
 import { Table, Button} from "flowbite-react";
+import { Tooltip } from "@mui/material";
+import DeleteButton from "../components/DeleteButton";
 
 const GitRepo = ({item, id, handleClick}) => {
     return (
@@ -21,13 +23,10 @@ const GitRepo = ({item, id, handleClick}) => {
                 </a>
             </Table.Cell>
             <Table.Cell>
-                <Button 
-                    size="sm"
-                    color="failure" 
-                    onClick={() => handleClick(item.name)}
-                >
-                    ဖျက်သိမ်းမည်
-                </Button>
+                <DeleteButton 
+                    handleDelete={handleClick}
+                    param={item.name}
+                />
             </Table.Cell>
         </Table.Row>
     );

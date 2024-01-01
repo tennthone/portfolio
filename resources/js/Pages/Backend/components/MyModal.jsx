@@ -1,5 +1,6 @@
 import { router, usePage } from "@inertiajs/react";
 import { Button, Modal } from "flowbite-react";
+import { useEffect } from "react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -27,7 +28,7 @@ const MyModal = ({
             onSuccess: () => {
                 setLoading(false);
                 setOpenModal(false);
-                if (flash.success != null) {
+                if (flash.success) {
                     toast.success(flash.success);
                 } else {
                     toast.error(flash.error);
@@ -40,6 +41,14 @@ const MyModal = ({
             },
         });
     }
+
+    // useEffect(() => {
+    //     if (flash.success) {
+    //         toast.success(flash.success);
+    //     } else {
+    //         toast.error(flash.error);
+    //     }
+    // }, [flash.success, flash.error])
 
     return (
         <>

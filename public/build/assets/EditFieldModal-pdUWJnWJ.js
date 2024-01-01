@@ -1,0 +1,1 @@
+import{j as o}from"./app-igVa-R5E.js";import{M as r}from"./ToggleSwitch-JLHSpZi5.js";import"./index.esm-MmHR2leS.js";const s=()=>o.jsxs(r,{children:[o.jsx(r.Header,{children:" Edit Field "}),o.jsx(r.Body,{}),o.jsx(r.Footer,{})]});export{s as default};

@@ -28,8 +28,13 @@ class ClearStorage extends Command
     public function handle()
     {
         Artisan::call('migrate:fresh --seed');
-        $base_path = storage_path('app/resources');
+        $base_path = storage_path('app/public/resources');
         $success = File::cleanDirectory($base_path);
+
+        // Clean components 
+        $path = storage_path('app/public/components');
+        $res = File::cleanDirectory($path);
+
         if ($success) {
             $this->info("Files and folders in '$base_path' have been successfully cleared.");
         } else {

@@ -1,5 +1,5 @@
 export const  getTrimPath = (path) => {
-    const prefix = "app/resources/";
+    const prefix = "app/public/resources/";
     const trimmedPath = path.replace(new RegExp(`^${prefix}`), '');
     const pathParts =   trimmedPath.split('/');
     const result = pathParts.reduce((acc, part, index) => {

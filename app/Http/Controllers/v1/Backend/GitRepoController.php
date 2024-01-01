@@ -38,11 +38,22 @@ class GitRepoController extends Controller
         $name = $request->name;
         $description = $request->description;
         $this->git->createRepo($name, $description);
-        return to_route('admin.gitrepo.index');
+        return to_route('admin.gitrepo.index')->with('success', 'repo created successfully');
     }
 
     public function delete($name) {
         $this->git->deleteRepo($name);
         return redirect()->back();
+    }
+
+    public function initialSetUp(Request $request) {
+        $path = storage_path('app/twig-resource');
+        $repoName = $request->repoName;
+        $res = $this->git->addFolderToRepo($repoName, $path);
+        if($res['success']) {
+            return redirect()->back()->with('success', $res['message']);
+        } else {
+            return redirect()->back()->with('error', $res['message']);
+        }
     }
 }

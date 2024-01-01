@@ -37,8 +37,9 @@ class TemplateService {
 
     public function createWebsite(array $templateData) {
         $res = $this->cloneTemplate($templateData);
+        $remote_url = $res['data']->git_info->remote_url;
         if($res['success']) {
-            $gitResponse = $this->gitservice->cloneAndCreateBranch($templateData['template_id'], $templateData['branch_name'],$templateData['name']);
+            $gitResponse = $this->gitservice->cloneAndCreateBranch($remote_url, $templateData['branch_name'],$templateData['name']);
             if($gitResponse['success']) {
                 return [
                     'success' => true,
@@ -75,7 +76,7 @@ class TemplateService {
                     ]);
             
                     // create git info 
-                    $base_path = 'app/resources/'.$template->name;
+                    $base_path = 'app/public/resources/'.$template->name;
                     GitInfo::create([
                         'template_id' => $template->id,
                         'base_path' => $base_path,
@@ -100,11 +101,10 @@ class TemplateService {
 
     public function cloneTemplate(array $templateData) {
         $template = Template::with('git_info')
-                    ->whereHas('git_info', function($q) use ($templateData) {
-                        $q->where('templateId', $templateData['template_id']);
-                    })
+                    ->where('templateId', $templateData['template_id'])
                     ->where('isResource', 1)
                     ->first();
+
         if ($template) {
             try {
                 $result = DB::transaction(function() use($template, $templateData) {
@@ -120,7 +120,7 @@ class TemplateService {
                     // duplicate gitinfo 
                     $duplicateGitInfo = $template->git_info->replicate();
                     $duplicateGitInfo->branch_name = $templateData['branch_name'];
-                    $base_path = 'app/resources/'.$duplicateTemplate->name;
+                    $base_path = 'app/public/resources/'.$duplicateTemplate->name;
                     $duplicateGitInfo->base_path = $base_path;
                     $duplicateGitInfo->template_id = $duplicateTemplate->id;
                     $duplicateGitInfo->save();
@@ -152,6 +152,12 @@ class TemplateService {
                                 $duplicateSectionField = $field->replicate();
                                 $duplicateSection->fields()->save($duplicateSectionField);
                             });
+
+                            // duplicate components 
+                            $section->component_designs->each(function ($componentDesign) use($duplicateSection) {
+                                $duplicateSectionField = $componentDesign->replicate();
+                                $duplicateSection->component_designs()->save($duplicateSectionField);
+                            });
                         });
                     });
                     return $duplicateTemplate;
@@ -168,6 +174,11 @@ class TemplateService {
                 );
                 return $response;
             }
+        } else {
+            return [
+                'success' => false,
+                'message' => "Template not found"
+            ];
         }
 
     }
