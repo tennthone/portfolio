@@ -23,11 +23,19 @@ class ComponentDesignController extends Controller
         $designs = $cpt->fields->filter(function ($item) {
             return $item->data_type == "design";
         })->toArray();
+
+        // preview data render 
+        // 
+        if($request->previewItem) {
+            $preview_data = $this->preview($request->previewItem);
+        }
+
         return Inertia::render('Backend/Temp/Component/ComponentDesign/Index', [
             'cpt' => $cpt,
             'cpt_designs' => $cpt->designs,
             'contents' => $contents,
             'designs' => $designs,
+            'preview_data' => isset($preview_data) ? $preview_data : [],
         ]);
     }
 
@@ -78,5 +86,23 @@ class ComponentDesignController extends Controller
             'cpt_dsg' => $data,
             'cpt' => Component::find($cpt_id),
         ]);
+    }
+
+    public function preview($id) {
+        $cpt_dsg = ComponentDesign::find($id);
+        if($cpt_dsg) {
+            // get component content files 
+            if(File::exists(storage_path($cpt_dsg->content)) && File::exists(storage_path($cpt_dsg->skeleton))) {
+                $content = file_get_contents(storage_path($cpt_dsg->content));
+                $skeleton = file_get_contents(storage_path($cpt_dsg->skeleton));
+                return [
+                    'content' => $content,
+                    'skeleton' => $skeleton,
+                ];
+            }
+
+        } else {
+            return false;
+        }
     }
 }

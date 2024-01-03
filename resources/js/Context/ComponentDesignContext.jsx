@@ -6,6 +6,7 @@ export const ComponentDesignContext = createContext(null)
 
 export const ComponentDesignProvider = ({children}) => {
     const [openEditModal, setOpenEditModal] = useState(false);
+    const [openPreviewModal, setOpenPreviewModal] = useState(false);
     const [openCreateModal, setOpenCreateModal] = useState(false);
     const [errors, setErrors] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,6 +16,20 @@ export const ComponentDesignProvider = ({children}) => {
 
     const handleEdit = (id) => {
         //
+    }
+
+    const handlePreview = (id) => {
+        router.get(route('admin.template.component.design.index'), {
+            previewItem : id,
+            cpt_id : cpt.id,
+        }, {
+            onSuccess : () => {
+                setOpenPreviewModal(true)
+            },
+            onError : () => {
+
+            }
+        });
     }
 
     const handleSaveFile = (content, path) => {
@@ -50,9 +65,12 @@ export const ComponentDesignProvider = ({children}) => {
             setOpenEditModal,
             openCreateModal,
             setOpenCreateModal,
+            setOpenPreviewModal,
+            openPreviewModal,
             handleEdit,
             handleCreate,
             handleSaveFile,
+            handlePreview,
             loading,
             setLoading,
             data,

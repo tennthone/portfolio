@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { ComponentDesignContext } from "@/Context/ComponentDesignContext";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
+import Preview from "./Preview/Preview";
 
 
 const ShowTabs = () => {
@@ -47,7 +48,7 @@ const ShowTabs = () => {
                         <Button 
                             size="sm" 
                             color="purple"
-                            onClick={() => handleSaveFile(skeleton, cpt_dsg.skeleton.path)}
+                            onClick={() => handleSaveFile(skeleton, cpt_dsg.skeleton_path)}
                             isProcessing={loading}
                             processingLabel="Saving"
                         >
@@ -60,7 +61,12 @@ const ShowTabs = () => {
                         onChange={(e) => setSkeleton(e.target.value)}
                     />
                 </Tabs.Item>
-
+                <Tabs.Item active title="Preview" icon={FcViewDetails}>
+                    <Preview 
+                        skeleton={skeleton}
+                        content={content}
+                    />
+                </Tabs.Item>
                 <Tabs.Item active title="Details" icon={FcViewDetails}>
                     {/* Details  */}
                 </Tabs.Item>
