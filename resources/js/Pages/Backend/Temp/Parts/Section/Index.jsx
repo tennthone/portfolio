@@ -10,8 +10,6 @@ import FrontendLayout from '@/Layouts/FrontendLayout'
 import  { Toaster } from 'react-hot-toast'
 import { SectionProvider } from '@/Context/SectionContext'
 import { DataProvider } from '@/Context/DataContext'
-import FieldModal from '@/Pages/Backend/components/FieldModal'
-import CreateFieldModal from '@/Pages/Backend/components/CreateFieldModal'
 
 const Index = ({template_id,page}) => {
   return (
@@ -39,13 +37,6 @@ const Index = ({template_id,page}) => {
 
         {/* Edit modal  */}
         <Edit />
-
-
-        {/* Field Modal  */}
-        <FieldModal />
-
-        {/* Create Field modal  */}
-        <CreateFieldModal />
     </div>
   )
 }

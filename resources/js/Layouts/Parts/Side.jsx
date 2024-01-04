@@ -2,7 +2,7 @@ import { Link, router, usePage } from "@inertiajs/react";
 import React from "react";
 import {Sidebar } from 'flowbite-react';
 import {HiChartPie, HiInbox, HiUsers } from 'react-icons/hi';
-import { FaGears } from "react-icons/fa6";
+import { FaGears, FaMedium } from "react-icons/fa6";
 import { MdVerifiedUser } from "react-icons/md";
 import './app.css'
 import { FaGlobe } from "react-icons/fa";
@@ -76,6 +76,9 @@ const Side = () => {
                             </Sidebar.Item>}
                         <Sidebar.Item href="#"> General Setting </Sidebar.Item>
                     </Sidebar.Collapse>
+                    <Sidebar.Item icon={FaMedium}>
+                        Media Library 
+                    </Sidebar.Item>
                     <Sidebar.Item  icon={IoLogOut}>
                         <Link 
                             onClick={() => handleLogout()}

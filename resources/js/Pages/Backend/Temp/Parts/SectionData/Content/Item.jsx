@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { DataContext } from '@/Context/DataContext'
 
 const Item = ({item}) => {
-    const {handleEdit} = useContext(DataContext);
+    const {handleEditField} = useContext(DataContext);
   return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={item.id}>
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
@@ -24,7 +24,7 @@ const Item = ({item}) => {
             <button 
                 type='button' 
                 href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500"
-                onClick={() => handleEdit(item.id)}
+                onClick={() => handleEditField(item.id)}
             >
             Edit
             </button>

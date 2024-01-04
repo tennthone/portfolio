@@ -32,12 +32,6 @@ const Index = ({pages, template}) => {
         {/* Edit modal  */}
         <Edit />
 
-        {/* Field Modal  */}
-        <FieldModal />
-
-        {/* Create Field modal  */}
-        <CreateFieldModal />
-
         <Toaster position="top-right" />
     </div>
   )

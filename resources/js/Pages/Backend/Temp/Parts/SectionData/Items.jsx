@@ -6,8 +6,6 @@ import { RxComponent1 } from "react-icons/rx";
 import ContentData from "./Content/ContentData";
 import DesignData from "./Design/DesignData";
 import { DataContext } from "@/Context/DataContext";
-import FieldModal from "@/Pages/Backend/components/FieldModal";
-import CreateFieldModal from "@/Pages/Backend/components/CreateFieldModal";
 import { usePage } from "@inertiajs/react";
 import { SectionDataContext } from "@/Context/SectionDataContext";
 import Component from "./Component/Component";
@@ -63,11 +61,6 @@ const Items = () => {
                     <Component />
                 </Tabs.Item>
             </Tabs>
-            {/* Field Moadal  */}
-            <FieldModal />
-
-            {/* Create Field Modal  */}
-            <CreateFieldModal />
         </div>
     );
 };

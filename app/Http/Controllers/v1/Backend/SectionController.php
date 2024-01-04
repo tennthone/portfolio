@@ -8,6 +8,7 @@ use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Field;
 use App\Models\Page;
 
 class SectionController extends Controller
@@ -18,6 +19,7 @@ class SectionController extends Controller
         $sections = Section::with('pages')->whereHas('pages', function($q) use($page_id) {
             $q->where('page_id', $page_id);
         })->get();
+
 
         // Filter content fields
         $contents = $page->fields->filter(function ($item) {

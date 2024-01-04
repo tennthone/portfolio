@@ -4,9 +4,10 @@ namespace App\Http\Controllers\v1\Backend;
 
 use App\Models\Page;
 use Inertia\Inertia;
+use App\Models\Field;
+use App\Models\Template;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Template;
 
 class PageController extends Controller
 {
@@ -15,6 +16,12 @@ class PageController extends Controller
         $template_id = $request->template_id;
         $pages = Page::where('template_id', $template_id)->get();
         $template = Template::with('fields')->find($template_id);
+        $field_id = $request->field_id;
+
+        // fetch field data 
+        if($field_id) {
+            $field = Field::find($field_id);
+        }
 
         // Filter content fields
         $contents = $template->fields->filter(function ($item) {
@@ -38,6 +45,7 @@ class PageController extends Controller
             'template' => $template,
             'contents' => $contents,
             'designs' => $designs,
+            'field' => isset($field) ? $field : []
         ]);
     }
 

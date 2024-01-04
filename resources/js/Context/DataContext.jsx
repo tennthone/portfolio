@@ -1,6 +1,9 @@
 import { createContext, useState} from "react";
 import { usePage, useForm, router } from "@inertiajs/react";
 import toast from "react-hot-toast";
+import FieldModal from "@/Pages/Backend/components/FieldModal";
+import CreateFieldModal from "@/Pages/Backend/components/CreateFieldModal";
+import EditFieldModal from "@/Pages/Backend/components/EditFieldModal";
 
 export const DataContext = createContext(null)
 
@@ -10,6 +13,8 @@ export const DataProvider = ({children}) => {
     const [openEditFieldModal, setOpenEditFieldModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState(false);
+    const {template} = usePage().props;
+
     const { data, setData, reset, transform} = useForm({
         name: "",
         value: "",
@@ -52,14 +57,29 @@ export const DataProvider = ({children}) => {
         })
         setOpenFieldModal(true)
     }
+
     const handleFieldSelect = (item) => {
         setData('type', item.type)
         setOpenFieldModal(false)
         setOpenCreateFieldModal(true)
     }
 
-    const handleEdit = () => {
-        setOpenEditFieldModal(true)
+    const  fetchFieldData = (field_id) => {
+        router.get(route('admin.template.page', {
+            template_id : template.id, 
+            field_id : field_id
+        }), {}, {
+            onSuccess : () => {
+                setOpenEditFieldModal(true)
+            },
+            onError : () => {
+                //
+            }
+        });
+    }
+
+    const handleEditField = (id) => {
+        fetchFieldData(id)
     }
 
     return (
@@ -73,7 +93,7 @@ export const DataProvider = ({children}) => {
             handleFieldSelect,
             handleAddField,
             changeFieldType,
-            handleEdit,
+            handleEditField,
             submit,
             setData,
             loading,
@@ -82,6 +102,9 @@ export const DataProvider = ({children}) => {
             errors,
         }}>
             {children}
+            <FieldModal />
+            <CreateFieldModal />
+            <EditFieldModal />
         </DataContext.Provider>
     )
 }
