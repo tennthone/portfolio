@@ -8,6 +8,7 @@ use App\Models\Field;
 use App\Models\Template;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\UseCase\FetchFieldData;
 
 class PageController extends Controller
 {
@@ -19,19 +20,8 @@ class PageController extends Controller
         $field_id = $request->field_id;
 
         // fetch field data 
-        if($field_id) {
-            $field = Field::find($field_id);
-        }
-
-        // Filter content fields
-        $contents = $template->fields->filter(function ($item) {
-            return $item->data_type == "content";
-        })->toArray(); 
-
-        // Filter design fields
-        $designs = $template->fields->filter(function ($item) {
-            return $item->data_type == "design";
-        })->toArray();
+        $fetchFieldData = new FetchFieldData();
+        $field_data = $fetchFieldData($template, $field_id);
         
         return Inertia::render('Backend/Temp/Parts/Page/Index', [
             'pages' => $pages->transform(function($item) {
@@ -43,9 +33,9 @@ class PageController extends Controller
                 ];
             }),
             'template' => $template,
-            'contents' => $contents,
-            'designs' => $designs,
-            'field' => isset($field) ? $field : []
+            'contents' => $field_data['contents'],
+            'designs' => $field_data['designs'],
+            'field' => array_key_exists('field', $field_data) ? $field_data['field'] : null
         ]);
     }
 

@@ -7,8 +7,8 @@ import { SiAltiumdesigner } from "react-icons/si";
 import { RxComponent1 } from "react-icons/rx";
 import { router, usePage } from '@inertiajs/react';
 import Sections from './Sections';
-import ContentData from '../SectionData/Content/ContentData';
-import DesignData from '../SectionData/Design/DesignData';
+import ContentData from '../../../components/Field/Content/ContentData';
+import DesignData from '../../../components/Field/Design/DesignData';
 import { DataContext } from '@/Context/DataContext';
 import { SectionContext } from '@/Context/SectionContext';
 

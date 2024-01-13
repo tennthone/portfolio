@@ -7,8 +7,8 @@ import { RxComponent1 } from "react-icons/rx";
 import Pages from "./Pages";
 import Details from "./Details";
 import { router, usePage } from "@inertiajs/react";
-import ContentData from "../SectionData/Content/ContentData";
-import DesignData from "../SectionData/Design/DesignData";
+import ContentData from "../../../components/Field/Content/ContentData";
+import DesignData from "../../../components/Field/Design/DesignData";
 import { useContext } from "react";
 import { DataContext } from "@/Context/DataContext";
 

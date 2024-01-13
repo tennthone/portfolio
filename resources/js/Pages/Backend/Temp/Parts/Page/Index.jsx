@@ -7,8 +7,8 @@ import { GrTemplate } from "react-icons/gr";
 import Edit from './Edit';
 import { PageProvider } from '@/Context/PageContext';
 import { DataProvider } from '@/Context/DataContext';
-import CreateFieldModal from '@/Pages/Backend/components/CreateFieldModal';
-import FieldModal from '@/Pages/Backend/components/FieldModal';
+import CreateFieldModal from '@/Pages/Backend/components/Field/CreateFieldModal';
+import FieldModal from '@/Pages/Backend/components/Field/FieldModal';
 import { Toaster } from 'react-hot-toast';
 
 const Index = ({pages, template}) => {

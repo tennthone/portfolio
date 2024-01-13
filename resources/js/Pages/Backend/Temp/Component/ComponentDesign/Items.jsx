@@ -6,11 +6,11 @@ import { SiAltiumdesigner } from "react-icons/si";
 import { Tabs,Button } from "flowbite-react";
 import { useContext } from "react";
 import { DataContext } from "@/Context/DataContext";
-import DesignData from "../../Parts/SectionData/Design/DesignData";
-import ContentData from "../../Parts/SectionData/Content/ContentData";
+import DesignData from "../../../components/Field/Design/DesignData";
+import ContentData from "../../../components/Field/Content/ContentData";
 import { usePage } from "@inertiajs/react";
-import FieldModal from "@/Pages/Backend/components/FieldModal";
-import CreateFieldModal from "@/Pages/Backend/components/CreateFieldModal";
+import FieldModal from "@/Pages/Backend/components/Field/FieldModal";
+import CreateFieldModal from "@/Pages/Backend/components/Field/CreateFieldModal";
 import Designs from "./Designs";
 import { ComponentDesignContext } from "@/Context/ComponentDesignContext";
 

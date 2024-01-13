@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Field;
 use App\Models\Page;
+use App\UseCase\FetchFieldData;
 
 class SectionController extends Controller
 {
@@ -20,23 +21,18 @@ class SectionController extends Controller
             $q->where('page_id', $page_id);
         })->get();
 
+        // fetching field data 
+        $fetchFieldData = new FetchFieldData();
+        $field_data = $fetchFieldData($page, $request->field_id);
 
-        // Filter content fields
-        $contents = $page->fields->filter(function ($item) {
-            return $item->data_type == "content";
-        })->toArray(); 
-
-        // Filter design fields
-        $designs = $page->fields->filter(function ($item) {
-            return $item->data_type == "design";
-        })->toArray();
 
         return Inertia::render('Backend/Temp/Parts/Section/Index', [
             'sections' => $sections,
             'page' => $page,
             'template_id' => $request->template_id,
-            'contents' => $contents,
-            'designs' => $designs,
+            'contents' => $field_data['contents'],
+            'designs' => $field_data['designs'],
+            'field' => array_key_exists('field', $field_data) ? $field_data['field'] : null
         ]);
     }
 
