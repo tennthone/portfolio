@@ -31,15 +31,16 @@ const Login = () => {
                             label="email address"
                             type="email"
                             variant="outlined"
-                            required=""
+                            required={true}
                             onChange={e => setData('email', e.target.value)}
                         />
                     </div>
                     <div>
                         <FloatingLabel
+                            type="password"
                             label="your password"
                             variant="outlined"
-                            required=""
+                            required={true}
                             onChange={e => setData('password', e.target.value)}
                         />
                     </div>

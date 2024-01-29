@@ -22,29 +22,29 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 // Admin  routes 
-Route::get('admin/login', [AuthController::class, 'index'])->name('admin.login.index');
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('/login/store', [AuthController::class, 'store'])->name('admin.login.store');
-
 
 Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
         Route::prefix('permission')->group(base_path('routes/admin/permission.php'));
     });
     Route::prefix('field')->group(base_path('routes/admin/field.php'));
+    Route::prefix('admin-management')->group(base_path('routes/admin/admin-management.php'));
 });
 
 Route::get('/clone/template', function() {
@@ -90,4 +91,4 @@ Route::get('/add-files-to-repo', function() {
     dd($res);
 });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

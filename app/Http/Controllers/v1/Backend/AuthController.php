@@ -11,6 +11,11 @@ use Inertia\Inertia;
 class AuthController extends Controller
 {
     public function index() {
+        // if the auth user is admin redirect to admin dashboard 
+        if(auth('admin')->user()) {
+            return redirect()->route('admin.dashboard');
+        } 
+
         return Inertia::render('Backend/Auth/Login');
     }
 

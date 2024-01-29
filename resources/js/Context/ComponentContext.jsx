@@ -11,7 +11,7 @@ export const ComponentProvider = ({children}) => {
         name : '',
         value : '',
         isLoopable : false,
-        maxNoLoop : 0,
+        maxNoLoop : 2,
     })
 
     return (

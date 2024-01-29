@@ -35,6 +35,15 @@ const Create = () => {
 export default Create;
 
 const BodyContent = ({ data, setData, errors }) => {
+
+    const handleLoopNumber = (e) => {
+        const loopNumber = e.target.value;
+        if(loopNumber < 2) {
+            return false;
+        }
+        setData("maxNoLoop", loopNumber)
+    }
+
     return (
         <div className="space-y-6">
             <div>
@@ -89,7 +98,7 @@ const BodyContent = ({ data, setData, errors }) => {
                     label="No of Loop"
                     variant="outlined"
                     value={data.maxNoLoop}
-                    onChange={(e) => setData("maxNoLoop", e.target.value)}
+                    onChange={(e) => handleLoopNumber(e)}
                 />
             </div>
         </div>

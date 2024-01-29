@@ -50,7 +50,7 @@ const Side = () => {
                     {
                         permissions.includes('view template') && 
                         <Sidebar.Item icon={HiUsers}>
-                            <Link> Admin Users </Link>
+                            <Link href={route('admin.admin-management')}> Admin Users </Link>
                         </Sidebar.Item>
                     }
                     {/* users  */}

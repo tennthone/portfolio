@@ -8,7 +8,7 @@ const DeleteButton = ({param, handleDelete}) => {
         <FaTrash 
             size={20}
             onClick={() => handleDelete(param)}
-            className='text-red-700'
+            className='text-red-700 cursor-pointer'
         />
     </Tooltip>
   )

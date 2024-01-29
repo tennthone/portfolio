@@ -84,7 +84,7 @@ const Commit = ({ openCommitModal, setOpenCommitModal, templateId }) => {
                             <Button
                                 type="button"
                                 size="sm"
-                                onClick={() => setOpenCreateModal(false)}
+                                onClick={() => setOpenCommitModal(false)}
                                 color="gray"
                                 className="w-1/2 me-3"
                             >

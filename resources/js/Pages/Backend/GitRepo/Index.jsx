@@ -17,7 +17,7 @@ const Index = ({repos}) => {
         setOpenDeleteModal(true)
     }
   return (
-    <div>
+    <React.Fragment>
         <div className="p-3 border-2 rounded-md">
             <div className="flex justify-between">
                 <Breadcrumb>
@@ -52,7 +52,7 @@ const Index = ({repos}) => {
             setOpenDeleteModal={setOpenDeleteModal}
             repoName={repoName}
         />
-    </div>
+    </React.Fragment>
   )
 }
 

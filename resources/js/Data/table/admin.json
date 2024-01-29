@@ -1,0 +1,62 @@
+[
+    {
+        "id" : 1,
+        "name" : "Id",
+        "field" : "id",
+        "selected" : true
+    },
+    {
+        "id" : 2,
+        "name" : "Name",
+        "field" : "name",
+        "selected" : true
+    },
+    {
+        "id" : 10,
+        "name" : "Profile Image",
+        "field" : "profile_image",
+        "selected" : false
+    },
+    {
+        "id" : 3,
+        "name" : "Contact",
+        "field" : "email",
+        "selected" : true
+    },
+    {
+        "id" : 7,
+        "name" : "Address",
+        "field" : "address",
+        "selected" : false
+    },
+    {
+        "id" : 8,
+        "name" : "Phone",
+        "field" : "phone",
+        "selected" : false
+    },
+    {
+        "id" : 9,
+        "name" : "Gender",
+        "field" : "gender",
+        "selected" : false
+    },
+    {
+        "id" : 4,
+        "name" : "Roles",
+        "field" : "roles",
+        "selected" : true
+    },
+    {
+        "id" : 5,
+        "name" : "IsActive",
+        "field" : "isActive",
+        "selected" : true
+    },
+    {
+        "id" : 6,
+        "name" : "Created At",
+        "field" : "created_at",
+        "selected" : true
+    }
+]

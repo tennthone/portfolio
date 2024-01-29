@@ -10,10 +10,14 @@ class Admin extends Authenticatable
 {
     use HasFactory, HasRoles;
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'gender', 'phone', 'address', 'social', 'isActive'];
 
     protected $hidden = [
         'password',
     ];
+
+    public function image() {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
 }

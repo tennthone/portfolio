@@ -1,0 +1,37 @@
+[
+    {
+        "id"   : 1,
+        "name" : "Facebook",
+        "link" : "/assets/image/social-icons/facebook.png"
+    },
+    {
+        "id"   : 2,
+        "name" : "Instagram",
+        "link" : "/assets/image/social-icons/instagram.png"
+    },
+    {
+        "id"   : 3,
+        "name" : "Twitter",
+        "link" : "/assets/image/social-icons/twitter.png"
+    },
+    {
+        "id"   : 4,
+        "name" : "You Tube",
+        "link" : "/assets/image/social-icons/youtube.png"
+    },
+    {
+        "id"   : 5,
+        "name" : "LinkedIn",
+        "link" : "/assets/image/social-icons/linkedin.png"
+    },
+    {
+        "id"   : 6,
+        "name" : "Tiktok",
+        "link" : "/assets/image/social-icons/tiktok.png"
+    },
+    {
+        "id"   : 7,
+        "name" : "Be",
+        "link" : "/assets/image/social-icons/betalk.png"
+    }
+]

@@ -25,6 +25,7 @@ const MyModal = ({
         e.preventDefault();
         setLoading(true);
         router.post(route(routeName, param), data, {
+            forceFormData : true,
             onSuccess: () => {
                 setLoading(false);
                 setOpenModal(false);

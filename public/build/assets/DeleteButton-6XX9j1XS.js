@@ -1,0 +1,1 @@
+import{j as t}from"./app-sxArz8Mg.js";import{b as e}from"./index.esm-Amq5wNEE.js";import{c as s}from"./ToggleSwitch-D3GZhnQj.js";import"./index.esm-beSryXP7.js";const p=({param:o,handleDelete:r})=>t.jsx(s,{content:"ဖျက်သိမ်းမည်",children:t.jsx(e,{size:20,onClick:()=>r(o),className:"text-red-700 cursor-pointer"})});export{p as default};
