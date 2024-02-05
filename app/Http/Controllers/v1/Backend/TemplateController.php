@@ -13,14 +13,14 @@ class TemplateController extends Controller
 {
     public function resource() {
         $templates = Template::with(['git_info', 'creator'])->where('isResource', 1)->get();
-        return Inertia::render('Backend/Temp/Resource/Index', [
+        return Inertia::render('Temp/Resource/Index', [
             'templates' => $templates,
         ]);
     }
 
     public function website() {
         $templates = Template::with(['git_info', 'creator'])->where('isResource', 0)->get();
-        return Inertia::render('Backend/Temp/Website/Index', [
+        return Inertia::render('Temp/Website/Index', [
             'templates' => $templates,
         ]);
     }

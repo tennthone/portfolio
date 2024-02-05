@@ -25,7 +25,7 @@ class GitRepoController extends Controller
                 'url' => $item['url']
             ];
         });
-        return Inertia::render('Backend/GitRepo/Index', [
+        return Inertia::render('GitHubRepo/Index', [
             'repos'  => $repo_collect,
         ]);
     }

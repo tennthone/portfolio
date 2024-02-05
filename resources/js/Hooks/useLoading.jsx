@@ -1,4 +1,4 @@
-import Loading from '@/Pages/Backend/components/Loading/Loading';
+import Loading from '@/Pages/components/Loading/Loading';
 import { useState } from 'react';
 const useLoading = () => {
   const [loading, setLoading] = useState(false);

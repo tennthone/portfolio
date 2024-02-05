@@ -30,7 +30,7 @@ class ComponentDesignController extends Controller
             $preview_data = $this->preview($request->previewItem);
         }
 
-        return Inertia::render('Backend/Temp/Component/ComponentDesign/Index', [
+        return Inertia::render('Temp/Component/ComponentDesign/Index', [
             'cpt' => $cpt,
             'cpt_designs' => $cpt->designs,
             'contents' => $contents,
@@ -82,7 +82,7 @@ class ComponentDesignController extends Controller
             'skeleton_path' => $cpt_dsg->skeleton,
         ];
 
-        return Inertia::render('Backend/Temp/Component/ComponentDesign/Show', [
+        return Inertia::render('Temp/Component/ComponentDesign/Show', [
             'cpt_dsg' => $data,
             'cpt' => Component::find($cpt_id),
         ]);

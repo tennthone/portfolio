@@ -16,7 +16,7 @@ class PermissionController extends Controller
             $data = $this->getEditData($request->edit);
         }
 
-        return Inertia::render('Backend/Permission/Index', [
+        return Inertia::render('Permission/Index', [
             'roles' => $roles->transform(function($item) {
                 return [
                     'id' => $item->id,

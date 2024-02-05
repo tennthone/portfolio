@@ -30,7 +30,7 @@ class SectionDataController extends Controller
         $fetchFieldData = new FetchFieldData();
         $field_data = $fetchFieldData($section, $field_id);
 
-        return Inertia::render('Backend/Temp/Parts/SectionData/Index', [
+        return Inertia::render('Temp/Parts/SectionData/Index', [
             'contents' => $field_data['contents'],
             'designs' => $field_data['designs'],
             'field' => array_key_exists('field', $field_data) ? $field_data['field'] : null,

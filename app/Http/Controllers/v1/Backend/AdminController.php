@@ -2,102 +2,29 @@
 
 namespace App\Http\Controllers\v1\Backend;
 
+use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Backend\AdminResource;
 use App\Models\Admin;
-use App\UseCase\SortField;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
-{
+{   
     public function index(Request $request) {
-        $page = $request->page ?? 1;
-        $perpage = $request->perpage ?? 5;
-
-        $query = Admin::with('roles')->whereHas('roles',function($q) {
-            $q->where('name', '!=', 'superadmin');
-        });
-
-        if($request->isMethod('post')) {
-            $sortBy = $request->sortBy;
-            $field = $request->field;
-            $modelName = $request->modelName;
-            if($sortBy || $field || $modelName) {
-                $sortField = new SortField();
-                $query = $sortField($sortBy, $field, $modelName, $query);
-            }
-        }
-
-        // get admin 
-        if($request->admin) {
-            $admin = Admin::find($request->admin);
-        }
-        // search wildcard  
-        if($search = $request->search) {
-            $admins = $query->where('name', 'like', '%' .$search . '%')
-                            ->orWhere('email', 'like', '%' .$search . '%')
-                            ->orWhere('phone', 'like', '%' .$search . '%');
-        }
-
-        // Advanced search 
-        if($name = $request->name) {
-            $admins = $query->where('name', 'like', '%' .$name.'%'); 
-        }
-
-        if($email = $request->email) {
-            $admins = $query->where('email', 'like', '%' .$email.'%'); 
-        }
-
-        if($phone = $request->phone) {
-            $admins = $query->where('phone', 'like', '%' .$phone.'%'); 
-        }
-
-        if($role = $request->role) {
-            $admins = $query->whereHas('roles', function ($q) use($role) {
-                $q->where('name', $role);
-            }); 
-        }
-
-        if($request->status != "") {
-            $status = $request->status == "true" ? 1 : 0;
-            $admins = $query->where('isActive', $status);
-        }
-
-        // filter by year 
-        $startYear = $request->startYear;
-        $endYear = $request->endYear;
-        if($startYear && $endYear) {
-            $admins = $query->whereYear('created_at', '>=', $startYear)
-                            ->whereYear('created_at', '<=', $endYear)
-                            ->get();
-        }
-
-        // filter by month 
-        $startMonth = $request->startMonth;
-        $endMonth = $request->endMonth;
-        if($startMonth && $endMonth) {
-            $admins = $query->whereMonth('created_at', '>=', $startMonth)
-                            ->whereMonth('created_at', '<=', $endMonth)
-                            ->get();
-        }
-
-        // filter by date 
-        $startDate = $request->startDate;
-        $endDate = $request->endDate;
-        if($startDate && $endDate) {
-            $admins = $query->whereDate('created_at', '>=', $startDate)
-                            ->whereDate('created_at', '<=', $endDate)
-                            ->get();
-        }
-
-        $admins = $query->skip(($page - 1) * $perpage)->take($perpage)->get();
-        return Inertia::render('Backend/Admin/Index', [
+        $requestMethod = $request->getMethod();
+        $searchableFields = ['name', 'email', 'phone', 'gender', 'address'];
+        $admin = new Admin();
+        $userService = new UserService($admin);
+        $admin = $userService->getUserDetail($request->admin);
+        $admins = $userService->getUserData($searchableFields, $requestMethod, $request->all());
+        
+        return Inertia::render('Admin/Index', [
             'admins' => AdminResource::collection($admins),
             'roles' => Role::where('name', '!=', 'superadmin')->get(),
             'admin' => isset($admin) ? $admin : [],
@@ -133,8 +60,7 @@ class AdminController extends Controller
                 // store profile image 
                 if($request->hasFile('profile_image')) {
                     $file = $request->file('profile_image');
-                    $filename = time() . '_' .$file->getClientOriginalName();
-                    $path = Storage::putFileAs('admin/profile', $file, $filename);
+                    $path = FileHelper::uploadFile($file, 'admin/profile');
                     $admin->image()->create([
                         'path' => $path
                     ]);
@@ -161,7 +87,7 @@ class AdminController extends Controller
 
     public function edit($id) {
         $admin = Admin::find($id);
-        return Inertia::render('Backend/Admin/Edit', [
+        return Inertia::render('Admin/Edit', [
             'admin' => new AdminResource($admin),
             'roles' => Role::where('name' , '!=', 'superadmin')->get(),
         ]);
@@ -176,23 +102,16 @@ class AdminController extends Controller
             'email' => 'required|email|unique:admins,email,' . $admin->id,
         ]);
 
-
-        // update roles o
+        // update roles
 
         if($roles = $request->roles) {
             $admin->assignRole($roles);
         }
 
         if($request->file('profile_image')) {
-            // delete file 
-            if(Storage::exists($admin->image->path)) {
-                Storage::delete($admin->image->path);
-            }
+            // update file 
             $file = $request->file('profile_image');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = 'admin/profile';
-            $path = Storage::putFileAs($path, $file, $filename);
-
+            $path = FileHelper::updateFile($admin->image->path, $file, 'admin/profile');
             $admin->image->update([
                 'path' => $path,
             ]);
@@ -206,6 +125,7 @@ class AdminController extends Controller
                 'address' => $request->address,
                 'description' => $request->description,
                 'social' => json_encode($request->social),
+                'gender' => $request->gender,
              ]);
         } else {
             return redirect()->back()->with('error', 'Admin not found');

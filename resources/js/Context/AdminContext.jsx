@@ -1,5 +1,5 @@
-import Create from "@/Pages/Backend/Admin/Create";
-import Edit from "@/Pages/Backend/Admin/Edit";
+import Create from "@/Pages/Admin/Create";
+import Edit from "@/Pages/Admin/Edit";
 import { router, useForm, usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import { useState } from "react";

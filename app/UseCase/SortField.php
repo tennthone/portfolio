@@ -12,11 +12,10 @@ class SortField {
      * @return collection 
      */
 
-    public function __invoke($sortBy, $field, $modelName, $query)
+    public function __invoke($model, $sortBy, $field, $query)
     {
         try {
             // Check if the specified field exists in the model
-            $model = app("App\\Models\\$modelName");
             if (in_array($field, $model->getFillable())) {
                 $query = $query->orderBy($field, $sortBy);
                 return $query;

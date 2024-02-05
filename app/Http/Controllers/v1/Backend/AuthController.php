@@ -16,7 +16,7 @@ class AuthController extends Controller
             return redirect()->route('admin.dashboard');
         } 
 
-        return Inertia::render('Backend/Auth/Login');
+        return Inertia::render('Auth/Login');
     }
 
     public function store(Request $request) {

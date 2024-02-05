@@ -1,9 +1,9 @@
 import { createContext, useState} from "react";
 import { usePage, useForm, router } from "@inertiajs/react";
 import toast from "react-hot-toast";
-import FieldModal from "@/Pages/Backend/components/Field/FieldModal";
-import CreateFieldModal from "@/Pages/Backend/components/Field/CreateFieldModal";
-import EditFieldModal from "@/Pages/Backend/components/Field/EditFieldModal";
+import FieldModal from "@/Pages/components/Field/FieldModal";
+import CreateFieldModal from "@/Pages/components/Field/CreateFieldModal";
+import EditFieldModal from "@/Pages/components/Field/EditFieldModal";
 import { useEffect } from "react";
 import useLoading from "@/Hooks/useLoading";
 

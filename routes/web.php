@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\v1\Backend\AuthController;
 use App\Services\GitHubActionService;
 use App\Services\GitHubRepoService;
@@ -49,7 +50,7 @@ Route::post('/login/store', [AuthController::class, 'store'])->name('admin.login
 Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
     Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
     Route::get('/dashboard', function() {
-        return Inertia::render('Backend/Dashboard');
+        return Inertia::render('Dashboard');
     })->name('admin.dashboard');
 
     // Template Rotues 
@@ -58,37 +59,10 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
         Route::prefix('permission')->group(base_path('routes/admin/permission.php'));
     });
     Route::prefix('field')->group(base_path('routes/admin/field.php'));
-    Route::prefix('admin-management')->group(base_path('routes/admin/admin-management.php'));
+    Route::prefix('admin-management')->group(base_path('routes/admin/admin.php'));
+    Route::prefix('member-management')->group(base_path('routes/admin/member.php'));
+    Route::prefix('general-setting')->group(base_path('routes/admin/general-setting.php'));
 });
 
-Route::get('/clone/template', function() {
-    $template = new TemplateService();
-    $url = "https://github.com/tennthone/portfolio.git";
-    $name = "kaung_lay";
-    $branch = "painglay";
-    $commitName ="first commit";
-    $data = [
-        'remote_url' => $url,
-        'branch_name' => $branch,
-        'name' => $name,
-    ];
-    $res = $template->createTemplate($data);
-    dd($res);
-});
-
-Route::get('/generate/template', function() {
-    $template = new TemplateGenerationService(1);
-    $res = $template->generateTemplate();
-});
-
-Route::get('/mini-sidebar', function() {
-    return Inertia::render('Test/Index');
-});
-
-Route::get('/add-files-to-repo', function() {
-    $gitrepo = new GitHubRepoService();
-    $res = $gitrepo->addFolderToRepo('temp-resource', storage_path('app/twig-resource'));
-    dd($res);
-});
 
 // require __DIR__.'/auth.php';

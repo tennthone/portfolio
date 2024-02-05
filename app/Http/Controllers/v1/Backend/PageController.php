@@ -23,7 +23,7 @@ class PageController extends Controller
         $fetchFieldData = new FetchFieldData();
         $field_data = $fetchFieldData($template, $field_id);
         
-        return Inertia::render('Backend/Temp/Parts/Page/Index', [
+        return Inertia::render('Temp/Parts/Page/Index', [
             'pages' => $pages->transform(function($item) {
                 return [
                     'id' => $item->id,

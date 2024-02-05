@@ -20,11 +20,6 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "@emotion/react": "^11.11.1",
-        "@emotion/styled": "^11.11.0",
-        "@mui/icons-material": "^5.15.2",
-        "@mui/material": "^5.15.1",
-        "@mui/styled-engine-sc": "^6.0.0-alpha.9",
         "flowbite-react": "^0.7.2",
         "react-hot-toast": "^2.4.1",
         "react-icons": "^4.12.0",

@@ -21,7 +21,8 @@ return new class extends Migration
             $table->mediumText('description')->nullable();
             $table->json('social')->nullable();
             $table->enum('gender', ['male', 'female', 'others'])->nullable();
-            $table->boolean('isActive')->default(1);
+            $table->tinyInteger('isActive')->default(1);
+            $table->date('deleted_at')->nullable();
             $table->timestamps();
         });
     }

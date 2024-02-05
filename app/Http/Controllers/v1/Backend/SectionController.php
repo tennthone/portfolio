@@ -26,7 +26,7 @@ class SectionController extends Controller
         $field_data = $fetchFieldData($page, $request->field_id);
 
 
-        return Inertia::render('Backend/Temp/Parts/Section/Index', [
+        return Inertia::render('Temp/Parts/Section/Index', [
             'sections' => $sections,
             'page' => $page,
             'template_id' => $request->template_id,

@@ -16,7 +16,7 @@ class FileController extends Controller
         $base_path = storage_path($request->base_path);
         if (File::exists($base_path) && File::isFile($base_path)) {
             $content = File::get($base_path);
-            return Inertia::render('Backend/Temp/Resource/File/FileContent', [
+            return Inertia::render('Temp/Resource/File/FileContent', [
                 'fileContent' => $content,
                 'base_path' => $request->base_path,
                 'template_id' => $template_id,
@@ -69,7 +69,7 @@ class FileController extends Controller
     public function showFoldersAndFiles(Request $request, $template_id) {
         $base_path = $request->base_path;
         $contents = $this->getSubFolderAndFiles($base_path);
-        return Inertia::render('Backend/Temp/Resource/File/FileStructure', [
+        return Inertia::render('Temp/Resource/File/FileStructure', [
             'contents' => $contents,
             'template' => Template::find($template_id),
             'base_path' => $base_path,

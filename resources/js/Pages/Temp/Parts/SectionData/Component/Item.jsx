@@ -1,0 +1,31 @@
+import React from 'react'
+import { Button, Table, Tooltip } from 'flowbite-react'
+import { FaTrash } from 'react-icons/fa6'
+import { useContext } from 'react'
+import { SectionDataContext } from '@/Context/SectionDataContext'
+import DeleteButton from '@/Pages/components/DeleteButton'
+
+const Item = ({item}) => {
+    const {handleOpenDeleteModal} = useContext(SectionDataContext)
+  return (
+    <Table.Row
+            className="bg-white dark:border-gray-700 dark:bg-gray-800"
+        >
+            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+               {item.id}
+            </Table.Cell>
+            <Table.Cell>
+                {item.component_name}
+            </Table.Cell>
+            <Table.Cell> {item.name} </Table.Cell>
+            <Table.Cell>
+                <DeleteButton 
+                    handleDelete={handleOpenDeleteModal}
+                    param={item.id}
+                />
+            </Table.Cell>
+        </Table.Row>
+  )
+}
+
+export default Item

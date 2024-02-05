@@ -4,15 +4,19 @@ use App\Http\Controllers\v1\Backend\SectionController;
 use App\Http\Controllers\v1\Backend\SectionDataController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [SectionController::class, 'index'])->name('admin.template.section');
-Route::post('/store', [SectionController::class, 'store'])->name('admin.template.section.store');
-Route::post('/update/{id}', [SectionController::class, 'update'])->name('admin.template.section.update');
-Route::post('/change-status', [SectionController::class, 'changeStatus'])->name('admin.template.section.change-status');
+Route::controller(SectionController::class)->group(function() {
+    Route::get('/', 'index')->name('admin.template.section');
+    Route::post('/store', 'store')->name('admin.template.section.store');
+    Route::post('/update/{id}', 'update')->name('admin.template.section.update');
+    Route::post('/change-status', 'changeStatus')->name('admin.template.section.change-status');
+});
 
 // Section Data 
 
-Route::get('/data', [SectionDataController::class, 'index'])->name('admin.template.section.data');
-Route::post('/data/component-design/store', [SectionDataController::class, 'addComponentDesign'])->name('admin.template.section.data.store');
-Route::post('/data/component-design/delete/{id}', [SectionDataController::class, 'removeComponentDesign'])->name('admin.template.section.component-design.delete');
+Route::controller(SectionDataController::class)->group(function() {
+    Route::get('/data', 'index')->name('admin.template.section.data');
+    Route::post('/data/component-design/store', 'addComponentDesign')->name('admin.template.section.data.store');
+    Route::post('/data/component-design/delete/{id}', 'removeComponentDesign')->name('admin.template.section.component-design.delete');
+});
 
 // update field 

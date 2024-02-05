@@ -11,7 +11,7 @@ class ComponentController extends Controller
 {
     public function index() {
         $cpts = Component::get();
-        return Inertia::render('Backend/Temp/Component/Index', [
+        return Inertia::render('Temp/Component/Index', [
             'cpts' => $cpts,
         ]);
     }
