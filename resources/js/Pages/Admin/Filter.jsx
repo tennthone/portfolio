@@ -9,51 +9,29 @@ import { useContext } from "react";
 import { AdminContext } from "@/Context/AdminContext";
 
 const Filter = () => {
-    const [search, setSearch] = useState("");
-    const { admins } = usePage().props;
+    const {url, props} = usePage();
+    const admins = props.admins;
     const [openSearchResult, setOpenSearchResult] = useState(false);
     const [openAdvancedFilter, setOpenAdvancedFilter] = useState(false);
     const [openColList, setOpenColList] = useState(false);
-    const initValue = {
-        name: "",
-        email: "",
-        role: "",
-        status: "",
-        createdAt : {
-            startDate: "",
-            endDate: "",
-            startYear: "",
-            endYear: "",
-            startMonth: "",
-            endMonth: "",
-        },
-        advancedSearch : true,
-    };
+    const {searchData, setSearchData, resetSearchData} = useContext(AdminContext)
 
-    const [advancedFilter, setAdvancedFilter] = useState(initValue);
-    const handleRandomSearch = (e) => {
+    // handle random search
+
+    const handleSearch = (e) => {
         e.preventDefault();
-        searchDetails({ search: search });
+        searchDetails(searchData);
     };
 
-    const handleSearchField = (e) => {
-        setSearch(e.target.value);
-        setOpenSearchResult(false);
-    };
-
-    const handleCancel = () => {
-        router.get(route("admin.admin-management"));
-    };
-
-    const handleAdvancedFilter = (e) => {
-        e.preventDefault();
-        searchDetails(advancedFilter);
-    };
+    const handleAdvancedFilterState = () => {
+        setOpenAdvancedFilter(!openAdvancedFilter)
+        setSearchData({...searchData, advancedSearch : !openAdvancedFilter})
+    }
 
     const handleFilterChange = (e) => {
         const key = e.target.id;
         const value = e.target.value;
-        setAdvancedFilter((values) => ({
+        setSearchData((values) => ({
             ...values,
             [key]: value,
         }));
@@ -62,7 +40,7 @@ const Filter = () => {
     const handleDateFilterChange = (e) => {
         const key = e.target.id;
         const value = e.target.value;
-        setAdvancedFilter((values) => ({
+        setSearchData((values) => ({
             ...values,
             createdAt : {
                 ...values.createdAt,
@@ -71,18 +49,21 @@ const Filter = () => {
         }));
     }
 
-    function searchDetails($params) {
-        router.post(route("admin.admin-management"), $params, {
+    function searchDetails(params) {
+        router.post(url, params, {
             onSuccess: () => {
                 setOpenSearchResult(true);
                 setOpenAdvancedFilter(false);
             },
+            onError : (e) => {
+                console.log(e)
+            },  
             preserveState: true,
         });
     }
 
     const handleClearFilter = () => {
-        setAdvancedFilter(initValue);
+        setSearchData(initValue);
     };
 
     return (
@@ -91,29 +72,54 @@ const Filter = () => {
             {openSearchResult && (
                 <div className="my-4">
                     <p>
-                        Total {admins.length} results is found for `{search}`
+                        Total {admins.length} results is found for `{searchData.search}`
                     </p>
                 </div>
             )}
             <div className="relative">
-                <form onSubmit={handleRandomSearch}>
+                <form onSubmit={handleSearch}>
                     <div className="flex justify-between my-3 items-center">
+                        {/* simple search input  */}
+                        <div className="w-8/12">
+                            <TextInput
+                                placeholder="Search For Admins"
+                                type="search"
+                                className="me-2"
+                                value={searchData.search}
+                                required={true}
+                                onChange={(e) => setSearchData({...searchData, search : e.target.value})}
+                            />
+                        </div>
+                        {/* refresh button  */}
+                        <div className="w-1/12">
+                            <Button
+                                color="gray"
+                                className="me-2"
+                                onClick={() => resetSearchData()}
+                            >
+                                Refresh
+                            </Button>
+                        </div>
+                        {/* search button  */}
+                        <div className="w-1/12">
+                            <Button type="submit" color="purple">
+                                Search
+                            </Button>
+                        </div>
+                        {/* advanced filter  */}
                         <div className="w-1/12">
                             <Tooltip content="Advanced Filter">
                                 <Button
                                     type="button"
                                     size="sm"
                                     color="purple"
-                                    onClick={() =>
-                                        setOpenAdvancedFilter(
-                                            !openAdvancedFilter
-                                        )
-                                    }
+                                    onClick={handleAdvancedFilterState}
                                 >
                                     <CiFilter size={23} />
                                 </Button>
                             </Tooltip>
                         </div>
+                        {/* show columns  */}
                         <div className="w-1/12">
                             <Tooltip content="Show Colums">
                                 <Button
@@ -126,39 +132,16 @@ const Filter = () => {
                                 </Button>
                             </Tooltip>
                         </div>
-                        <div className="w-8/12">
-                            <TextInput
-                                placeholder="Search For Admins"
-                                type="search"
-                                className="me-2"
-                                value={search}
-                                onChange={(e) => handleSearchField(e)}
-                            />
-                        </div>
-                        <div className="w-1/12">
-                            <Button
-                                color="gray"
-                                className="me-2"
-                                onClick={() => handleCancel()}
-                            >
-                                Cancel
-                            </Button>
-                        </div>
-                        <div className="w-1/12">
-                            <Button type="submit" color="purple">
-                                Search
-                            </Button>
-                        </div>
                     </div>
                 </form>
                 {openAdvancedFilter && (
                     <AdvancedFilter
                         setOpenAdvancedFilter={setOpenAdvancedFilter}
-                        handleAdvancedFilter={handleAdvancedFilter}
+                        handleAdvancedFilter={handleSearch}
                         handleFilterChange={handleFilterChange}
                         handleClearFilter={handleClearFilter}
                         handleDateFilterChange={handleDateFilterChange}
-                        advancedFilter={advancedFilter}
+                        advancedFilter={searchData}
                     />
                 )}
                 {openColList && (
@@ -185,7 +168,7 @@ const ColumnList = () => {
     }
     return (
         <React.Fragment>
-            <div className="absolute top-12 left-6 w-1/5 bg-slate-200 z-50 rounded-sm">
+            <div className="absolute top-12 right-0 w-1/5 bg-slate-200 z-50 rounded-md">
                 <div className="py-2">
                     <ul>
                         {colHeaders.map((item) => (

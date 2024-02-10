@@ -37,8 +37,8 @@ class HandleInertiaRequests extends Middleware
                 'admin' => $request->user('admin'),
             ],
             'metadata' => [
-                'logo' => GeneralHelper::getGeneralSetting('logo'),
-                'title' => GeneralHelper::getGeneralSetting('title'),
+                'logo' => GeneralHelper::getGeneralSetting('logo') ?? '',
+                'title' => GeneralHelper::getGeneralSetting('title') ?? env('APP_NAME'),
             ],
             'permissions' => $request->user() ? $request->user('admin')->getAllPermissions()->pluck('name')->toArray() : "",
             'flash' => [

@@ -1,16 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\v1\Backend\AuthController;
-use App\Services\GitHubActionService;
-use App\Services\GitHubRepoService;
-use App\Services\TemplateGenerationService;
-use App\Services\TemplateService;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Aws\Route53\Route53Client;
+use Aws\Exception\AwsException;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,26 +36,58 @@ use Inertia\Inertia;
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-// Admin  routes 
-Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::get('/', [AuthController::class, 'index'])->name('login');
-Route::post('/login/store', [AuthController::class, 'store'])->name('admin.login.store');
 
-Route::prefix('admin')->middleware(['auth:admin'])->group(function() {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
-    Route::get('/dashboard', function() {
-        return Inertia::render('Dashboard');
-    })->name('admin.dashboard');
-
-    // Template Rotues 
-    Route::prefix('template')->group(base_path('routes/admin/template.php'));
-    Route::prefix('setting')->group(function() {
-        Route::prefix('permission')->group(base_path('routes/admin/permission.php'));
+if(config('app.env') == 'production') {
+    Route::domain('admin.tennthone.com')->group(function() {
+        require __DIR__.'/admin.php';
     });
-    Route::prefix('field')->group(base_path('routes/admin/field.php'));
-    Route::prefix('admin-management')->group(base_path('routes/admin/admin.php'));
-    Route::prefix('member-management')->group(base_path('routes/admin/member.php'));
-    Route::prefix('general-setting')->group(base_path('routes/admin/general-setting.php'));
+} else {
+    require __DIR__.'/admin.php';
+}
+
+Route::domain('{subdomain}.tennthone.com')->group(function () {
+    Route::get('/', function ($subdomain) {
+        echo "this is created subdomain name $subdomain";
+    });
+});
+
+Route::get('create-subdomain/{name}', function ($name) {
+    $credentials = [
+        'key'    => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
+        'region' => env('AWS_DEFAULT_REGION')
+    ];
+
+    $route53 = new Route53Client($credentials);
+    $domainName = 'tennthone.com'; // Your registered domain
+    $subdomainName = $name; // The subdomain you want to create
+    $ipAddress = '13.229.69.69';
+    try {
+        $result = $route53->changeResourceRecordSets([
+            'HostedZoneId' => 'Z095610323ZGEENP8VJ9A',
+            'ChangeBatch' => [
+                'Changes' => [
+                    [
+                        'Action' => 'CREATE',
+                        'ResourceRecordSet' => [
+                            'Name' => $subdomainName . '.' . $domainName,
+                            'Type' => 'A',
+                            'TTL' => 300,
+                            'ResourceRecords' => [
+                                [
+                                    'Value' => $ipAddress
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]);
+    
+        echo "Subdomain created successfully";
+    } catch (AwsException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 });
 
 

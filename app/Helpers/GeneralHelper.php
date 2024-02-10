@@ -11,10 +11,10 @@ class GeneralHelper {
      * generate template id for website and resource
      * @param string $prefix
      * @param string $latestId
-     * @return int
+     * @return string
      */
-    public static function generateTemplateId(string $prefix, string $latestId) : int
-    {
+    public static function generateTemplateId(string $prefix, string $latestId) : string
+    {   
         $numericPart = (int) substr($latestId, 3) + 1;
         $newId = $prefix . '-'. str_pad($numericPart, 6, '0', STR_PAD_LEFT);
         return $newId;   
@@ -25,12 +25,15 @@ class GeneralHelper {
      * @param string $name
      * @return string
      */
-    public static function getGeneralSetting(string $name) : string
+    public static function getGeneralSetting(string $name)
     {   
         $gs = GeneralSetting::where('name', $name)->first();
-        if($gs->type == 'file') {
-            return Storage::url($gs->value);
-        }
-        return $gs->value;
+        if($gs) {
+            if($gs->type == 'file') {
+                return Storage::url($gs->value);
+            }
+            return $gs->value;
+        } 
+        return false;
     }
 }

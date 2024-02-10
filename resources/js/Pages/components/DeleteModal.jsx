@@ -7,6 +7,7 @@ const DeleteModal = ({
     setOpenModal, 
     title, 
     handleDelete, 
+    param,
     loading
   }) => {
   return (
@@ -22,7 +23,7 @@ const DeleteModal = ({
             <div className="flex justify-center gap-4">
               <Button 
                 color="failure" 
-                onClick={() => handleDelete(false)}
+                onClick={() => handleDelete(param)}
                 processingLabel='Saving'
                 isProcessing={loading}
               >

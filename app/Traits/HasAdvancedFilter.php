@@ -19,7 +19,7 @@ trait HasAdvancedFilter
         foreach ($filters as $key => $value) {
             $filterMethod = 'filterBy' . ucfirst($key);
 
-            if (method_exists($this, $filterMethod)) {
+            if (method_exists($this, $filterMethod) && $value != null) {
                 try {
                     $query = $this->$filterMethod($query, $value);
                 } catch (Exception $e) {
@@ -31,7 +31,7 @@ trait HasAdvancedFilter
     }
 
     protected function filterByName(EloquentBuilder $query, $value)
-    {
+    {   
         $query->where('name', 'like', '%' . $value . '%');
         return $query;
     }
@@ -64,17 +64,16 @@ trait HasAdvancedFilter
     }
 
     protected function filterByCreatedAt(EloquentBuilder $query, $dateFilters)
-    {
-
-        if (isset($dateFilters['startDate']) && isset($dateFilters['endDate'])) {
+    {   
+        if ($dateFilters['startDate'] && $dateFilters['endDate']) {
             $this->filterByDate($query, $dateFilters['startDate'], $dateFilters['endDate']);
         }
 
-        if(isset($dateFilters['startMonth']) && isset($dateFilters['endMonth'])) {
+        if($dateFilters['startMonth'] && $dateFilters['endMonth']) {
             $this->filterByMonth($query, $dateFilters['startMonth'], $dateFilters['endMonth']);
         }
         
-        if(isset($dateFilters['startYear']) && isset($dateFilters['endYear'])) {
+        if($dateFilters['startYear'] && $dateFilters['endYear']) {
             $this->filterByYear($query, $dateFilters['startYear'], $dateFilters['endYear']);
         }
 

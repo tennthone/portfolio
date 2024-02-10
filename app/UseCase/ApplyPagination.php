@@ -12,7 +12,7 @@ class ApplyPagination {
     }
 
     function __invoke($page, $perpage)
-    {
+    {   
         $result = $this->query->skip(($page - 1) * $perpage)->take($perpage);
         return $result;
     }

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->mediumText('address')->nullable();
             $table->mediumText('description')->nullable();
             $table->json('social')->nullable();
-            $table->enum('gender', ['male', 'female', 'others'])->nullable();
+            $table->integer('gender')->default(0)->comment('0=female, 1=male, 2=others');
             $table->tinyInteger('isActive')->default(1);
-            $table->date('deleted_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

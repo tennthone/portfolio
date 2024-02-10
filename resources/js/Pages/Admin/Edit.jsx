@@ -7,7 +7,7 @@ import { Tabs } from "flowbite-react";
 import { MdDashboard } from "react-icons/md";
 import ChangePassword from "./ChangePassword";
 import ProfileDetail from "./ProfileDetail";
-import { AdminContext, AdminProvider } from "@/Context/AdminContext";
+import { AdminProvider } from "@/Context/AdminContext";
 
 const Edit = () => {
     const { url } = usePage();

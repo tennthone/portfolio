@@ -24,6 +24,7 @@ class AdminResource extends JsonResource
             'gender' => $this->gender,
             'roles' => $this->getRoleNames(),
             'isActive' => $this->isActive,
+            'isDeleted' => $this->deleted_at != null ? true : false,
             'profile_image' => !empty($this->image->path) ? Storage::url($this->image->path) : null,
             'created_at' => $this->created_at->toFormattedDateString(),
         ];

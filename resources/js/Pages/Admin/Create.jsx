@@ -147,6 +147,7 @@ const BodyContent = ({ setData, data, errors }) => {
                             setData={setData}
                             previewImage={previewImage}
                             setPreviewImage={setPreviewImage}
+                            name='profile_image'
                         />
                     </div>
                 </div>

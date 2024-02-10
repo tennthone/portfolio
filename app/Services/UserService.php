@@ -27,29 +27,44 @@ class UserService
      * @param array $searchableFields;
      * @param string $requestMethod;
      * @param array $data
-     * @return Collection
+     * @return array
      */
 
-    public function getUserData($searchableFields, $requestMethod, $data)
+    public function getUserData($searchableFields, $requestMethod, $data): array
     {
         $query = $this->model->newQuery();
 
         if ($requestMethod == 'POST') {
-            if (array_key_exists('search', $data)) {
-                $query = $this->simpleFilter($this->model, $searchableFields, $data['search']);
-            }
-
-            if (array_key_exists('advancedSearch', $data)) {
+            if (array_key_exists('search', $data) && $data['search']) {
+                $query = $this->applySimpleFilter($query, $searchableFields, $data['search']);
+            } elseif (array_key_exists('advancedSearch', $data) && $data['advancedSearch'] == true) {
                 $query = $this->applyAdvancedFilter($query, $data);
             }
 
-            if (array_key_exists('sort', $data)) {
+            if (array_key_exists('sort', $data) && $data['sort'] == true) {
                 $query = $this->sortField($query, $data);
             }
         }
 
-        $data = $this->getQueryData($query, $data);
-        return $data;
+        // Clone the query for counts to avoid over written
+        $validCountQuery = clone $query;
+        $trashCountQuery = clone $query;
+        $validCount = $validCountQuery->withoutTrashed()->count();
+        $trashCount = $trashCountQuery->onlyTrashed()->count();
+        // get paginated Data
+        $query = $this->getPaginatedQueryData($query, $data);
+        // clone query for fetching data to avoid overwritten
+        $adminQuery = clone $query;
+        $trashAdminQuery = clone $query;
+        $admins = $adminQuery->withoutTrashed()->get();
+        $trash_admins = $trashAdminQuery->onlyTrashed()->get();
+
+        return array(
+            'validCount' => $validCount,
+            'trashCount' => $trashCount,
+            'admins' => $admins,
+            'trash_admins' => $trash_admins,
+        );
     }
 
     /**
@@ -62,7 +77,7 @@ class UserService
     function sortField($query, $data)
     {
         $sortField = new SortField();
-        $query = $sortField($this->model, $data['sortBy'], $data['field'], $query);
+        $query = $sortField($this->model, $data['sortBy'], $data['sortField'], $query);
         return $query;
     }
 
@@ -72,8 +87,8 @@ class UserService
      * @return Collection
      */
     public function getUserDetail($id)
-    {   
-        if($id == null) {
+    {
+        if ($id == null) {
             return false;
         }
 
@@ -88,19 +103,18 @@ class UserService
      * get query data with pagination
      * @param EloquentBuilder $query
      * @param array $data
-     * @return Collection
+     * @return EloquentBuilder
      */
-    protected function getQueryData($query, $data)
+    protected function getPaginatedQueryData($query, $data)
     {
         $page = array_key_exists('page', $data) ? $data['page'] : 1;
         $perpage = array_key_exists('perpage', $data) ? $data['perpage'] : 6;
-
         $query = $query->with('roles')->whereHas('roles', function ($q) {
             $q->where('name', '!=', 'superadmin');
         });
 
         $applyPagination = new ApplyPagination($query);
-        $data = $applyPagination($page, $perpage)->get();
+        $data = $applyPagination($page, $perpage);
         return $data;
     }
 }

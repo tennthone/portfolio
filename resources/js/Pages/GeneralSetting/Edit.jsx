@@ -2,7 +2,7 @@ import React from "react";
 import MyModal from "../components/MyModal";
 import { useContext } from "react";
 import { GeneralSettingContext } from "@/Context/GeneralSettingContext";
-import { FloatingLabel, Label, TextInput } from "flowbite-react";
+import { Label, TextInput } from "flowbite-react";
 import CustomFileInput from "../components/FileInput/CustomFileInput";
 import { useState } from "react";
 import { usePage } from "@inertiajs/react";

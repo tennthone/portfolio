@@ -8,7 +8,20 @@ import useSocialProfiles from "@/Hooks/useSocialProfiles";
 import profiles from "../../Data/social.json";
 import SocialProfile from "../components/SocialProfile/SocialProfile";
 
-const genders = ["male", "female", "others"];
+const genders = [
+    {
+        id : 0,
+        name : 'female'
+    },
+    {
+        id : 1,
+        name : 'male'
+    },
+    {
+        id : 2,
+        name : 'others'
+    },
+];
 
 const ProfileDetail = () => {
     const { data, setData, update, errors, handleRoleChange } =
@@ -17,6 +30,7 @@ const ProfileDetail = () => {
     const inputRef = useRef(null);
     const { roles } = usePage().props;
     const [previewImage, setPreviewImage] = useState("");
+    const currentImage = data.profile_image;
     const { socialProfiles, addSocialProfile } = useSocialProfiles(data.social);
 
     // auto focus when edit mode on
@@ -162,7 +176,7 @@ const ProfileDetail = () => {
                             </div>
                             <div className="w-2/5 flex items-center">
                                 {previewImage ? (
-                                    <div>
+                                    <div className="me-3">
                                         <img
                                             src={previewImage}
                                             alt="preview profile image"
@@ -194,6 +208,7 @@ const ProfileDetail = () => {
                                     setData={setData}
                                     previewImage={previewImage}
                                     setPreviewImage={setPreviewImage}
+                                    name='profile_image'
                                 />
                             </div>
                         </div>
@@ -242,7 +257,7 @@ const ProfileDetail = () => {
                             <div className="w-2/5 flex items-center">
                                 <Select
                                     className="w-full"
-                                    value={data.value}
+                                    value={data.gender}
                                     onChange={(e) =>
                                         setData("gender", e.target.value)
                                     }
@@ -250,14 +265,14 @@ const ProfileDetail = () => {
                                     <option value=""> Select Gender </option>
                                     {genders.map((item) => (
                                         <option
-                                            value={item}
+                                            value={item.id}
                                             selected={
-                                                data.value == {item}
+                                                data.gender == item.id
                                                     ? true
                                                     : false
                                             }
                                         >
-                                            {item.charAt(0).toUpperCase() + item.slice(1,item.length)}
+                                            {item.name.charAt(0).toUpperCase() + item.name.slice(1,item.length)}
                                         </option>
                                     ))}
                                 </Select>

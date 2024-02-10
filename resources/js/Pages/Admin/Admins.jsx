@@ -6,52 +6,72 @@ import { FaSort } from "react-icons/fa";
 import { useState } from "react";
 import { useContext } from "react";
 import { AdminContext } from "@/Context/AdminContext";
+import CustomPagination from "../components/Pagination/Pagination";
+import { useEffect } from "react";
 
-const Admins = () => {
-    const {url} = usePage();
-    const { admins } = usePage().props;
+const Admins = ({ data, isTrash = false, totalCount }) => {
+    const { url } = usePage();
     const [isAscending, setIsAscending] = useState(true);
-    const {colHeaders} = useContext(AdminContext)
+    const { colHeaders, searchData, setSearchData } = useContext(AdminContext);
 
     const handleSort = (field) => {
-        setIsAscending(!isAscending)
-        router.post(url, {
-            field : field,
-            sortBy : isAscending ? 'asc' : 'desc',
-            sort : true
-        }, {
-            onSuccess : () => {
+        setIsAscending(!isAscending);
+        setSearchData({
+            ...searchData,
+            sortField: field,
+            sortBy: isAscending ? "asc" : "desc",
+            sort: true,
+        });
+    };
 
-            },
-            onError : () => {
-
+    useEffect(() => {
+        router.post(
+            url,searchData,
+            {
+                onSuccess: () => {},
+                onError: () => {},
             }
-        })
-    }
+        );
+    }, [isAscending]);
+
     return (
         <React.Fragment>
             <div className="my-5">
                 <Table>
                     <Table.Head>
-                        {colHeaders.filter(item => item.selected == true).map((item) => (
-                            <Table.HeadCell key={item.id}>
-                                <div className="flex">
-                                    <span className="me-2"> {item.name} </span>
-                                    <FaSort 
-                                        className="cursor-pointer"
-                                        onClick={() => handleSort(item.field)}
-                                    />
-                                </div>
-                            </Table.HeadCell>
-                        ))}
+                        {colHeaders
+                            .filter((item) => item.selected == true)
+                            .map((item) => (
+                                <Table.HeadCell key={item.id}>
+                                    <div className="flex">
+                                        <span className="me-2">
+                                            {item.name}
+                                        </span>
+                                        <FaSort
+                                            className="cursor-pointer"
+                                            onClick={() =>
+                                                handleSort(item.field)
+                                            }
+                                        />
+                                    </div>
+                                </Table.HeadCell>
+                            ))}
+                        <Table.HeadCell>
+                            <span className="sr-only">Edit</span>
+                        </Table.HeadCell>
                         <Table.HeadCell>
                             <span className="sr-only">Edit</span>
                         </Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        {admins.length > 0 ? (
-                            admins.map((item, key) => (
-                                <Admin key={item.id} item={item} id={key} />
+                        {data.length > 0 ? (
+                            data.map((item, key) => (
+                                <Admin
+                                    key={item.id}
+                                    item={item}
+                                    id={item.id}
+                                    isTrash={isTrash}
+                                />
                             ))
                         ) : (
                             <Table.Row>
@@ -62,6 +82,15 @@ const Admins = () => {
                         )}
                     </Table.Body>
                 </Table>
+                {totalCount > 6 && (
+                    <div className="border-t-2 border-slate-400">
+                        <CustomPagination
+                            searchData={searchData}
+                            setSearchData={setSearchData}
+                            totalCount={totalCount}
+                        />
+                    </div>
+                )}
             </div>
         </React.Fragment>
     );

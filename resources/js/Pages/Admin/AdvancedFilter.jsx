@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
 import React from "react";
-import { Button, Datepicker, Label, Select, TextInput} from "flowbite-react";
+import { Button, Label, Select, TextInput} from "flowbite-react";
 
 const AdvancedFilter = ({
     setOpenAdvancedFilter,
@@ -34,7 +34,7 @@ const AdvancedFilter = ({
     return (
         <React.Fragment>
             <form onSubmit={handleAdvancedFilter}>
-                <div className="absolute top-12 w-2/5 z-50">
+                <div className="absolute top-12 right-0 w-full z-50 shadow-md shadow-slate-400">
                     <div className="bg-slate-100 rounded-md p-3">
                         <p className="font-bold text-xl">Advanced Filter </p>
                         <div className="flex my-3">

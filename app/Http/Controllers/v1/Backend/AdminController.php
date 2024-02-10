@@ -15,26 +15,26 @@ use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
-{   
-    public function index(Request $request) {
+{
+    public function index(Request $request)
+    {
         $requestMethod = $request->getMethod();
         $searchableFields = ['name', 'email', 'phone', 'gender', 'address'];
+        $searchData = $request->all();
         $admin = new Admin();
         $userService = new UserService($admin);
-        $admin = $userService->getUserDetail($request->admin);
-        $admins = $userService->getUserData($searchableFields, $requestMethod, $request->all());
-        
+        $userData = $userService->getUserData($searchableFields, $requestMethod, $searchData);
         return Inertia::render('Admin/Index', [
-            'admins' => AdminResource::collection($admins),
+            'admins' => AdminResource::collection($userData['admins']),
+            'trashAdmins' => AdminResource::collection($userData['trash_admins']),
             'roles' => Role::where('name', '!=', 'superadmin')->get(),
-            'admin' => isset($admin) ? $admin : [],
-            'totalCount' => Admin::whereHas('roles', function($q) {
-                $q->where('name', '!=', 'superadmin');
-            })->count(),
+            'totalValidCount' => $userData['validCount'],
+            'totalTrashCount' => $userData['trashCount'],
         ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -50,15 +50,15 @@ class AdminController extends Controller
                     'password' => Hash::make('password'),
                     'description' => $request->description,
                 ]);
-        
+
                 // assign role to new user 
-                
-                if($roles = $request->roles) {
+
+                if ($roles = $request->roles) {
                     $admin->assignRole($roles);
                 }
-        
+
                 // store profile image 
-                if($request->hasFile('profile_image')) {
+                if ($request->hasFile('profile_image')) {
                     $file = $request->file('profile_image');
                     $path = FileHelper::uploadFile($file, 'admin/profile');
                     $admin->image()->create([
@@ -73,9 +73,10 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Admin created successfully');
     }
 
-    public function changeStatus(Request $request, $id) {
+    public function changeStatus(Request $request, $id)
+    {
         $admin = Admin::find($id);
-        if($admin) {
+        if ($admin) {
             $admin->update([
                 'isActive' => $request->isActive,
             ]);
@@ -85,15 +86,17 @@ class AdminController extends Controller
         return redirect()->back()->with('error', 'Admin not found');
     }
 
-    public function edit($id) {
-        $admin = Admin::find($id);
+    public function edit($id)
+    {
+        $admin = Admin::withTrashed()->find($id);
         return Inertia::render('Admin/Edit', [
             'admin' => new AdminResource($admin),
-            'roles' => Role::where('name' , '!=', 'superadmin')->get(),
+            'roles' => Role::where('name', '!=', 'superadmin')->get(),
         ]);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         // validate name and email 
         $admin = Admin::find($id);
 
@@ -104,11 +107,11 @@ class AdminController extends Controller
 
         // update roles
 
-        if($roles = $request->roles) {
+        if ($roles = $request->roles) {
             $admin->assignRole($roles);
         }
 
-        if($request->file('profile_image')) {
+        if ($request->file('profile_image')) {
             // update file 
             $file = $request->file('profile_image');
             $path = FileHelper::updateFile($admin->image->path, $file, 'admin/profile');
@@ -117,8 +120,8 @@ class AdminController extends Controller
             ]);
         }
 
-        if($admin) {
-             $admin->update([
+        if ($admin) {
+            $admin->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -126,13 +129,14 @@ class AdminController extends Controller
                 'description' => $request->description,
                 'social' => json_encode($request->social),
                 'gender' => $request->gender,
-             ]);
+            ]);
         } else {
             return redirect()->back()->with('error', 'Admin not found');
         }
     }
 
-    public function changePassword(Request $request, $id) {
+    public function changePassword(Request $request, $id)
+    {
         $request->validate([
             'current_password' => 'required',
             'new_password' => 'required | min:8 | max:16',
@@ -140,12 +144,12 @@ class AdminController extends Controller
         ]);
 
         $admin = Admin::find($id);
-        
-        if($admin){
+
+        if ($admin) {
             $currentPassword = $request->current_password;
             $newPassword = $request->new_password;
             $checked = Hash::check($currentPassword, $admin->password);
-            if(!$checked) {
+            if (!$checked) {
                 throw ValidationException::withMessages([
                     'current_password' => 'Password do not match'
                 ]);
@@ -161,11 +165,32 @@ class AdminController extends Controller
         return redirect()->back()->with('error', 'Admin not found');
     }
 
-    public function delete($id) {
+    public function softDelete($id)
+    {
         $admin = Admin::find($id);
-        if($admin) {
+        if ($admin) {
             $admin->delete();
             return redirect()->back()->with('success', 'Admin deleted successfully');
+        }
+        return redirect()->back()->with('error', 'Admin not found');
+    }
+
+    public function delete($id)
+    {
+        $admin = Admin::withTrashed()->find($id);
+        if ($admin) {
+            $admin->forceDelete(); // Correct syntax for permanently deleting a record
+            return redirect()->back()->with('success', 'Admin deleted successfully');
+        }
+        return redirect()->back()->with('error', 'Admin not found');
+    }
+
+    public function restore($id)
+    {
+        $admin = Admin::withTrashed()->find($id);
+        if ($admin) {
+            $admin->restore();
+            return redirect()->back()->with('success', 'Admin restored successfully');
         }
         return redirect()->back()->with('error', 'Admin not found');
     }

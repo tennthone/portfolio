@@ -12,8 +12,10 @@ export const AdminContext = createContext(null);
 export const AdminProvider = ({ children }) => {
     const [openCreateModal, setOpenCreateModal] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
+    const [isSuccess, SetIsSuccess] = useState(false);
     const [colHeaders, setcolHeaders] = useState(headers)
-    const {admin} = usePage().props;
+    const {url, props} = usePage();
+    const admin = props.admin;
 
     const initData = {
         name: admin?.name ?? '',
@@ -30,9 +32,39 @@ export const AdminProvider = ({ children }) => {
         confirm_password : ""
     }
 
+    const initSearchData = {
+        search : '',
+        name: '',
+        email: '',
+        role: '',
+        status: '',
+        createdAt : {
+            startDate: '',
+            endDate: '',
+            startYear: '',
+            endYear: '',
+            startMonth: '',
+            endMonth: '',
+        },
+        page : 1,
+        perPage : 6,
+        advancedSearch : false,
+        sort : false,
+        sortBy : '',
+        sortField : '',
+    };
+
+    const [searchData, setSearchData] = useState(initSearchData)
     const { data, setData, reset} = useForm([]);
     const [ errors, setErrors ] = useState([]);
 
+    const resetSearchData = () => {
+        setSearchData(initSearchData)
+        router.get(url, {}, {
+            preserveScroll : true,
+            preserveState : true,
+        });
+    }
     // update admin 
     const update = (e) => {
         e.preventDefault();
@@ -65,11 +97,38 @@ export const AdminProvider = ({ children }) => {
         })
     }
 
+    // adding admin to the trash
+    const handleSoftDelete = (id) => {
+        router.delete(route('admin.admin-management.soft-delete', id), {
+            onSuccess : () => {
+                toast.success("Admin delete successfully")
+                reset()
+            },
+            onError : (e) => {
+                setErrors(e)
+            }
+        })
+    }
+
     // delete admin 
     const handleDelete = (id) => {
         router.delete(route('admin.admin-management.delete', id), {
             onSuccess : () => {
-                toast.success("Admin delete successfully")
+                SetIsSuccess(true);
+                toast.success("Admin permanently deleted successfully")
+                reset()
+            },
+            onError : (e) => {
+                setErrors(e)
+            }
+        })
+    }
+
+    // restore admin 
+    const handleRestore = (id) => {
+        router.post(route('admin.admin-management.restore', id), {
+            onSuccess : () => {
+                toast.success("Admin restore successfully")
                 reset()
             },
             onError : (e) => {
@@ -95,6 +154,7 @@ export const AdminProvider = ({ children }) => {
         );
     };
 
+
     // handle roles change 
     const handleRoleChange = (e) => {
         const selectedRoles = Array.from(
@@ -116,6 +176,8 @@ export const AdminProvider = ({ children }) => {
                 openEditModal,
                 setOpenCreateModal,
                 setOpenEditModal,
+                searchData,
+                setSearchData,
                 data,
                 setData,
                 errors,
@@ -123,11 +185,15 @@ export const AdminProvider = ({ children }) => {
                 reset,
                 update,
                 updatePassword,
+                handleSoftDelete,
                 handleDelete,
+                handleRestore,
                 handleSwitchChange,
+                resetSearchData,
                 handleRoleChange,
                 colHeaders,
-                setcolHeaders
+                setcolHeaders,
+                isSuccess,
             }}
         >
             <Toaster 

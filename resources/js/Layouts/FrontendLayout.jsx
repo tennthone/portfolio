@@ -13,7 +13,7 @@ const FrontendLayout = ({children}) => {
           </div>
           <div className="w-10/12">
             {/* Content  */}
-              <div className="px-10 mt-14">
+              <div className="px-10 mt-3">
                   {children}
               </div>
           </div>

@@ -15,21 +15,21 @@ use Illuminate\Support\Facades\Schema;
  */
 
 trait HasSimpleFilter {
-    public function simpleFilter(Model $model, array $fields, string $keyword) : EloquentBuilder 
+    public function applySimpleFilter(EloquentBuilder $query, array $fields, string $keyword) 
     {
-        $tableName = $model->getTable();
+        $model = $query->getModel();
+        $tableName = $model->getTable(); 
         $attributes = Schema::getColumns($model);
-        $query = $model->newQuery();
         
-        foreach ($fields as $field) {
-            if($this->hasAttribute($tableName, $field)) {
-                $query->orWhere(function ($query) use ($field, $keyword) {
-                    $query->where($field, 'like', '%' . $keyword . '%');
-                });
-            } else {
-                throw new \Exception("$field column doesn't exist in $tableName table");
+        $query->where(function ($query) use ($tableName, $fields, $keyword) {
+            foreach ($fields as $field) {
+                if ($this->hasAttribute($tableName, $field)) {
+                    $query->orWhere($field, 'like', '%' . $keyword . '%');
+                } else {
+                    throw new \Exception("$field column doesn't exist in $tableName table");
+                }
             }
-        }
+        });
         return $query;
     }
 

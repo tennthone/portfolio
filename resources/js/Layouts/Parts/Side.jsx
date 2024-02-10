@@ -19,13 +19,15 @@ const Side = () => {
 
     const handleLogout = () => {
         router.post(
-            route("admin.logout"),
+        route("admin.logout"),
             {},
             {
                 onSuccess: () => {
                     toast.success("Logout successfully");
                 },
-                onError: () => {},
+                onError: (e) => {
+                    console.log(e)
+                },
             }
         );
     };

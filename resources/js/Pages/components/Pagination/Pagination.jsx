@@ -1,37 +1,65 @@
 import { router, usePage } from "@inertiajs/react";
-import { Pagination } from "flowbite-react";
+import { useEffect } from "react";
 import { useState } from "react";
 
-const CustomPagination = ({route, params = {}}) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const {totalCount} = usePage().props;
-    const totalPages = Math.ceil(totalCount/5);
-    const handlePagination = (page) => {
-        setCurrentPage(page)
-        router.get(route, {
-            page : page,
-            ...params
-        }, {
-            preserveState : true,
-            onSuccess : () => {
+const CustomPagination = ({searchData, setSearchData, totalCount }) => {
+    const {url} = usePage();
+    const [paginationState, setPaginationState] = useState({
+        disabledPrevious: true,
+        disabledNext: false,
+    });
 
-            },
-            onError : () => {
+    const totalPages = Math.ceil(totalCount / 6);
 
+    const handlePageChange = (page) => {
+        setPaginationState((prevState) => ({
+            ...prevState,
+            disabledPrevious: page === 1,
+            disabledNext: page >= totalPages,
+        }));
+        setSearchData((prevState) => ({
+            ...prevState,
+            page: page
+        }));
+    };
+
+    useEffect(() => {
+        router.post(
+            url,searchData,
+            {
+                preserveState: true,
+                preserveScroll : true,
+                onSuccess: () => {},
+                onError: () => {},
             }
-        });
-    }
+        );
+    }, [searchData.page])
+
     return (
-        <div className="flex overflow-x-auto sm:justify-center mb-5">
-            <Pagination
-                layout="pagination"
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={(page) => handlePagination(page)}
-                previousLabel="ရှေ့သို့"
-                nextLabel="နောက်သို့"
-                showIcons
-            />
+        <div className="flex justify-between mb-5">
+            <div className="mt-4">
+                <p className="text-sm text-slate-400">
+                    Page {searchData.page} of {totalPages}
+                </p>
+            </div>
+            <div className="mt-4">
+                <div className="flex">
+                    <button
+                        className={`p-2 rounded-md text-slate-700 border border-slate-400 text-sm me-3  ${paginationState.disabledPrevious ? 'hover:cursor-not-allowed' : 'hover:bg-indigo-700 hover:text-slate-200'}`}
+                        onClick={() => handlePageChange(searchData.page - 1)}
+                        disabled={paginationState.disabledPrevious}
+                    >
+                        Previous
+                    </button>
+                    <button
+                        className={`p-2 rounded-md text-slate-700 border border-slate-400 text-sm ${paginationState.disabledNext ? 'hover:cursor-not-allowed' : 'hover:bg-indigo-700 hover:text-slate-200'}`}
+                        onClick={() => handlePageChange(searchData.page + 1)}
+                        disabled={paginationState.disabledNext}
+                    >
+                        Next
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };
