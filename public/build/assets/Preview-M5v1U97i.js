@@ -1,1 +1,0 @@
-import{j as e}from"./app-pVd2MQ2a.js";const d=({skeleton:s,content:r})=>e.jsx("div",{children:e.jsxs("div",{className:"flex",children:[e.jsx("div",{className:"me-3",children:e.jsx("div",{dangerouslySetInnerHTML:{__html:r}})}),e.jsx("div",{dangerouslySetInnerHTML:{__html:s}})]})});export{d as default};
