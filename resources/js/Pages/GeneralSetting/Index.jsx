@@ -4,9 +4,12 @@ import { Breadcrumb, Button } from "flowbite-react";
 import React from "react";
 import { MdVerifiedUser } from "react-icons/md";
 import GeneralSettings from "./GeneralSettings";
-import { GeneralSettingProvider } from "@/Context/GeneralSettingContext";
+import { GeneralSettingContext, GeneralSettingProvider } from "@/Context/GeneralSettingContext";
+import { useContext } from "react";
+import Filter from "./Filter";
 
 const Index = () => {
+    const {setOpenCreateModal} = useContext(GeneralSettingContext);
     return (
         <React.Fragment>
             <div className="p-3 border-2 rounded-md">
@@ -22,12 +25,14 @@ const Index = () => {
                         size="sm"
                         color="purple"
                         type="button"
+                        onClick={() => setOpenCreateModal(true)}
                     >
                         Create Entity
                     </Button>
                 </div>
             </div>
-
+            {/* this is simple filter or random search  */}
+            <Filter />
             {/* Items Tables */}
             <GeneralSettings />
         </React.Fragment>

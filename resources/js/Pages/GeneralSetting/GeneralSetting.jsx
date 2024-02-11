@@ -20,7 +20,10 @@ const GeneralSetting = ({ item }) => {
                 <Table.Cell> {item.type} </Table.Cell>
                 <Table.Cell> {item.category} </Table.Cell>
                 <Table.Cell>
-                    <Button onClick={() => handleEditModal(item.id)}>
+                    <Button 
+                        size="sm"
+                        onClick={() => handleEditModal(item.id)}
+                    >
                         Edit
                     </Button>
                 </Table.Cell>

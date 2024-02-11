@@ -29,9 +29,9 @@ const Edit = () => {
                         errors={errors}
                     />
                 }
-                heading="Create Entity"
-                buttonName="Save"
-                processingLabel="Saving"
+                heading="Edit Entity"
+                buttonName="Update"
+                processingLabel="updating"
                 routeName={"admin.general-setting.update"}
                 param={gs_detail.id}
                 setErrors={setErrors}

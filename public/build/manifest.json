@@ -1,299 +1,299 @@
 {
-  "_AdminContext-2_gx2oGm.js": {
-    "file": "assets/AdminContext-2_gx2oGm.js",
+  "_AdminContext-CPri2-hD.js": {
+    "file": "assets/AdminContext-CPri2-hD.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/components/MyModal.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx",
-      "_index-P14pBrTn.js"
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true
   },
-  "_ComponentDesignContext-7G5bFFh9.js": {
-    "file": "assets/ComponentDesignContext-7G5bFFh9.js",
+  "_ComponentDesignContext-iQU8Ckv4.js": {
+    "file": "assets/ComponentDesignContext-iQU8Ckv4.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-P14pBrTn.js"
+      "_index-vo5hzI2Q.js"
     ]
   },
-  "_Create-dis1WARX.js": {
-    "file": "assets/Create-dis1WARX.js",
+  "_Create-BK5eef_5.js": {
+    "file": "assets/Create-BK5eef_5.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/components/MyModal.jsx",
-      "_ToggleSwitch-Qx0o1INj.js"
-    ],
-    "isDynamicEntry": true
-  },
-  "_DataContext-qFWc62PB.js": {
-    "file": "assets/DataContext-qFWc62PB.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_index-P14pBrTn.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
-      "resources/js/Pages/components/Loading/Loading.jsx"
-    ],
-    "isDynamicEntry": true
-  },
-  "_Edit-JM3U9afX.js": {
-    "file": "assets/Edit-JM3U9afX.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "resources/js/Pages/components/MyModal.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
     ],
     "isDynamicEntry": true
   },
-  "_FileContext-BsfjRRh-.js": {
-    "file": "assets/FileContext-BsfjRRh-.js",
+  "_Create-F4rVrTYS.js": {
+    "file": "assets/Create-F4rVrTYS.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-P14pBrTn.js"
-    ]
+      "resources/js/Pages/components/MyModal.jsx",
+      "_ToggleSwitch-ZTVrJ8c4.js"
+    ],
+    "isDynamicEntry": true
   },
-  "_FrontendLayout-eoZgnh6e.js": {
-    "file": "assets/FrontendLayout-eoZgnh6e.js",
+  "_DataContext-o8T6cVaV.js": {
+    "file": "assets/DataContext-o8T6cVaV.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js"
+      "_index-vo5hzI2Q.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
+      "resources/js/Pages/components/Loading/Loading.jsx"
+    ],
+    "isDynamicEntry": true
+  },
+  "_FileContext-yL3LoNET.js": {
+    "file": "assets/FileContext-yL3LoNET.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-vo5hzI2Q.js"
     ]
   },
-  "_PageContext-MnKv86sL.js": {
-    "file": "assets/PageContext-MnKv86sL.js",
+  "_FrontendLayout-uLKMfWo7.js": {
+    "file": "assets/FrontendLayout-uLKMfWo7.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js"
+    ]
+  },
+  "_PageContext-Ds3dQ3Pd.js": {
+    "file": "assets/PageContext-Ds3dQ3Pd.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_PermissionContext-NPTtpCGV.js": {
-    "file": "assets/PermissionContext-NPTtpCGV.js",
+  "_PermissionContext-pFW_BpZl.js": {
+    "file": "assets/PermissionContext-pFW_BpZl.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-P14pBrTn.js"
+      "_index-vo5hzI2Q.js"
     ]
   },
-  "_SectionContext-SIoYS_7U.js": {
-    "file": "assets/SectionContext-SIoYS_7U.js",
+  "_SectionContext-yu0P590s.js": {
+    "file": "assets/SectionContext-yu0P590s.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-P14pBrTn.js"
+      "_index-vo5hzI2Q.js"
     ]
   },
-  "_SectionDataContext-1lOoSK_u.js": {
-    "file": "assets/SectionDataContext-1lOoSK_u.js",
+  "_SectionDataContext-Bl_cmwr3.js": {
+    "file": "assets/SectionDataContext-Bl_cmwr3.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-P14pBrTn.js"
+      "_index-vo5hzI2Q.js"
     ]
   },
-  "_ToggleSwitch-Qx0o1INj.js": {
-    "file": "assets/ToggleSwitch-Qx0o1INj.js",
+  "_ToggleSwitch-ZTVrJ8c4.js": {
+    "file": "assets/ToggleSwitch-ZTVrJ8c4.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
   "_helper-f30-86R5.js": {
     "file": "assets/helper-f30-86R5.js"
   },
-  "_index-P14pBrTn.js": {
-    "file": "assets/index-P14pBrTn.js",
+  "_index-vo5hzI2Q.js": {
+    "file": "assets/index-vo5hzI2Q.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_index.esm-1hZOEXpm.js": {
-    "file": "assets/index.esm-1hZOEXpm.js",
+  "_index.esm--otMLcDa.js": {
+    "file": "assets/index.esm--otMLcDa.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-AVd4J7i-.js": {
-    "file": "assets/index.esm-AVd4J7i-.js",
+  "_index.esm-3H3AJkX1.js": {
+    "file": "assets/index.esm-3H3AJkX1.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-D0xlbhU7.js": {
-    "file": "assets/index.esm-D0xlbhU7.js",
+  "_index.esm-5hjvTn4i.js": {
+    "file": "assets/index.esm-5hjvTn4i.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-Dr3JTvan.js": {
-    "file": "assets/index.esm-Dr3JTvan.js",
+  "_index.esm-9jaNTOhy.js": {
+    "file": "assets/index.esm-9jaNTOhy.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-DzXUWgJ9.js": {
-    "file": "assets/index.esm-DzXUWgJ9.js",
+  "_index.esm-NOrM3xzt.js": {
+    "file": "assets/index.esm-NOrM3xzt.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-E5RsbAw0.js": {
-    "file": "assets/index.esm-E5RsbAw0.js",
+  "_index.esm-OTOBmvVA.js": {
+    "file": "assets/index.esm-OTOBmvVA.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-NNQyJyci.js": {
-    "file": "assets/index.esm-NNQyJyci.js",
+  "_index.esm-PSCDcSUR.js": {
+    "file": "assets/index.esm-PSCDcSUR.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-P7cDSgAt.js": {
-    "file": "assets/index.esm-P7cDSgAt.js",
+  "_index.esm-PyoUSChy.js": {
+    "file": "assets/index.esm-PyoUSChy.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-Uhj2sF6M.js": {
-    "file": "assets/index.esm-Uhj2sF6M.js",
+  "_index.esm-VEk1tqGe.js": {
+    "file": "assets/index.esm-VEk1tqGe.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-Y7uPn6Q7.js": {
-    "file": "assets/index.esm-Y7uPn6Q7.js",
+  "_index.esm-lpnmyVPM.js": {
+    "file": "assets/index.esm-lpnmyVPM.js",
+    "imports": [
+      "_index.esm-rqdHtUzR.js"
+    ]
+  },
+  "_index.esm-rqdHtUzR.js": {
+    "file": "assets/index.esm-rqdHtUzR.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_index.esm-gDgeuq8Z.js": {
-    "file": "assets/index.esm-gDgeuq8Z.js",
+  "_index.esm-whas9ESU.js": {
+    "file": "assets/index.esm-whas9ESU.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
-  "_index.esm-h7QdxEij.js": {
-    "file": "assets/index.esm-h7QdxEij.js",
+  "_index.esm-zYChUtNY.js": {
+    "file": "assets/index.esm-zYChUtNY.js",
     "imports": [
-      "_index.esm-Y7uPn6Q7.js"
-    ]
-  },
-  "_index.esm-iw1B7kYn.js": {
-    "file": "assets/index.esm-iw1B7kYn.js",
-    "imports": [
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ]
   },
   "resources/js/Pages/Admin/Admin.jsx": {
-    "file": "assets/Admin-tLwTxnnj.js",
+    "file": "assets/Admin-kvoZYzhU.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AdminContext-2_gx2oGm.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
+      "_AdminContext-CPri2-hD.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-gDgeuq8Z.js",
+      "_index.esm-OTOBmvVA.js",
       "resources/js/Pages/components/DeleteModal.jsx",
       "resources/js/Pages/components/MyModal.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Admin.jsx"
   },
   "resources/js/Pages/Admin/Admins.jsx": {
-    "file": "assets/Admins-RT7gQdOg.js",
+    "file": "assets/Admins-YL_81cgk.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/Admin/Admin.jsx",
-      "_AdminContext-2_gx2oGm.js",
+      "_AdminContext-CPri2-hD.js",
       "resources/js/Pages/components/Pagination/Pagination.jsx",
-      "_index-P14pBrTn.js",
+      "_index-vo5hzI2Q.js",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
       "resources/js/Pages/components/DeleteModal.jsx",
       "resources/js/Pages/components/MyModal.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Admins.jsx"
   },
   "resources/js/Pages/Admin/AdvancedFilter.jsx": {
-    "file": "assets/AdvancedFilter-jZcNgCg2.js",
+    "file": "assets/AdvancedFilter-347wFzoj.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/AdvancedFilter.jsx"
   },
   "resources/js/Pages/Admin/Filter.jsx": {
-    "file": "assets/Filter-QI0RtWw_.js",
+    "file": "assets/Filter-f2kWmkw6.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-E5RsbAw0.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-3H3AJkX1.js",
       "resources/js/Pages/Admin/AdvancedFilter.jsx",
-      "_index.esm-gDgeuq8Z.js",
-      "_AdminContext-2_gx2oGm.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_index.esm-OTOBmvVA.js",
+      "_AdminContext-CPri2-hD.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index-P14pBrTn.js",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index-vo5hzI2Q.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Filter.jsx"
   },
   "resources/js/Pages/Admin/Index.jsx": {
-    "file": "assets/Index-l5CQ6yvl.js",
+    "file": "assets/Index-ZfcsblOu.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AdminContext-2_gx2oGm.js",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-DzXUWgJ9.js",
+      "_AdminContext-CPri2-hD.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-5hjvTn4i.js",
       "resources/js/Pages/Admin/Admins.jsx",
       "resources/js/Pages/Admin/Filter.jsx",
-      "_index.esm-E5RsbAw0.js",
+      "_index.esm-3H3AJkX1.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index-P14pBrTn.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/Admin/Admin.jsx",
       "resources/js/Pages/components/DeleteButton.jsx",
       "resources/js/Pages/components/DeleteModal.jsx",
@@ -304,76 +304,87 @@
     "src": "resources/js/Pages/Admin/Index.jsx"
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-X5fOftdJ.js",
+    "file": "assets/Login-nmsCGSg9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.jsx"
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard--V3A57cw.js",
+    "file": "assets/Dashboard-yYqQ5mYO.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js"
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Dashboard.jsx"
   },
-  "resources/js/Pages/GeneralSetting/GeneralSetting.jsx": {
-    "file": "assets/GeneralSetting-du5V3f9j.js",
+  "resources/js/Pages/GeneralSetting/Filter.jsx": {
+    "file": "assets/Filter-SXcocMjR.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Edit-JM3U9afX.js",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/GeneralSetting/Filter.jsx"
+  },
+  "resources/js/Pages/GeneralSetting/GeneralSetting.jsx": {
+    "file": "assets/GeneralSetting-kWFw9Wuw.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Create-BK5eef_5.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index-P14pBrTn.js",
+      "_index-vo5hzI2Q.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/GeneralSetting/GeneralSetting.jsx"
   },
   "resources/js/Pages/GeneralSetting/GeneralSettings.jsx": {
-    "file": "assets/GeneralSettings-Wwqkkxv0.js",
+    "file": "assets/GeneralSettings-to0Gl4xP.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/GeneralSetting/GeneralSetting.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_Edit-JM3U9afX.js",
+      "_index.esm-rqdHtUzR.js",
+      "_Create-BK5eef_5.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index-P14pBrTn.js",
+      "_index-vo5hzI2Q.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/GeneralSetting/GeneralSettings.jsx"
   },
   "resources/js/Pages/GeneralSetting/Index.jsx": {
-    "file": "assets/Index-9dYzxsRr.js",
+    "file": "assets/Index-iMKmYCW6.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-gDgeuq8Z.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-OTOBmvVA.js",
       "resources/js/Pages/GeneralSetting/GeneralSettings.jsx",
-      "_Edit-JM3U9afX.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_Create-BK5eef_5.js",
+      "resources/js/Pages/GeneralSetting/Filter.jsx",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/GeneralSetting/GeneralSetting.jsx",
       "resources/js/Pages/components/MyModal.jsx",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
@@ -382,56 +393,56 @@
     "src": "resources/js/Pages/GeneralSetting/Index.jsx"
   },
   "resources/js/Pages/GitHubRepo/Create.jsx": {
-    "file": "assets/Create-TUf2F8U8.js",
+    "file": "assets/Create-inXP0pER.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/GitHubRepo/Create.jsx"
   },
   "resources/js/Pages/GitHubRepo/Delete.jsx": {
-    "file": "assets/Delete-ILtfZXuV.js",
+    "file": "assets/Delete-H8nvPCnB.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/components/DeleteModal.jsx",
-      "_index-P14pBrTn.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index-vo5hzI2Q.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/GitHubRepo/Delete.jsx"
   },
   "resources/js/Pages/GitHubRepo/GitRepo.jsx": {
-    "file": "assets/GitRepo-WofeQ3sz.js",
+    "file": "assets/GitRepo-1T9rHbQI.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/GitHubRepo/GitRepo.jsx"
   },
   "resources/js/Pages/GitHubRepo/Index.jsx": {
-    "file": "assets/Index-vQacFu8h.js",
+    "file": "assets/Index-CRVC3WE4.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
+      "_FrontendLayout-uLKMfWo7.js",
       "resources/js/Pages/GitHubRepo/Create.jsx",
       "resources/js/Pages/GitHubRepo/Delete.jsx",
       "resources/js/Pages/GitHubRepo/Items.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/DeleteModal.jsx",
       "resources/js/Pages/GitHubRepo/GitRepo.jsx",
       "resources/js/Pages/components/DeleteButton.jsx"
@@ -440,159 +451,159 @@
     "src": "resources/js/Pages/GitHubRepo/Index.jsx"
   },
   "resources/js/Pages/GitHubRepo/Items.jsx": {
-    "file": "assets/Items-4dWMXYZO.js",
+    "file": "assets/Items-G5LR0YVy.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/GitHubRepo/GitRepo.jsx",
-      "_index.esm-Y7uPn6Q7.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-DzXUWgJ9.js"
+      "_index.esm-5hjvTn4i.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/GitHubRepo/Items.jsx"
   },
   "resources/js/Pages/Member/Index.jsx": {
-    "file": "assets/Index-NCEfhaOA.js",
+    "file": "assets/Index-_i4Vbk72.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js"
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Member/Index.jsx"
   },
   "resources/js/Pages/Permission/Edit.jsx": {
-    "file": "assets/Edit-IwFT5uDc.js",
+    "file": "assets/Edit-WhHdExKJ.js",
     "imports": [
       "resources/js/app.jsx",
-      "_PermissionContext-NPTtpCGV.js",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js"
+      "_PermissionContext-pFW_BpZl.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Permission/Edit.jsx"
   },
   "resources/js/Pages/Permission/Index.jsx": {
-    "file": "assets/Index-M_D-cmqW.js",
+    "file": "assets/Index-T8wSZdxJ.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-gDgeuq8Z.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-OTOBmvVA.js",
       "resources/js/Pages/Permission/Items.jsx",
-      "_PermissionContext-NPTtpCGV.js",
+      "_PermissionContext-pFW_BpZl.js",
       "resources/js/Pages/Permission/Edit.jsx",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js"
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Permission/Index.jsx"
   },
   "resources/js/Pages/Permission/Items.jsx": {
-    "file": "assets/Items-7Pg_CcEv.js",
+    "file": "assets/Items-f4yEMlVI.js",
     "imports": [
       "resources/js/app.jsx",
-      "_PermissionContext-NPTtpCGV.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_PermissionContext-pFW_BpZl.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Permission/Items.jsx"
   },
   "resources/js/Pages/Temp/Component/Component.jsx": {
-    "file": "assets/Component-Eth5L53b.js",
+    "file": "assets/Component-M-iiVJWd.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/Component.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Create.jsx": {
-    "file": "assets/Create-O9R6p-Mt.js",
+    "file": "assets/Create-4uS4ASE8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentDesignContext-7G5bFFh9.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Create.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Design.jsx": {
-    "file": "assets/Design-DTm-1cbz.js",
+    "file": "assets/Design-agkEBEm8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_ComponentDesignContext-7G5bFFh9.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-5hjvTn4i.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Design.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Designs.jsx": {
-    "file": "assets/Designs-F_N209fR.js",
+    "file": "assets/Designs-KKhFyp-Y.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/Design.jsx",
       "resources/js/Pages/Temp/Component/ComponentDesign/Preview/PreviewModal.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_ComponentDesignContext-7G5bFFh9.js",
-      "_index-P14pBrTn.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Designs.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Index.jsx": {
-    "file": "assets/Index-XGH5TjvO.js",
+    "file": "assets/Index-vvQ9dYx-.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-h7QdxEij.js",
-      "_DataContext-qFWc62PB.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-lpnmyVPM.js",
+      "_DataContext-o8T6cVaV.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/Items.jsx",
-      "_ComponentDesignContext-7G5bFFh9.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/Create.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
-      "_index.esm-E5RsbAw0.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
+      "_index.esm-3H3AJkX1.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-iw1B7kYn.js",
-      "_index.esm-AVd4J7i-.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm--otMLcDa.js",
+      "_index.esm-whas9ESU.js",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
@@ -606,37 +617,37 @@
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Index.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Items.jsx": {
-    "file": "assets/Items-Bg3Z2Txv.js",
+    "file": "assets/Items-YfvFkJNT.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-iw1B7kYn.js",
-      "_index.esm-AVd4J7i-.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_DataContext-qFWc62PB.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm--otMLcDa.js",
+      "_index.esm-whas9ESU.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_DataContext-o8T6cVaV.js",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/Temp/Component/ComponentDesign/Designs.jsx",
-      "_ComponentDesignContext-7G5bFFh9.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
       "resources/js/Pages/components/Field/Content/Item.jsx",
       "resources/js/Pages/Temp/Component/ComponentDesign/Design.jsx",
-      "_index.esm-DzXUWgJ9.js",
+      "_index.esm-5hjvTn4i.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/Preview/PreviewModal.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Items.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Preview/Preview.jsx": {
-    "file": "assets/Preview-omk_286a.js",
+    "file": "assets/Preview-bvOw4XOs.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -644,71 +655,71 @@
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Preview/Preview.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Preview/PreviewModal.jsx": {
-    "file": "assets/PreviewModal-X10aWLp4.js",
+    "file": "assets/PreviewModal-Nq8QIyzU.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentDesignContext-7G5bFFh9.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ComponentDesignContext-iQU8Ckv4.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Preview/PreviewModal.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/Show.jsx": {
-    "file": "assets/Show-_bOqS4E8.js",
+    "file": "assets/Show-YKM1rDMm.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentDesignContext-7G5bFFh9.js",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-h7QdxEij.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-lpnmyVPM.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/ShowTabs.jsx",
-      "_index.esm-AVd4J7i-.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
-      "_index.esm-Dr3JTvan.js",
+      "_index.esm-whas9ESU.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
+      "_index.esm-zYChUtNY.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/Preview/Preview.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/Show.jsx"
   },
   "resources/js/Pages/Temp/Component/ComponentDesign/ShowTabs.jsx": {
-    "file": "assets/ShowTabs-jLJ812nf.js",
+    "file": "assets/ShowTabs-DSHLZx1Q.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_ComponentDesignContext-7G5bFFh9.js",
-      "_index-P14pBrTn.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm-rqdHtUzR.js",
+      "_ComponentDesignContext-iQU8Ckv4.js",
+      "_index-vo5hzI2Q.js",
       "resources/js/Pages/Temp/Component/ComponentDesign/Preview/Preview.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/ComponentDesign/ShowTabs.jsx"
   },
   "resources/js/Pages/Temp/Component/Index.jsx": {
-    "file": "assets/Index-nLZWPgs-.js",
+    "file": "assets/Index-ChI75EgD.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-h7QdxEij.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-lpnmyVPM.js",
       "resources/js/Pages/Temp/Component/Items.jsx",
-      "_Create-dis1WARX.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-1hZOEXpm.js",
+      "_Create-F4rVrTYS.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/Temp/Component/Component.jsx",
       "resources/js/Pages/components/MyModal.jsx"
     ],
@@ -716,12 +727,12 @@
     "src": "resources/js/Pages/Temp/Component/Index.jsx"
   },
   "resources/js/Pages/Temp/Component/Items.jsx": {
-    "file": "assets/Items-HTO21B1T.js",
+    "file": "assets/Items-YeaKwaNQ.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Component/Component.jsx",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Component/Items.jsx"
@@ -730,55 +741,55 @@
     "css": [
       "assets/Details-lNm5XkS6.css"
     ],
-    "file": "assets/Details-qmsaH7FZ.js",
+    "file": "assets/Details-AEm_rwEt.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Page/Details.jsx"
   },
   "resources/js/Pages/Temp/Parts/Page/Edit.jsx": {
-    "file": "assets/Edit-WVCJ-hA5.js",
+    "file": "assets/Edit-0wZf-O1s.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_PageContext-MnKv86sL.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_PageContext-Ds3dQ3Pd.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Page/Edit.jsx"
   },
   "resources/js/Pages/Temp/Parts/Page/Index.jsx": {
-    "file": "assets/Index-u6y0tVgZ.js",
+    "file": "assets/Index-a1HTa2jd.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
+      "_FrontendLayout-uLKMfWo7.js",
       "resources/js/Pages/Temp/Parts/Page/Items.jsx",
-      "_index.esm-P7cDSgAt.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index.esm-PyoUSChy.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/Temp/Parts/Page/Edit.jsx",
-      "_PageContext-MnKv86sL.js",
-      "_DataContext-qFWc62PB.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-AVd4J7i-.js",
-      "_index.esm-iw1B7kYn.js",
+      "_PageContext-Ds3dQ3Pd.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm-whas9ESU.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Parts/Page/Pages.jsx",
       "resources/js/Pages/Temp/Parts/Page/Page.jsx",
       "resources/js/Pages/Temp/Parts/Page/Details.jsx",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index.esm-E5RsbAw0.js",
+      "_index.esm-3H3AJkX1.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
@@ -788,28 +799,28 @@
     "src": "resources/js/Pages/Temp/Parts/Page/Index.jsx"
   },
   "resources/js/Pages/Temp/Parts/Page/Items.jsx": {
-    "file": "assets/Items-r0hUw8kO.js",
+    "file": "assets/Items-wErJM5fi.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-P14pBrTn.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-AVd4J7i-.js",
-      "_index.esm-iw1B7kYn.js",
+      "_index-vo5hzI2Q.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-whas9ESU.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Parts/Page/Pages.jsx",
       "resources/js/Pages/Temp/Parts/Page/Details.jsx",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/Temp/Parts/Page/Page.jsx",
-      "_PageContext-MnKv86sL.js",
+      "_PageContext-Ds3dQ3Pd.js",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx"
     ],
@@ -817,100 +828,100 @@
     "src": "resources/js/Pages/Temp/Parts/Page/Items.jsx"
   },
   "resources/js/Pages/Temp/Parts/Page/Page.jsx": {
-    "file": "assets/Page-EK2jGFS8.js",
+    "file": "assets/Page-YYFvyZPz.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_PageContext-MnKv86sL.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_PageContext-Ds3dQ3Pd.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Page/Page.jsx"
   },
   "resources/js/Pages/Temp/Parts/Page/Pages.jsx": {
-    "file": "assets/Pages-xSn9DF8k.js",
+    "file": "assets/Pages-sHkiiwhE.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Parts/Page/Page.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_PageContext-MnKv86sL.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_PageContext-Ds3dQ3Pd.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Page/Pages.jsx"
   },
   "resources/js/Pages/Temp/Parts/Section/Edit.jsx": {
-    "file": "assets/Edit-dPOhpOY9.js",
+    "file": "assets/Edit-5cXAD3fH.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_SectionContext-SIoYS_7U.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_SectionContext-yu0P590s.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Section/Edit.jsx"
   },
   "resources/js/Pages/Temp/Parts/Section/Index.jsx": {
-    "file": "assets/Index-Egevt60Y.js",
+    "file": "assets/Index-2Ratbg4i.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Parts/Section/Items.jsx",
       "resources/js/Pages/Temp/Parts/Section/Edit.jsx",
-      "_index.esm-1hZOEXpm.js",
-      "_index.esm-P7cDSgAt.js",
-      "_index.esm-NNQyJyci.js",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_index-P14pBrTn.js",
-      "_SectionContext-SIoYS_7U.js",
-      "_DataContext-qFWc62PB.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-AVd4J7i-.js",
-      "_index.esm-iw1B7kYn.js",
+      "_index.esm-VEk1tqGe.js",
+      "_index.esm-PyoUSChy.js",
+      "_index.esm-NOrM3xzt.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_index-vo5hzI2Q.js",
+      "_SectionContext-yu0P590s.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-whas9ESU.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Parts/Section/Sections.jsx",
       "resources/js/Pages/Temp/Parts/Section/Section.jsx",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-D0xlbhU7.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-9jaNTOhy.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index.esm-DzXUWgJ9.js"
+      "_index.esm-5hjvTn4i.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Section/Index.jsx"
   },
   "resources/js/Pages/Temp/Parts/Section/Items.jsx": {
-    "file": "assets/Items-TNvLjj8r.js",
+    "file": "assets/Items-XJB5keAF.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Dr3JTvan.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-AVd4J7i-.js",
-      "_index.esm-iw1B7kYn.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-zYChUtNY.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-whas9ESU.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Parts/Section/Sections.jsx",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_SectionContext-SIoYS_7U.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_DataContext-o8T6cVaV.js",
+      "_SectionContext-yu0P590s.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/Temp/Parts/Section/Section.jsx",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx"
     ],
@@ -918,97 +929,97 @@
     "src": "resources/js/Pages/Temp/Parts/Section/Items.jsx"
   },
   "resources/js/Pages/Temp/Parts/Section/Section.jsx": {
-    "file": "assets/Section-RN4lRG3n.js",
+    "file": "assets/Section-KvW_ykNj.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_SectionContext-SIoYS_7U.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_SectionContext-yu0P590s.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Section/Section.jsx"
   },
   "resources/js/Pages/Temp/Parts/Section/Sections.jsx": {
-    "file": "assets/Sections-Q-43iBeC.js",
+    "file": "assets/Sections-M5Z-C4uL.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Parts/Section/Section.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_SectionContext-SIoYS_7U.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_SectionContext-yu0P590s.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/Section/Sections.jsx"
   },
   "resources/js/Pages/Temp/Parts/SectionData/Component/Component.jsx": {
-    "file": "assets/Component-dDkEOQDe.js",
+    "file": "assets/Component-9o47Mrlm.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Parts/SectionData/Component/Item.jsx",
       "resources/js/Pages/components/DeleteModal.jsx",
-      "_SectionDataContext-1lOoSK_u.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_SectionDataContext-Bl_cmwr3.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-DzXUWgJ9.js",
-      "_index-P14pBrTn.js"
+      "_index.esm-5hjvTn4i.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/SectionData/Component/Component.jsx"
   },
   "resources/js/Pages/Temp/Parts/SectionData/Component/Item.jsx": {
-    "file": "assets/Item-dKoLYJaf.js",
+    "file": "assets/Item-3M-nJU-M.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_SectionDataContext-1lOoSK_u.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_SectionDataContext-Bl_cmwr3.js",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-DzXUWgJ9.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-5hjvTn4i.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/SectionData/Component/Item.jsx"
   },
   "resources/js/Pages/Temp/Parts/SectionData/Component/UseComponent.jsx": {
-    "file": "assets/UseComponent-lIxsAEec.js",
+    "file": "assets/UseComponent-b5k79KEQ.js",
     "imports": [
       "resources/js/app.jsx",
-      "_SectionDataContext-1lOoSK_u.js",
+      "_SectionDataContext-Bl_cmwr3.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/SectionData/Component/UseComponent.jsx"
   },
   "resources/js/Pages/Temp/Parts/SectionData/Index.jsx": {
-    "file": "assets/Index-fOKHO5M6.js",
+    "file": "assets/Index-wndb1CEX.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_index-P14pBrTn.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-1hZOEXpm.js",
-      "_index.esm-P7cDSgAt.js",
-      "_index.esm-NNQyJyci.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_index-vo5hzI2Q.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-VEk1tqGe.js",
+      "_index.esm-PyoUSChy.js",
+      "_index.esm-NOrM3xzt.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/Temp/Parts/SectionData/Items.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_SectionDataContext-1lOoSK_u.js",
+      "_DataContext-o8T6cVaV.js",
+      "_SectionDataContext-Bl_cmwr3.js",
       "resources/js/Pages/Temp/Parts/SectionData/Component/UseComponent.jsx",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-AVd4J7i-.js",
-      "_index.esm-iw1B7kYn.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-whas9ESU.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index.esm-E5RsbAw0.js",
+      "_index.esm-3H3AJkX1.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
@@ -1022,145 +1033,145 @@
     "src": "resources/js/Pages/Temp/Parts/SectionData/Index.jsx"
   },
   "resources/js/Pages/Temp/Parts/SectionData/Items.jsx": {
-    "file": "assets/Items-K69-rZGe.js",
+    "file": "assets/Items-8XPM01z2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-AVd4J7i-.js",
-      "_index.esm-iw1B7kYn.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-whas9ESU.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_SectionDataContext-1lOoSK_u.js",
+      "_DataContext-o8T6cVaV.js",
+      "_SectionDataContext-Bl_cmwr3.js",
       "resources/js/Pages/Temp/Parts/SectionData/Component/Component.jsx",
-      "_index.esm-Y7uPn6Q7.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index-P14pBrTn.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
       "resources/js/Pages/Temp/Parts/SectionData/Component/Item.jsx",
       "resources/js/Pages/components/DeleteButton.jsx",
-      "_index.esm-DzXUWgJ9.js",
+      "_index.esm-5hjvTn4i.js",
       "resources/js/Pages/components/DeleteModal.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Parts/SectionData/Items.jsx"
   },
   "resources/js/Pages/Temp/Resource/Content/Content.jsx": {
-    "file": "assets/Content-E_O10-S8.js",
+    "file": "assets/Content-JFBpfPyh.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/Content/Content.jsx"
   },
   "resources/js/Pages/Temp/Resource/Content/ContentData.jsx": {
-    "file": "assets/ContentData-Td6Xkcow.js",
+    "file": "assets/ContentData-OpKZZ37P.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Temp/Resource/Content/Items.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
       "resources/js/Pages/Temp/Resource/Content/Content.jsx",
-      "_index.esm-gDgeuq8Z.js"
+      "_index.esm-OTOBmvVA.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/Content/ContentData.jsx"
   },
   "resources/js/Pages/Temp/Resource/Content/Items.jsx": {
-    "file": "assets/Items-W1EpYhbq.js",
+    "file": "assets/Items-frduYlFC.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Resource/Content/Content.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-gDgeuq8Z.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-OTOBmvVA.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/Content/Items.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/Commit.jsx": {
-    "file": "assets/Commit-C9gtb7Bf.js",
+    "file": "assets/Commit-3CZ7QTQu.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/Commit.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/Delete.jsx": {
-    "file": "assets/Delete-DH94vk-7.js",
+    "file": "assets/Delete-LhMn1MwO.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/components/DeleteModal.jsx",
-      "_index-P14pBrTn.js",
-      "_FileContext-BsfjRRh-.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index-vo5hzI2Q.js",
+      "_FileContext-yL3LoNET.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/Delete.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/FileContent.jsx": {
-    "file": "assets/FileContent-FB8PvI4D.js",
+    "file": "assets/FileContent-dR6epGtz.js",
     "imports": [
       "resources/js/app.jsx",
       "_helper-f30-86R5.js",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-1hZOEXpm.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js"
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-VEk1tqGe.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/FileContent.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/FileData.jsx": {
-    "file": "assets/FileData--7Fa9k1q.js",
+    "file": "assets/FileData-54jw1oHu.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-Uhj2sF6M.js",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_index.esm-PSCDcSUR.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Resource/File/Commit.jsx",
-      "_index-P14pBrTn.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index-vo5hzI2Q.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/FileData.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/FileStructure.jsx": {
-    "file": "assets/FileStructure-GNIuHZHQ.js",
+    "file": "assets/FileStructure-IZUWUo9z.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_index.esm-5hjvTn4i.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/Temp/Resource/File/Delete.jsx",
       "_helper-f30-86R5.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-1hZOEXpm.js",
-      "_FileContext-BsfjRRh-.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-VEk1tqGe.js",
+      "_FileContext-yL3LoNET.js",
       "resources/js/Pages/Temp/Resource/File/Folders.jsx",
       "resources/js/Pages/Temp/Resource/File/Files.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-Uhj2sF6M.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-PSCDcSUR.js",
       "resources/js/Pages/components/DeleteModal.jsx",
       "resources/js/Pages/Temp/Resource/File/Item.jsx"
     ],
@@ -1168,60 +1179,60 @@
     "src": "resources/js/Pages/Temp/Resource/File/FileStructure.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/Files.jsx": {
-    "file": "assets/Files-rRQyzKQX.js",
+    "file": "assets/Files-dilwOJTx.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Temp/Resource/File/Item.jsx",
-      "_FileContext-BsfjRRh-.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js"
+      "_FileContext-yL3LoNET.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/Files.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/Folders.jsx": {
-    "file": "assets/Folders-b-HAAedw.js",
+    "file": "assets/Folders-apspZvcP.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Temp/Resource/File/Item.jsx",
-      "_FileContext-BsfjRRh-.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js"
+      "_FileContext-yL3LoNET.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/Folders.jsx"
   },
   "resources/js/Pages/Temp/Resource/File/Item.jsx": {
-    "file": "assets/Item-089MQzmm.js",
+    "file": "assets/Item-WGQNuOtt.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_FileContext-BsfjRRh-.js",
-      "_index-P14pBrTn.js"
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-rqdHtUzR.js",
+      "_FileContext-yL3LoNET.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/Resource/File/Item.jsx"
   },
   "resources/js/Pages/Temp/Resource/Index.jsx": {
-    "file": "assets/Index-jL0WRokG.js",
+    "file": "assets/Index-fsSWUiHf.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-1hZOEXpm.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/CreateTemplate.jsx",
       "resources/js/Pages/Temp/TempTabs.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index.esm-iw1B7kYn.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Resource/File/FileData.jsx",
       "resources/js/Pages/Temp/Resource/File/Commit.jsx",
       "resources/js/Pages/Temp/Resource/Content/ContentData.jsx",
@@ -1232,41 +1243,41 @@
     "src": "resources/js/Pages/Temp/Resource/Index.jsx"
   },
   "resources/js/Pages/Temp/TempTabs.jsx": {
-    "file": "assets/TempTabs-5APLk_bj.js",
+    "file": "assets/TempTabs-5OSN70GP.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-iw1B7kYn.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Resource/File/FileData.jsx",
       "resources/js/Pages/Temp/Resource/Content/ContentData.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Uhj2sF6M.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-PSCDcSUR.js",
       "resources/js/Pages/Temp/Resource/File/Commit.jsx",
-      "_index-P14pBrTn.js",
-      "_index.esm-D0xlbhU7.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-9jaNTOhy.js",
       "resources/js/Pages/Temp/Resource/Content/Items.jsx",
       "resources/js/Pages/Temp/Resource/Content/Content.jsx",
-      "_index.esm-gDgeuq8Z.js"
+      "_index.esm-OTOBmvVA.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Temp/TempTabs.jsx"
   },
   "resources/js/Pages/Temp/Website/Index.jsx": {
-    "file": "assets/Index-I5zkTIt2.js",
+    "file": "assets/Index-Q-zMHGPe.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-eoZgnh6e.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-1hZOEXpm.js",
+      "_FrontendLayout-uLKMfWo7.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/Temp/TempTabs.jsx",
       "resources/js/Pages/components/CreateTemplate.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index.esm-DzXUWgJ9.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-iw1B7kYn.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index.esm-5hjvTn4i.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm--otMLcDa.js",
       "resources/js/Pages/Temp/Resource/File/FileData.jsx",
       "resources/js/Pages/Temp/Resource/File/Commit.jsx",
       "resources/js/Pages/Temp/Resource/Content/ContentData.jsx",
@@ -1278,7 +1289,7 @@
     "src": "resources/js/Pages/Temp/Website/Index.jsx"
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-sZf_1uqQ.js",
+    "file": "assets/Welcome-Y8r42jhz.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -1286,124 +1297,124 @@
     "src": "resources/js/Pages/Welcome.jsx"
   },
   "resources/js/Pages/components/CreateTemplate.jsx": {
-    "file": "assets/CreateTemplate-LNwUMyoS.js",
+    "file": "assets/CreateTemplate-F1WLd_wG.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/components/MyModal.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js"
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/CreateTemplate.jsx"
   },
   "resources/js/Pages/components/DeleteButton.jsx": {
-    "file": "assets/DeleteButton-BaMWcFoA.js",
+    "file": "assets/DeleteButton-aLl4ota9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-DzXUWgJ9.js",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_index.esm-5hjvTn4i.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/DeleteButton.jsx"
   },
   "resources/js/Pages/components/DeleteModal.jsx": {
-    "file": "assets/DeleteModal-oaGtmRpz.js",
+    "file": "assets/DeleteModal-H8fh34by.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/DeleteModal.jsx"
   },
   "resources/js/Pages/components/Field/Content/ContentData.jsx": {
-    "file": "assets/ContentData-7NuvKDiu.js",
+    "file": "assets/ContentData-aNyEdAvc.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_DataContext-qFWc62PB.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index.esm-rqdHtUzR.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/Field/Content/ContentData.jsx"
   },
   "resources/js/Pages/components/Field/Content/Item.jsx": {
-    "file": "assets/Item-PhuuU1XV.js",
+    "file": "assets/Item-tg8i7xTf.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_DataContext-qFWc62PB.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/Field/Content/Item.jsx"
   },
   "resources/js/Pages/components/Field/Design/DesignData.jsx": {
-    "file": "assets/DesignData-KPnMmfi7.js",
+    "file": "assets/DesignData-HHK4FZGV.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
       "resources/js/Pages/components/Field/Design/Item.jsx",
-      "_index.esm-Y7uPn6Q7.js",
-      "_DataContext-qFWc62PB.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_index.esm-rqdHtUzR.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/Field/Design/DesignData.jsx"
   },
   "resources/js/Pages/components/Field/Design/Item.jsx": {
-    "file": "assets/Item-CKgHl2cw.js",
+    "file": "assets/Item-VUgk197s.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_DataContext-qFWc62PB.js",
-      "_index.esm-Y7uPn6Q7.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-E5RsbAw0.js",
-      "_index.esm-Uhj2sF6M.js",
-      "_index.esm-gDgeuq8Z.js",
-      "_index.esm-D0xlbhU7.js",
-      "_index.esm-1hZOEXpm.js",
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_DataContext-o8T6cVaV.js",
+      "_index.esm-rqdHtUzR.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-3H3AJkX1.js",
+      "_index.esm-PSCDcSUR.js",
+      "_index.esm-OTOBmvVA.js",
+      "_index.esm-9jaNTOhy.js",
+      "_index.esm-VEk1tqGe.js",
       "resources/js/Pages/components/Loading/Loading.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/Field/Design/Item.jsx"
   },
   "resources/js/Pages/components/FileInput/CustomFileInput.jsx": {
-    "file": "assets/CustomFileInput-_zhpH0Bm.js",
+    "file": "assets/CustomFileInput-ycydC4T2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/FileInput/CustomFileInput.jsx"
   },
   "resources/js/Pages/components/Loading/Loading.jsx": {
-    "file": "assets/Loading-zQLApZMu.js",
+    "file": "assets/Loading-o6aJhamb.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -1411,18 +1422,18 @@
     "src": "resources/js/Pages/components/Loading/Loading.jsx"
   },
   "resources/js/Pages/components/MyModal.jsx": {
-    "file": "assets/MyModal-Bvy8YUcv.js",
+    "file": "assets/MyModal-s0-gf3uI.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ToggleSwitch-Qx0o1INj.js",
-      "_index-P14pBrTn.js",
-      "_index.esm-Y7uPn6Q7.js"
+      "_ToggleSwitch-ZTVrJ8c4.js",
+      "_index-vo5hzI2Q.js",
+      "_index.esm-rqdHtUzR.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/components/MyModal.jsx"
   },
   "resources/js/Pages/components/Pagination/Pagination.jsx": {
-    "file": "assets/Pagination-TpInfuv0.js",
+    "file": "assets/Pagination-20D5q872.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -1437,15 +1448,17 @@
       "resources/js/Pages/Admin/Admin.jsx",
       "resources/js/Pages/Admin/Admins.jsx",
       "resources/js/Pages/Admin/AdvancedFilter.jsx",
-      "_AdminContext-2_gx2oGm.js",
-      "_AdminContext-2_gx2oGm.js",
-      "_AdminContext-2_gx2oGm.js",
+      "_AdminContext-CPri2-hD.js",
+      "_AdminContext-CPri2-hD.js",
+      "_AdminContext-CPri2-hD.js",
       "resources/js/Pages/Admin/Filter.jsx",
       "resources/js/Pages/Admin/Index.jsx",
-      "_AdminContext-2_gx2oGm.js",
+      "_AdminContext-CPri2-hD.js",
       "resources/js/Pages/Auth/Login.jsx",
       "resources/js/Pages/Dashboard.jsx",
-      "_Edit-JM3U9afX.js",
+      "_Create-BK5eef_5.js",
+      "_Create-BK5eef_5.js",
+      "resources/js/Pages/GeneralSetting/Filter.jsx",
       "resources/js/Pages/GeneralSetting/GeneralSetting.jsx",
       "resources/js/Pages/GeneralSetting/GeneralSettings.jsx",
       "resources/js/Pages/GeneralSetting/Index.jsx",
@@ -1468,7 +1481,7 @@
       "resources/js/Pages/Temp/Component/ComponentDesign/Preview/PreviewModal.jsx",
       "resources/js/Pages/Temp/Component/ComponentDesign/Show.jsx",
       "resources/js/Pages/Temp/Component/ComponentDesign/ShowTabs.jsx",
-      "_Create-dis1WARX.js",
+      "_Create-F4rVrTYS.js",
       "resources/js/Pages/Temp/Component/Index.jsx",
       "resources/js/Pages/Temp/Component/Items.jsx",
       "resources/js/Pages/Temp/Parts/Page/Details.jsx",
@@ -1505,30 +1518,30 @@
       "resources/js/Pages/components/CreateTemplate.jsx",
       "resources/js/Pages/components/DeleteButton.jsx",
       "resources/js/Pages/components/DeleteModal.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
       "resources/js/Pages/components/Field/Content/ContentData.jsx",
       "resources/js/Pages/components/Field/Content/Item.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
       "resources/js/Pages/components/Field/Design/DesignData.jsx",
       "resources/js/Pages/components/Field/Design/Item.jsx",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
-      "_DataContext-qFWc62PB.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
+      "_DataContext-o8T6cVaV.js",
       "resources/js/Pages/components/FileInput/CustomFileInput.jsx",
       "resources/js/Pages/components/Loading/Loading.jsx",
       "resources/js/Pages/components/MyModal.jsx",
       "resources/js/Pages/components/Pagination/Pagination.jsx",
-      "_AdminContext-2_gx2oGm.js"
+      "_AdminContext-CPri2-hD.js"
     ],
-    "file": "assets/app--aVbL-pH.js",
+    "file": "assets/app-sYtE332u.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }
