@@ -7,6 +7,7 @@ const Filter = () => {
     const [search, setSearch] = useState();
     const {url} = usePage();
 
+    // store general setting data
     function submit(e) {
         e.preventDefault();
         router.get(url, {search : search}, {
