@@ -1,17 +1,17 @@
 import { usePage } from "@inertiajs/react";
 import React from "react";
 import { HiOutlineBell } from "react-icons/hi";
-import { IoIosArrowDown, IoIosLogOut } from "react-icons/io";
-import {Link} from "@inertiajs/react";
+import { IoIosArrowDown, IoIosArrowUp, IoIosLogOut } from "react-icons/io";
+import { Link } from "@inertiajs/react";
 import ProfileImage from "../../Assets/Default/default-profile.png";
 import { router } from "@inertiajs/core";
 
-const SideNavbar = ({navigation, handleSubNavbar}) => {
-    const {url, props} = usePage();
-    const {metadata, auth, permissions} = props;
+const SideNavbar = ({ navigation, handleSubNavbar }) => {
+    const { url, props } = usePage();
+    const { metadata, auth, permissions } = props;
     const handleLogout = () => {
-        router.post(route('admin.logout'))
-    }
+        router.post(route("admin.logout"));
+    };
     return (
         <React.Fragment>
             <div className="flex flex-col px-6 pb-4 overflow-y-auto bg-gray-900 grow gap-y-5">
@@ -37,9 +37,10 @@ const SideNavbar = ({navigation, handleSubNavbar}) => {
                                                 item.permission
                                             ) && (
                                                 <div className="flex justify-between items-center">
-                                                    <Link
-                                                        href={item.href}
-                                                        className={`
+                                                    {item.sub_navbars ? (
+                                                        <button
+                                                            href={item.href}
+                                                            className={`
                                                         ${
                                                             url.startsWith(
                                                                 item.href &&
@@ -48,32 +49,63 @@ const SideNavbar = ({navigation, handleSubNavbar}) => {
                                                                 ? "bg-gray-800 text-white"
                                                                 : "text-gray-400 hover:text-white hover:bg-gray-800"
                                                         }
-                                                        group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
-                                                            item.sub_navbars
-                                                                ? "w-10/12"
-                                                                : "w-full"
-                                                        }
+                                                        group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-10/12
                                                         `}
-                                                    >
-                                                        <item.icon
-                                                            className="w-6 h-6 shrink-0"
-                                                            aria-hidden="true"
-                                                        />
+                                                        >
+                                                            <item.icon
+                                                                className="w-6 h-6 shrink-0"
+                                                                aria-hidden="true"
+                                                            />
 
-                                                        {item.name}
-                                                    </Link>
-                                                    {item.sub_navbars && (
-                                                        <IoIosArrowDown
-                                                            size={20}
-                                                            fill="#fff"
-                                                            className="cursor-pointer"
-                                                            onClick={() =>
-                                                                handleSubNavbar(
-                                                                    item.id
-                                                                )
-                                                            }
-                                                        />
+                                                            {item.name}
+                                                        </button>
+                                                    ) : (
+                                                        <Link
+                                                            href={item.href}
+                                                            className={`
+                                                    ${
+                                                        url.startsWith(
+                                                            item.href &&
+                                                                !item.sub_navbars
+                                                        )
+                                                            ? "bg-gray-800 text-white"
+                                                            : "text-gray-400 hover:text-white hover:bg-gray-800"
+                                                    }
+                                                    group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-full
+                                                    `}
+                                                        >
+                                                            <item.icon
+                                                                className="w-6 h-6 shrink-0"
+                                                                aria-hidden="true"
+                                                            />
+
+                                                            {item.name}
+                                                        </Link>
                                                     )}
+                                                    {item.sub_navbars &&
+                                                        (item.subNavOpen ? (
+                                                            <IoIosArrowUp
+                                                                size={20}
+                                                                fill="#fff"
+                                                                className="cursor-pointer"
+                                                                onClick={() =>
+                                                                    handleSubNavbar(
+                                                                        item.id
+                                                                    )
+                                                                }
+                                                            />
+                                                        ) : (
+                                                            <IoIosArrowDown
+                                                                size={20}
+                                                                fill="#fff"
+                                                                className="cursor-pointer"
+                                                                onClick={() =>
+                                                                    handleSubNavbar(
+                                                                        item.id
+                                                                    )
+                                                                }
+                                                            />
+                                                        ))}
                                                 </div>
                                             )}
                                         </li>

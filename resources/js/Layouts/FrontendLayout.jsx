@@ -197,7 +197,10 @@ export default function FrontendLayout({ children }) {
                                     </Transition.Child>
 
                                     {/* Sidebar component, swap this element with another sidebar if you like */}
-                                    <SideNavbar />
+                                    <SideNavbar 
+                                      navigation={navigation}
+                                      handleSubNavbar={handleSubNavbar}
+                                    />
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
