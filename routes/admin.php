@@ -30,4 +30,7 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::prefix('/')->group(base_path('routes/admin/github.php'));
     // profile 
     Route::prefix('/profile')->group(base_path('routes/admin/profile.php'));
+
+    // offline library routes 
+    Route::prefix('/offline-library')->group(base_path('routes/admin/offline-library.php'));
 });

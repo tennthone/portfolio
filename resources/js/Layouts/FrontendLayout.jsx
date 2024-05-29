@@ -2,11 +2,11 @@ import { Fragment, useState } from "react";
 import React from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { usePage } from "@inertiajs/react";
-import { HiOutlineHome, HiUserGroup, HiInbox} from "react-icons/hi";
+import { HiOutlineHome, HiUserGroup, HiInbox } from "react-icons/hi";
 import { HiXMark, HiMiniBars3 } from "react-icons/hi2";
-import { IoLogoGithub} from "react-icons/io";
+import { IoLogoGithub } from "react-icons/io";
 import { PiGearSixThin } from "react-icons/pi";
-import { GrTemplate, GrGallery} from "react-icons/gr";
+import { GrTemplate, GrGallery } from "react-icons/gr";
 import Footer from "./Parts/Footer";
 import { FaBoxOpen, FaGlobe } from "react-icons/fa6";
 import { MdVerifiedUser } from "react-icons/md";
@@ -16,124 +16,131 @@ import SideNavbar from "./Parts/SideNavbar";
 
 const intitalNavigation = [
     {
-      id : 1,
-      name: "Dashboard",
-      href: "/admin/dashboard",
-      icon: HiOutlineHome,
-      permission: "create template",
+        id: 1,
+        name: "Dashboard",
+        href: "/admin/dashboard",
+        icon: HiOutlineHome,
+        permission: "create template",
     },
     {
-      id : 2,
-      name: "Template",
-      href: "/admin/template",
-      icon: GrTemplate,
-      permission: "create template",
-      subNavOpen : false,
-      sub_navbars : [
-        {
-          id : 1,
-          name: "Components",
-          href: "/admin/template/component",
-          icon: FaBoxOpen,
-          permission: "create template",
-        },
-        {
-          id : 2,
-          name: "Resource",
-          href: "/admin/template/resource",
-          icon: HiInbox,
-          permission: "create template",
-        },
-        {
-          id : 3,
-          name: "Website",
-          href: "/admin/template/website",
-          icon: FaGlobe,
-          permission: "create template",
-        },
-    ]
+        id: 2,
+        name: "Template",
+        href: "/admin/template",
+        icon: GrTemplate,
+        permission: "create template",
+        subNavOpen: false,
+        sub_navbars: [
+            {
+                id: 1,
+                name: "Components",
+                href: "/admin/template/component",
+                icon: FaBoxOpen,
+                permission: "create template",
+            },
+            {
+                id: 2,
+                name: "Resource",
+                href: "/admin/template/resource",
+                icon: HiInbox,
+                permission: "create template",
+            },
+            {
+                id: 3,
+                name: "Website",
+                href: "/admin/template/website",
+                icon: FaGlobe,
+                permission: "create template",
+            },
+        ],
     },
     {
-      id : 3,
-      name: "Admin User",
-      href: "/admin/admin-management",
-      icon: HiUserGroup,
-      permission: "create template",
+        id: 3,
+        name: "Admin User",
+        href: "/admin/admin-management",
+        icon: HiUserGroup,
+        permission: "create template",
     },
     {
-      id : 4,
-      name: "Members",
-      href: "/admin/member-management",
-      icon: HiUserGroup,
-      permission: "create template",
+        id: 4,
+        name: "Members",
+        href: "/admin/member-management",
+        icon: HiUserGroup,
+        permission: "create template",
     },
     {
-      id : 5,
-      name: "Github Repository",
-      href: "/admin/git-repos",
-      icon: IoLogoGithub,
-      permission: "create template",
+        id: 5,
+        name: "Github Repository",
+        href: "/admin/git-repos",
+        icon: IoLogoGithub,
+        permission: "create template",
     },
     {
-      id : 6,
-      name: "Media Library",
-      href: "/admin/media-library",
-      icon: GrGallery,
-      permission: "create template",
+        id: 6,
+        name: "Offline Library",
+        href: "/admin/offline-library",
+        icon: GrGallery,
+        permission: "create template",
     },
     {
-      id : 7,
-      name: "Setting",
-      href: "/admin/setting",
-      icon: PiGearSixThin,
-      permission: "create template",
-      subNavOpen : false,
-      sub_navbars : [
-        {
-          name: "Permissions",
-          href: "/admin/setting/permission",
-          icon: MdVerifiedUser,
-          permission: "create template",
-        },
-        {
-          name: "General Setting",
-          href: "/admin/setting/general-setting",
-          icon: TfiSettings,
-          permission: "create template",
-        },
-      ]
+        id: 7,
+        name: "Media Library",
+        href: "/admin/media-library",
+        icon: GrGallery,
+        permission: "create template",
+    },
+    {
+        id: 8,
+        name: "Setting",
+        href: "/admin/setting",
+        icon: PiGearSixThin,
+        permission: "create template",
+        subNavOpen: false,
+        sub_navbars: [
+            {
+                name: "Permissions",
+                href: "/admin/setting/permission",
+                icon: MdVerifiedUser,
+                permission: "create template",
+            },
+            {
+                name: "General Setting",
+                href: "/admin/setting/general-setting",
+                icon: TfiSettings,
+                permission: "create template",
+            },
+        ],
     },
 ];
 
 export default function FrontendLayout({ children }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [navigation, setNavigation] = useState(intitalNavigation);
-    const { url} = usePage();
+    const { url } = usePage();
 
     const handleSubNavbar = (id) => {
-      setNavigation(prevNavigation => 
-        prevNavigation.map(item => {
-          if (item.id === id) {
-            return { ...item, subNavOpen: !item.subNavOpen };
-          }
-          return {...item, subNavOpen : false};
-        })
-      );
-    }
+        setNavigation((prevNavigation) =>
+            prevNavigation.map((item) => {
+                if (item.id === id) {
+                    return { ...item, subNavOpen: !item.subNavOpen };
+                }
+                return { ...item, subNavOpen: false };
+            })
+        );
+    };
 
     useEffect(() => {
-      const updateNavigation = () => {
-        const updatedNavigation = navigation.map(item => {
-          const shouldBeOpen = url.startsWith(item.href);
-          return { ...item, subNavOpen: shouldBeOpen };
-        });
-        setNavigation(updatedNavigation);
-      };
-  
-      // Call the function initially and when the url changes
-      updateNavigation();
-    }, [url])
-    
+        const updateNavigation = () => {
+            const updatedNavigation = navigation.map((item) => {
+                const shouldBeOpen = url.startsWith(item.href);
+                return { ...item, subNavOpen: shouldBeOpen };
+            });
+            setNavigation(updatedNavigation);
+        };
+
+        // Call the function initially and when the url changes
+        updateNavigation();
+    }, [url]);
+
     return (
         <>
             <div>
@@ -197,9 +204,9 @@ export default function FrontendLayout({ children }) {
                                     </Transition.Child>
 
                                     {/* Sidebar component, swap this element with another sidebar if you like */}
-                                    <SideNavbar 
-                                      navigation={navigation}
-                                      handleSubNavbar={handleSubNavbar}
+                                    <SideNavbar
+                                        navigation={navigation}
+                                        handleSubNavbar={handleSubNavbar}
                                     />
                                 </Dialog.Panel>
                             </Transition.Child>
@@ -210,8 +217,8 @@ export default function FrontendLayout({ children }) {
                 {/* Static sidebar for desktop */}
                 <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
                     <SideNavbar
-                      navigation={navigation}
-                      handleSubNavbar={handleSubNavbar}
+                        navigation={navigation}
+                        handleSubNavbar={handleSubNavbar}
                     />
                 </div>
 
