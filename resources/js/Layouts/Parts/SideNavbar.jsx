@@ -1,14 +1,15 @@
 import { usePage } from "@inertiajs/react";
 import React from "react";
 import { HiOutlineBell } from "react-icons/hi";
-import { IoIosArrowDown, IoIosArrowUp, IoIosLogOut } from "react-icons/io";
+import {IoIosLogOut } from "react-icons/io";
 import { Link } from "@inertiajs/react";
 import ProfileImage from "../../Assets/Default/default-profile.png";
 import { router } from "@inertiajs/core";
+import NavItems from "./NavItems";
 
 const SideNavbar = ({ navigation, handleSubNavbar }) => {
     const { url, props } = usePage();
-    const { metadata, auth, permissions } = props;
+    const { metadata, auth} = props;
     const handleLogout = () => {
         router.post(route("admin.logout"));
     };
@@ -31,117 +32,11 @@ const SideNavbar = ({ navigation, handleSubNavbar }) => {
                         <li>
                             <ul role="list" className="-mx-2 space-y-1">
                                 {navigation.map((item) => (
-                                    <React.Fragment>
-                                        <li key={item.id}>
-                                            {permissions.includes(
-                                                item.permission
-                                            ) && (
-                                                <div className="flex justify-between items-center">
-                                                    {item.sub_navbars ? (
-                                                        <button
-                                                            href={item.href}
-                                                            className={`
-                                                        ${
-                                                            url.startsWith(
-                                                                item.href &&
-                                                                    !item.sub_navbars
-                                                            )
-                                                                ? "bg-gray-800 text-white"
-                                                                : "text-gray-400 hover:text-white hover:bg-gray-800"
-                                                        }
-                                                        group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-10/12
-                                                        `}
-                                                        >
-                                                            <item.icon
-                                                                className="w-6 h-6 shrink-0"
-                                                                aria-hidden="true"
-                                                            />
-
-                                                            {item.name}
-                                                        </button>
-                                                    ) : (
-                                                        <Link
-                                                            href={item.href}
-                                                            className={`
-                                                    ${
-                                                        url.startsWith(
-                                                            item.href &&
-                                                                !item.sub_navbars
-                                                        )
-                                                            ? "bg-gray-800 text-white"
-                                                            : "text-gray-400 hover:text-white hover:bg-gray-800"
-                                                    }
-                                                    group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold w-full
-                                                    `}
-                                                        >
-                                                            <item.icon
-                                                                className="w-6 h-6 shrink-0"
-                                                                aria-hidden="true"
-                                                            />
-
-                                                            {item.name}
-                                                        </Link>
-                                                    )}
-                                                    {item.sub_navbars &&
-                                                        (item.subNavOpen ? (
-                                                            <IoIosArrowUp
-                                                                size={20}
-                                                                fill="#fff"
-                                                                className="cursor-pointer"
-                                                                onClick={() =>
-                                                                    handleSubNavbar(
-                                                                        item.id
-                                                                    )
-                                                                }
-                                                            />
-                                                        ) : (
-                                                            <IoIosArrowDown
-                                                                size={20}
-                                                                fill="#fff"
-                                                                className="cursor-pointer"
-                                                                onClick={() =>
-                                                                    handleSubNavbar(
-                                                                        item.id
-                                                                    )
-                                                                }
-                                                            />
-                                                        ))}
-                                                </div>
-                                            )}
-                                        </li>
-                                        <ul className="ms-5">
-                                            {item.sub_navbars &&
-                                                item.subNavOpen &&
-                                                item.sub_navbars.map((item) => (
-                                                    <li>
-                                                        {permissions.includes(
-                                                            item.permission
-                                                        ) && (
-                                                            <Link
-                                                                href={item.href}
-                                                                className={`
-                                                        ${
-                                                            url.startsWith(
-                                                                item.href
-                                                            )
-                                                                ? "bg-gray-800 text-white"
-                                                                : "text-gray-400 hover:text-white hover:bg-gray-800"
-                                                        }
-                                                        group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold
-                                                        `}
-                                                            >
-                                                                <item.icon
-                                                                    className="w-6 h-6 shrink-0"
-                                                                    aria-hidden="true"
-                                                                />
-
-                                                                {item.name}
-                                                            </Link>
-                                                        )}
-                                                    </li>
-                                                ))}
-                                        </ul>
-                                    </React.Fragment>
+                                    <NavItems 
+                                        key={item.id}
+                                        item={item}
+                                        handleSubNavbar={handleSubNavbar}
+                                    />
                                 ))}
                             </ul>
                         </li>
@@ -172,46 +67,45 @@ const SideNavbar = ({ navigation, handleSubNavbar }) => {
                                     }
                                 </li>
                                 {/* logout  */}
-                                <li className="">
+                                <li>
                                     {
                                         // permissions.includes("view setting") &&
-                                        <Link
+                                        <button
                                             onClick={handleLogout}
-                                            className={`group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white
-                                        ${
-                                            url.startsWith("/admin/setting")
-                                                ? "bg-gray-800 text-white"
-                                                : "text-gray-400 hover:text-white hover:bg-gray-800"
-                                        }
-                                        `}
+                                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:text-white hover:bg-gray-800 w-full"
                                         >
                                             <IoIosLogOut
                                                 className="w-6 h-6 shrink-0"
                                                 aria-hidden="true"
                                             />
                                             Logout
-                                        </Link>
+                                        </button>
                                     }
                                 </li>
                                 {/* seperator  */}
                                 <li className="border-t-2">
                                     <div className="flex mt-3">
-                                        {auth.admin?.profile_image ? (
-                                            <img
-                                                src={auth.admin.profile_image}
-                                                alt="User Profile Image"
-                                                className="me-3"
-                                                width={50}
-                                                height={50}
-                                            />
+                                        {auth.admin?.profile_image ? 
+                                        (
+                                            <Link href={route('admin.profile.show', auth.admin.id)} >
+                                                <img
+                                                    src={auth.admin.profile_image}
+                                                    alt="User Profile Image"
+                                                    className="me-3"
+                                                    width={50}
+                                                    height={50}
+                                                />
+                                            </Link>
                                         ) : (
-                                            <img
-                                                src={ProfileImage}
-                                                alt="User Profile Image"
-                                                className="me-3"
-                                                width={50}
-                                                height={50}
-                                            />
+                                            <Link href={route('admin.profile.show', auth.admin.id)} >
+                                                <img
+                                                    src={ProfileImage}
+                                                    alt="User Profile Image"
+                                                    className="me-3"
+                                                    width={50}
+                                                    height={50}
+                                                />
+                                            </Link>
                                         )}
                                         <div>
                                             <p className="text-slate-300 text-sm">

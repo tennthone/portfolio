@@ -1,6 +1,6 @@
 import { AdminContext, AdminProvider } from "@/Context/AdminContext";
 import FrontendLayout from "@/Layouts/FrontendLayout";
-import { Breadcrumb, Button, Tabs } from "flowbite-react";
+import { Breadcrumb, Button, TabItem } from "flowbite-react";
 import React from "react";
 import { FaUser } from "react-icons/fa6";
 import Admins from "./Admins";
@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { usePage } from "@inertiajs/react";
 import { CiTrash } from "react-icons/ci";
 import { HiUserCircle } from "react-icons/hi";
+import { MyTab, MyTabItem } from "../components/Tab/MyTab";
 
 const Index = () => {
     const { setOpenCreateModal } = useContext(AdminContext);
@@ -38,20 +39,20 @@ const Index = () => {
 
             {/* Filters  */}
             <Filter />
-            <Tabs aria-label="Tabs with underline" style="underline">
-                <Tabs.Item active title="Admins" icon={HiUserCircle}>
+            <MyTab>
+                <MyTabItem title="Admins" icon={<HiUserCircle />}>
                     {/* All Admins  */}
                     <Admins data={admins} totalCount={totalValidCount} />
-                </Tabs.Item>
-                <Tabs.Item title="Trash" icon={CiTrash}>
+                </MyTabItem>
+                <MyTabItem title="Trash" icon={<CiTrash />}>
                     {/* Trash Admins  */}
                     <Admins
                         data={trashAdmins}
                         totalCount={totalTrashCount}
                         isTrash={true}
                     />
-                </Tabs.Item>
-            </Tabs>
+                </MyTabItem>
+            </MyTab>
         </React.Fragment>
     );
 };

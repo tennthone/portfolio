@@ -24,4 +24,10 @@ Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
     Route::prefix('field')->group(base_path('routes/admin/field.php'));
     Route::prefix('admin-management')->group(base_path('routes/admin/admin.php'));
     Route::prefix('member-management')->group(base_path('routes/admin/member.php'));
+    Route::prefix('media-library')->group(base_path('routes/admin/media-library.php'));
+
+    // git hub services 
+    Route::prefix('/')->group(base_path('routes/admin/github.php'));
+    // profile 
+    Route::prefix('/profile')->group(base_path('routes/admin/profile.php'));
 });

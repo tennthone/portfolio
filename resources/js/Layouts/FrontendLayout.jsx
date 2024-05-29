@@ -70,14 +70,14 @@ const intitalNavigation = [
     {
       id : 5,
       name: "Github Repository",
-      href: "/admin/template/git-repos",
+      href: "/admin/git-repos",
       icon: IoLogoGithub,
       permission: "create template",
     },
     {
       id : 6,
       name: "Media Library",
-      href: "/admin/template/git-repos",
+      href: "/admin/media-library",
       icon: GrGallery,
       permission: "create template",
     },

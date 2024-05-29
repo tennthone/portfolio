@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v1\Backend;
 
 use App\Helpers\FileHelper;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\GeneralSettingUpdateRequest;
 use App\Http\Resources\GeneralSettingResource;
 use App\Models\GeneralSetting;

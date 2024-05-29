@@ -36,4 +36,16 @@ class GeneralHelper {
         } 
         return false;
     }
+
+    public static function createGeneralSetting(array $data)
+    {
+        $gs = GeneralSetting::create([
+            'name' => $data[0],
+            'value' => $data[1],
+            'type' => $data[2],
+            'category' => $data[3],
+            'created_by' => $data[4],
+        ]);
+        return $gs;
+    }
 }

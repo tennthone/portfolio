@@ -23,6 +23,7 @@ class AdminResource extends JsonResource
             'address' => $this->address,
             'gender' => $this->gender,
             'roles' => $this->getRoleNames(),
+            'social' => $this->social,
             'isActive' => $this->isActive,
             'isDeleted' => $this->deleted_at != null ? true : false,
             'profile_image' => !empty($this->image->path) ? Storage::url($this->image->path) : null,

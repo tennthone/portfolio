@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GeneralSettingController;
+use App\Http\Controllers\v1\Backend\GeneralSettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(GeneralSettingController::class)->group(function() {

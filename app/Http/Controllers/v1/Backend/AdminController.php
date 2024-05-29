@@ -4,9 +4,11 @@ namespace App\Http\Controllers\v1\Backend;
 
 use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PasswordUpdateRequest;
 use App\Http\Resources\Backend\AdminResource;
 use App\Models\Admin;
 use App\Services\UserService;
+use App\UseCase\ChangePassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -89,8 +91,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         $admin = Admin::withTrashed()->find($id);
+        $adminResource = new AdminResource($admin);
         return Inertia::render('Admin/Edit', [
-            'admin' => new AdminResource($admin),
+            'admin' => $adminResource,
             'roles' => Role::where('name', '!=', 'superadmin')->get(),
         ]);
     }
@@ -99,10 +102,9 @@ class AdminController extends Controller
     {
         // validate name and email 
         $admin = Admin::find($id);
-
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:admins,email,' . $admin->id,
+            'email' => 'required|email|unique:admins,email,' . $id,
         ]);
 
         // update roles
@@ -135,30 +137,18 @@ class AdminController extends Controller
         }
     }
 
-    public function changePassword(Request $request, $id)
+    public function changePassword(PasswordUpdateRequest $request, $id)
     {
-        $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required | min:8 | max:16',
-            'confirm_password' => 'required | same:new_password'
-        ]);
-
         $admin = Admin::find($id);
 
         if ($admin) {
-            $currentPassword = $request->current_password;
-            $newPassword = $request->new_password;
-            $checked = Hash::check($currentPassword, $admin->password);
-            if (!$checked) {
-                throw ValidationException::withMessages([
-                    'current_password' => 'Password do not match'
-                ]);
-            }
-            // update admin password 
-            $admin->update([
-                'password' => Hash::make($newPassword),
-            ]);
+            $data = array(
+                'newPassword' => $request->new_password,
+                'currentPassword' => $request->current_password,
+            );
 
+            $changePassword = new ChangePassword();
+            $result = $changePassword($admin, $data);
             return redirect()->back()->with('success', 'Password updated successfully');
         }
 

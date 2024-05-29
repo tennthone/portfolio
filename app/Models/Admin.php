@@ -28,9 +28,18 @@ class Admin extends Authenticatable
         'password',
     ];
     protected $dates = ['deleted_at'];
+    
+    protected $casts = [
+        'social' => 'array',
+    ];
 
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function mediaFiles()
+    {
+        return $this->morphMany(MediaLibrary::class, 'mediable');
     }
 }

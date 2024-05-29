@@ -32,7 +32,6 @@ const ProfileDetail = () => {
     const [previewImage, setPreviewImage] = useState("");
     const currentImage = data.profile_image;
     const { socialProfiles, addSocialProfile } = useSocialProfiles(data.social);
-
     // auto focus when edit mode on
     const handleEditModeOn = () => {
         setEditModeOff((prevEditMode) => {
@@ -346,7 +345,6 @@ const ProfileDetail = () => {
                                     labelName={item.name}
                                     value={item.value}
                                     placeholder={`Enter ${item.name} link`}
-                                    setData={setData}
                                 />
                             ))}
                     </div>

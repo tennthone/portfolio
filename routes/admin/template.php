@@ -17,8 +17,7 @@ Route::controller(TemplateController::class)->prefix('website')->group(function(
 
 // File and Folder management 
 Route::prefix('/')->group(base_path('routes/admin/file.php'));
-// git hub services 
-Route::prefix('/')->group(base_path('routes/admin/github.php'));
+
 Route::prefix('page')->group(base_path('routes/admin/page.php'));
 Route::prefix('section')->group(base_path('routes/admin/section.php'));
 Route::prefix('component')->group(base_path('routes/admin/component.php'));

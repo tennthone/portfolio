@@ -3,8 +3,9 @@
 import { useState } from "react";
 
 const useSocialProfiles = (initialProfiles = []) => {
-    const [socialProfiles, setSocialProfiles] = useState(initialProfiles);
-
+    const [socialProfiles, setSocialProfiles] = useState([initialProfiles]);
+    
+    // add social profile 
     const addSocialProfile = (profile) => {
         const isProfileExist = socialProfiles.some(
             (existingProfile) => existingProfile.id === profile.id
@@ -23,6 +24,7 @@ const useSocialProfiles = (initialProfiles = []) => {
         setSocialProfiles(updatedProfiles);
     };
 
+    console.log(socialProfiles)
     return {
         socialProfiles,
         addSocialProfile,
